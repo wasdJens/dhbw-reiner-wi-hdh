@@ -1,15 +1,23 @@
-# DHBW Web Programmierung WWI Heidenheim
+# DHBW Heidenheim WI Unterlagen
 
-Dieses Repo beinhaltet alle Code Beispiele für die Vorlesung Web Programmierung an der DHBW Heidenheim im Studiengang Wirtschaftsinformatik. Ergänzend zu den Folien befinden sich hier die abgebildeten Code Snippets und Programme.
+In diesem Git Repository befinden sich alle Unterlagen zu meinen Vorlesungen and der DHBW Heidenheim im Studiengang Wirtschaftsinformatik.
 
-Für Fragen / Fehler oder Zugang zu den Folien bitte Jens Reiner kontaktieren.
+**Aktuell: Unterlagen für 2026**
 
-Falls Sie Materialien selbst verwenden möchten beachten Sie bitte die License File. Alle Unterlagen bis 2024-10-06 wurden mit der MIT License ausgeliefert. Mit dem Beginn vom Wintersemester 2024 werden die Materialien unter einer Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License bereitgestellt.
+## Vorlesungen:
+
+- Business Engineering 1 (Statische Webseite)
+- Business Engineering 2 (Dynamische Webseite)
+- Web Programmierung
+
+## Verwendung der Unterlagen
+
+Alle Unterlagen unterliegen der CC-BY-NC-SA 4.0 License. Sie finden diese auch in der `LICENSE.md` Datei.
+
+Das Skript erhalten Sie via Email oder auf Anfrage.
 
 ## Aufbau
 
-Die Unterlagen sind chronologisch sortiert und beinhalten immer eine Reihenfolge wie sie in der Vorlesung drankommen. Darüber hinaus gibt es noch spezielle Ordner die uns die gesamte Vorlesung begleiten (Beginned mit 1n vorne). In jedem Ordner befinden sich auch noch zusätzliche Anleitungen bzw. Informationen zu dem jeweiligen Thema.
+Zu jeder Vorlesung finden sie einen Ordner, in dem sich die jeweiligen Unterlagen befinden. Darunter sind zum Beispiel Skripte, Präsentationen, Übungen und weitere Materialien.
 
-## Zusätzliche Informationen
-
-In der Datei `Software.md` finden Sie alle Informationen über die benötigte Software für die Vorlesung. Die Datei `Troubleshooting.md` wird ständig ergänzt um nützliche Informationen, falls Sie Probleme haben mit einer der vorgestellten Technologien.
+Unter `archive` branches finden Sie die Unterlagen zu vergangen Semestern.
