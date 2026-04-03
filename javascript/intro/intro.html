@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript DOM Manipulation - Live Demo</title>
+    <link rel="stylesheet" href="design-system.css" />
+    <link rel="stylesheet" href="intro.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- HEADER -->
+      <div class="text-center mb-lg">
+        <h1>🚀 JavaScript macht Webseiten lebendig</h1>
+        <p class="text-muted" style="margin: 0">
+          Echte DOM-Manipulation ohne Seitenreload
+        </p>
+      </div>
+
+      <!-- EXAMPLE 1: DYNAMISCHER PREIS -->
+      <div class="card fade-in">
+        <div class="card-header">
+          <h2 class="card-title">📦 Beispiel 1: Dynamischer Preis</h2>
+          <p class="card-subtitle">
+            HTML-Inhalte ändern sich auf Nutzer-Aktion
+          </p>
+        </div>
+
+        <div class="card-body">
+          <p>
+            Wähle eine Produktgröße und beobachte wie sich der Preis sofort
+            aktualisiert:
+          </p>
+
+          <div class="demo-1-container">
+            <div class="product-info">
+              <h3 style="margin-bottom: var(--space-md)">🎁 Premium Paket</h3>
+
+              <div class="form-group">
+                <label>Größe wählen:</label>
+                <div class="button-group">
+                  <button
+                    class="btn btn-secondary size-btn"
+                    data-size="small"
+                    data-price="19.99"
+                  >
+                    Klein
+                  </button>
+                  <button
+                    class="btn btn-secondary size-btn"
+                    data-size="medium"
+                    data-price="29.99"
+                  >
+                    Mittel
+                  </button>
+                  <button
+                    class="btn btn-secondary size-btn active"
+                    data-size="large"
+                    data-price="39.99"
+                  >
+                    Groß
+                  </button>
+                </div>
+              </div>
+
+              <div class="price-display">
+                <span class="text-muted">Aktueller Preis:</span>
+                <div class="price-tag"><span id="price">39,99</span>€</div>
+              </div>
+
+              <button
+                class="btn btn-primary"
+                style="width: 100%; margin-top: var(--space-md)"
+              >
+                In den Warenkorb
+              </button>
+            </div>
+
+            <div class="code-insight">
+              <p class="text-bold" style="margin: 0">Was passiert hier?</p>
+              <p
+                style="
+                  font-size: var(--font-size-sm);
+                  color: var(--color-medium);
+                  margin: 0;
+                "
+              >
+                Mit
+                <code
+                  style="
+                    background: var(--color-light);
+                    padding: 2px 4px;
+                    border-radius: 3px;
+                  "
+                  >document.getElementById().textContent</code
+                >
+                ändern wir den Text im HTML, ohne die Seite neu zu laden.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXAMPLE 2: LIVE FILTER -->
+      <div class="card fade-in" style="animation-delay: 0.1s">
+        <div class="card-header">
+          <h2 class="card-title">🔍 Beispiel 2: Live-Filter</h2>
+          <p class="card-subtitle">
+            Inhalte werden während des Tippens gefiltert
+          </p>
+        </div>
+
+        <div class="card-body">
+          <p>
+            Schreib in das Suchfeld und beobachte wie sich die Produktliste
+            filtert:
+          </p>
+
+          <div class="demo-2-container">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="z.B. 'Laptop' oder 'Monitor' eingeben..."
+              class="search-input"
+            />
+
+            <div class="product-grid">
+              <div class="product-item" data-product-name="MacBook Pro">
+                <span class="product-emoji">💻</span>
+                <span>MacBook Pro</span>
+              </div>
+              <div class="product-item" data-product-name="iPhone 15">
+                <span class="product-emoji">📱</span>
+                <span>iPhone 15</span>
+              </div>
+              <div class="product-item" data-product-name="iPad Air">
+                <span class="product-emoji">📲</span>
+                <span>iPad Air</span>
+              </div>
+              <div class="product-item" data-product-name="Dell Monitor">
+                <span class="product-emoji">🖥️</span>
+                <span>Dell Monitor</span>
+              </div>
+              <div class="product-item" data-product-name="Gaming Headset">
+                <span class="product-emoji">🎧</span>
+                <span>Gaming Headset</span>
+              </div>
+              <div class="product-item" data-product-name="Mechanical Keyboard">
+                <span class="product-emoji">⌨️</span>
+                <span>Mechanical Keyboard</span>
+              </div>
+            </div>
+
+            <div class="code-insight">
+              <p class="text-bold" style="margin: 0">Was passiert hier?</p>
+              <p
+                style="
+                  font-size: var(--font-size-sm);
+                  color: var(--color-medium);
+                  margin: 0;
+                "
+              >
+                Mit
+                <code
+                  style="
+                    background: var(--color-light);
+                    padding: 2px 4px;
+                    border-radius: 3px;
+                  "
+                  >addEventListener("input")</code
+                >
+                reagieren wir auf jedes Tastenanschlag und zeigen/verstecken
+                Elemente mit
+                <code
+                  style="
+                    background: var(--color-light);
+                    padding: 2px 4px;
+                    border-radius: 3px;
+                  "
+                  >style.display</code
+                >.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXAMPLE 3: COUNTER -->
+      <div class="card fade-in" style="animation-delay: 0.2s">
+        <div class="card-header">
+          <h2 class="card-title">➕ Beispiel 3: Interaktiver Counter</h2>
+          <p class="card-subtitle">
+            JavaScript verwaltet Daten und aktualisiert die Anzeige
+          </p>
+        </div>
+
+        <div class="card-body">
+          <p>
+            Dies ist ein klassisches Beispiel: JavaScript speichert einen Wert
+            und aktualisiert die HTML-Anzeige:
+          </p>
+
+          <div class="demo-3-container">
+            <div class="counter-display">
+              <p class="counter-label">Warenkorb</p>
+              <div class="counter-value" id="counter">0</div>
+              <p class="counter-sublabel">Artikel</p>
+            </div>
+
+            <div class="counter-controls flex flex-col">
+              <button class="btn btn-success btn-lg" id="increment-btn">
+                ➕ Hinzufügen
+              </button>
+              <button class="btn btn-danger btn-lg" id="decrement-btn">
+                ➖ Entfernen
+              </button>
+              <button class="btn btn-secondary btn-lg" id="reset-btn">
+                🔄 Zurücksetzen
+              </button>
+            </div>
+
+            <div class="code-insight">
+              <p class="text-bold" style="margin: 0">Was passiert hier?</p>
+              <p
+                style="
+                  font-size: var(--font-size-sm);
+                  color: var(--color-medium);
+                  margin: 0;
+                "
+              >
+                Eine Variable
+                <code
+                  style="
+                    background: var(--color-light);
+                    padding: 2px 4px;
+                    border-radius: 3px;
+                  "
+                  >count</code
+                >
+                speichert den Wert. Bei jedem Klick ändern wir die Variable und
+                aktualisieren den HTML-Text.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="text-center mt-lg mb-lg">
+        <p class="text-muted">
+          💡 Das ist die Grundlage von Netflix, Gmail, Instagram und jeder
+          modernen Webseite!
+        </p>
+      </div>
+    </div>
+
+    <script src="intro.js"></script>
+  </body>
+</html>

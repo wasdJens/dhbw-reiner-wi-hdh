@@ -1,0 +1,237 @@
+/* ==========================================
+   CODE-PLAYGROUND.CSS — Interaktiver Editor
+   ========================================== */
+
+.playground-section {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  margin-bottom: var(--space-md);
+}
+
+.playground-section .section-title {
+  padding: var(--space-md) var(--space-lg);
+  margin: 0;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-lighter);
+  font-size: var(--font-size-base);
+}
+
+.playground-section > p {
+  padding: 0 var(--space-lg);
+  padding-top: var(--space-sm);
+  margin: 0;
+}
+
+/* The playground widget itself */
+.playground {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Editor header */
+.pg-editor-wrapper {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pg-editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-xs) var(--space-sm);
+  background: #1e1b4b;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pg-editor-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pg-editor-label::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #f59e0b;
+}
+
+.pg-editor-actions {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.pg-editor-actions .btn-ghost {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: var(--font-size-xs);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.pg-editor-actions .btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Textarea + line numbers */
+.pg-textarea-wrapper {
+  position: relative;
+  display: flex;
+  background-color: var(--color-code-bg);
+}
+
+.pg-line-numbers {
+  min-width: 40px;
+  padding: var(--space-md) var(--space-xs);
+  background: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.25);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
+  text-align: right;
+  user-select: none;
+  overflow: hidden;
+}
+
+.pg-line-numbers div {
+  height: 1.7em;
+}
+
+.pg-textarea {
+  flex: 1;
+  min-height: 160px;
+  padding: var(--space-md);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
+  background: transparent;
+  color: var(--color-code-text);
+  border: none;
+  resize: vertical;
+  outline: none;
+  caret-color: var(--color-primary);
+  white-space: pre;
+  overflow-wrap: normal;
+  overflow-x: auto;
+  /* Override global textarea styles */
+  width: auto;
+  min-height: 160px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.pg-textarea:focus {
+  border: none;
+  box-shadow: none;
+}
+
+/* Controls bar */
+.pg-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-lighter);
+  border-top: 1px solid var(--color-border);
+}
+
+.pg-run-btn {
+  background-color: var(--color-primary);
+  color: white;
+  font-family: var(--font-mono);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.02em;
+}
+
+.pg-run-btn:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+/* Hint */
+.pg-hint {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-warning-light);
+  border-top: 1px solid var(--color-warning);
+  font-size: var(--font-size-sm);
+  color: var(--color-dark);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.pg-hint-icon {
+  flex-shrink: 0;
+}
+
+/* Output panel */
+.pg-output {
+  border-top: 2px solid var(--color-border);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.pg-output-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-xs) var(--space-md);
+  background: var(--color-light);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pg-output-body {
+  background: #0f0e2b;
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  min-height: 40px;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.pg-output-line {
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.pg-output-log {
+  color: #e2e8f0;
+}
+
+.pg-output-warn {
+  color: var(--color-warning);
+}
+
+.pg-output-error {
+  color: #fc8181;
+}
+
+.pg-output-info {
+  color: var(--color-info);
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .pg-textarea {
+    min-height: 120px;
+    font-size: var(--font-size-xs);
+  }
+
+  .pg-line-numbers {
+    min-width: 30px;
+    font-size: var(--font-size-xs);
+  }
+}

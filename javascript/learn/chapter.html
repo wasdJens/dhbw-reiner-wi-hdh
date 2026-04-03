@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kapitel — JavaScript Lernen</title>
+    <link rel="stylesheet" href="styles/design-system.css" />
+    <link rel="stylesheet" href="styles/learn.css" />
+    <link rel="stylesheet" href="styles/code-playground.css" />
+    <link rel="stylesheet" href="styles/quiz.css" />
+
+    <!-- Content files -->
+    <script src="content/chapters.js"></script>
+    <script src="content/01-variablen.js"></script>
+    <script src="content/02-datentypen.js"></script>
+    <script src="content/03-operatoren.js"></script>
+    <script src="content/04-control-flow.js"></script>
+    <script src="content/05-funktionen.js"></script>
+    <script src="content/06-arrays.js"></script>
+    <script src="content/07-zusammenspiel.js"></script>
+
+    <!-- App scripts -->
+    <script src="scripts/progress.js" defer></script>
+    <script src="scripts/playground.js" defer></script>
+    <script src="scripts/quiz.js" defer></script>
+    <script src="scripts/demos.js" defer></script>
+    <script src="scripts/renderer.js" defer></script>
+    <script src="scripts/app.js" defer></script>
+  </head>
+  <body>
+    <!-- Sidebar Navigation -->
+    <aside id="sidebar" class="sidebar" aria-label="Kapitelnavigation">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-brand">
+          <span class="sidebar-brand-icon">🏪</span>
+          <span>TechStore</span>
+        </a>
+        <button
+          id="sidebar-close"
+          class="btn btn-ghost btn-icon hide-desktop"
+          aria-label="Menü schließen"
+        >
+          ✕
+        </button>
+      </div>
+      <nav id="sidebar-nav" class="sidebar-nav" aria-label="Kapitel">
+        <!-- Filled by app.js -->
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-progress">
+          <div class="progress-bar-mini">
+            <div
+              id="sidebar-progress-fill"
+              class="progress-bar-fill"
+              style="width: 0%"
+            ></div>
+          </div>
+          <span id="sidebar-progress-text" class="text-small text-muted"
+            >0 / 7</span
+          >
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+      <!-- Top Bar (mobile) -->
+      <header class="topbar hide-desktop">
+        <button
+          id="sidebar-toggle"
+          class="btn btn-ghost btn-icon"
+          aria-label="Menü öffnen"
+        >
+          ☰
+        </button>
+        <span id="topbar-title" class="topbar-title">Kapitel</span>
+        <div style="width: 36px"></div>
+      </header>
+
+      <!-- Chapter Content -->
+      <main id="chapter-content" class="chapter-content container-narrow">
+        <div class="chapter-loading text-center p-lg">
+          <p class="text-muted">Kapitel wird geladen…</p>
+        </div>
+      </main>
+
+      <!-- Chapter Navigation -->
+      <nav
+        id="chapter-nav"
+        class="chapter-nav container-narrow"
+        aria-label="Kapitelnavigation"
+      >
+        <!-- Filled by app.js -->
+      </nav>
+    </div>
+
+    <!-- Sidebar Overlay (mobile) -->
+    <div id="sidebar-overlay" class="sidebar-overlay hidden"></div>
+  </body>
+</html>

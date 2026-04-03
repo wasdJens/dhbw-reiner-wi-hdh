@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Lernen — TechStore</title>
+    <link rel="stylesheet" href="styles/design-system.css" />
+    <link rel="stylesheet" href="styles/learn.css" />
+    <script src="content/chapters.js" defer></script>
+    <script src="scripts/progress.js" defer></script>
+    <script src="scripts/index.js" defer></script>
+  </head>
+  <body>
+    <div class="landing">
+      <!-- Hero -->
+      <header class="landing-hero">
+        <div class="container-narrow text-center">
+          <span class="badge badge-primary mb-sm">DHBW Web Programmierung</span>
+          <h1>JavaScript Grundlagen</h1>
+          <p class="landing-subtitle">
+            Lerne JavaScript interaktiv am Beispiel eines E-Commerce-Systems.
+            Keine Vorkenntnisse nötig — wir bauen Schritt für Schritt den
+            <strong>TechStore</strong> auf.
+          </p>
+        </div>
+      </header>
+
+      <!-- Story Intro -->
+      <section class="container-narrow">
+        <div class="story-banner card">
+          <div class="story-banner-icon">🏪</div>
+          <div>
+            <h3>Dein Szenario: Der TechStore</h3>
+            <p class="mb-xs">
+              Du baust das Backend-System für einen Online-Shop. In jedem
+              Kapitel lernst du ein neues JavaScript-Konzept und wendest es
+              direkt auf den TechStore an — von der Preisberechnung bis zum
+              fertigen Dashboard.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chapter Grid -->
+      <main class="container-narrow">
+        <div class="flex flex-between mb-md">
+          <h2>Kapitel</h2>
+          <div class="progress-summary">
+            <span id="progress-text" class="text-small text-muted"
+              >0 / 7 abgeschlossen</span
+            >
+            <div class="progress-bar-mini">
+              <div
+                id="progress-fill"
+                class="progress-bar-fill"
+                style="width: 0%"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="chapter-grid" class="chapter-grid">
+          <!-- Filled by index.js -->
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="landing-footer container-narrow text-center">
+        <p class="text-small text-muted">
+          DHBW Web Programmierung — Interaktive JavaScript-Grundlagen
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
