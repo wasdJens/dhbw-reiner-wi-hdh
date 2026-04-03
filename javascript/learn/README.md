@@ -1,6 +1,6 @@
 # JavaScript Grundlagen — Interaktive Lernplattform
 
-Selbststudium-orientierte Lernplattform für den DHBW-Kurs *Web Programmierung*. Alle Konzepte werden am durchgängigen Szenario **TechStore** (ein fiktiver E-Commerce-Shop) vermittelt.
+Selbststudium-orientierte Lernplattform für den DHBW-Kurs _Web Programmierung_. Alle Konzepte werden am durchgängigen Szenario **TechStore** (ein fiktiver E-Commerce-Shop) vermittelt.
 
 Kein Build-Tool, kein Framework, keine Abhängigkeiten — reines HTML, CSS und JavaScript.
 
@@ -92,15 +92,15 @@ So kann `index.html` die Registry laden, ohne alle 7 Kapitel-Dateien zu laden.
 
 `Renderer.render(section, chapterId, index)` erzeugt für jeden Typen das passende HTML:
 
-| Typ | Beschreibung |
-|---|---|
-| `explanation` | Fließtext + Key-Points-Liste + Business-Kontext-Box |
-| `code-example` | Syntaxhervorgehobener Code-Block (kein Editor) |
-| `playground` | Editierbarer Code-Editor mit Ausführung (Standard + Bonus) |
-| `quiz` | Multiple-Choice-Block mit Auswertung |
-| `demo` | Container für eine interaktive TechStore-Demo |
-| `pitfall` | Warnhinweis-Box (häufige Fehler) |
-| `comparison` | Vergleichstabelle (z.B. `==` vs. `===`) |
+| Typ            | Beschreibung                                               |
+| -------------- | ---------------------------------------------------------- |
+| `explanation`  | Fließtext + Key-Points-Liste + Business-Kontext-Box        |
+| `code-example` | Syntaxhervorgehobener Code-Block (kein Editor)             |
+| `playground`   | Editierbarer Code-Editor mit Ausführung (Standard + Bonus) |
+| `quiz`         | Multiple-Choice-Block mit Auswertung                       |
+| `demo`         | Container für eine interaktive TechStore-Demo              |
+| `pitfall`      | Warnhinweis-Box (häufige Fehler)                           |
+| `comparison`   | Vergleichstabelle (z.B. `==` vs. `===`)                    |
 
 Die Syntax-Highlighting in `code-example` ist eine schlanke eigene Implementierung über Regex für Keywords, Strings, Zahlen, Kommentare und Operatoren — keine externe Bibliothek.
 
@@ -118,6 +118,7 @@ fn(mockConsole);
 Ein Mock-`console`-Objekt fängt `log`, `warn`, `error` und `info` ab und schreibt farblich codierte Zeilen in das Output-Panel. So läuft Nutzer-Code isoliert ohne globale Seiteneffekte.
 
 Weitere Features:
+
 - **Zeilennummern** — werden per `<div>`-Overlay synchron zur Textarea gehalten
 - **Tab-Taste** — fügt 2 Leerzeichen ein statt den Fokus zu verlieren
 - **Reset** — stellt den ursprünglichen Starter-Code wieder her
@@ -130,7 +131,7 @@ Weitere Features:
 Quiz-Blöcke werden als HTML von `renderer.js` erzeugt (Fragen als JSON im `data-questions`-Attribut). `Quiz.initAll()` übernimmt dann die Interaktion:
 
 1. Beim Laden werden bereits gespeicherte Antworten aus `Progress` wiederhergestellt
-2. Ein Klick auf eine Option markiert sie als *ausgewählt* und zeigt sofort richtig (grün) / falsch (rot) an — falsche Antworten zeigen zusätzlich die richtige Option
+2. Ein Klick auf eine Option markiert sie als _ausgewählt_ und zeigt sofort richtig (grün) / falsch (rot) an — falsche Antworten zeigen zusätzlich die richtige Option
 3. Nach Beantwortung aller Fragen erscheint ein Score-Banner
 4. Ergebnisse werden über `Progress.saveQuizResult()` in `localStorage` persistiert
 
@@ -152,12 +153,12 @@ Alle Fortschrittsdaten liegen unter dem `localStorage`-Key `techstore-learn-prog
 Öffentliche API:
 
 ```js
-Progress.isCompleted(chapterId)
-Progress.markCompleted(chapterId)
-Progress.getCompletedCount()
-Progress.saveQuizResult(chapterId, questionIndex, correct)
-Progress.getQuizResult(chapterId, questionIndex)
-Progress.reset()
+Progress.isCompleted(chapterId);
+Progress.markCompleted(chapterId);
+Progress.getCompletedCount();
+Progress.saveQuizResult(chapterId, questionIndex, correct);
+Progress.getQuizResult(chapterId, questionIndex);
+Progress.reset();
 ```
 
 ---
@@ -166,15 +167,15 @@ Progress.reset()
 
 Jedes Kapitel hat eine interaktive Demo, die ein echtes TechStore-Funktionsmerkmal nachbaut. `Demos.init()` wird von `app.js` nach dem Rendern aufgerufen und sucht nach `[data-demo-id]`-Containern:
 
-| Demo-ID | Kapitel | Was sie zeigt |
-|---|---|---|
-| `cart-calculator` | Variablen | Produktwahl + Mengenwähler + MwSt-Berechnung live |
-| `product-validator` | Datentypen | `typeof`-Prüfung auf fehlerhaften Produktdaten |
-| `discount-calculator` | Operatoren | Rabattstaffel-Slider + ternäre Operator-Kette |
-| `order-tracker` | Kontrollstrukturen | Bestellstatus-Timeline via `switch` |
-| `invoice-generator` | Funktionen | Live-Rechnungsvorschau aus Funktion |
-| `catalog-manager` | Arrays & Objekte | Suche, Filter, Sortierung auf Produktliste |
-| `techstore-dashboard` | Zusammenspiel | KPI-Karten + vollständige Bestelltabelle |
+| Demo-ID               | Kapitel            | Was sie zeigt                                     |
+| --------------------- | ------------------ | ------------------------------------------------- |
+| `cart-calculator`     | Variablen          | Produktwahl + Mengenwähler + MwSt-Berechnung live |
+| `product-validator`   | Datentypen         | `typeof`-Prüfung auf fehlerhaften Produktdaten    |
+| `discount-calculator` | Operatoren         | Rabattstaffel-Slider + ternäre Operator-Kette     |
+| `order-tracker`       | Kontrollstrukturen | Bestellstatus-Timeline via `switch`               |
+| `invoice-generator`   | Funktionen         | Live-Rechnungsvorschau aus Funktion               |
+| `catalog-manager`     | Arrays & Objekte   | Suche, Filter, Sortierung auf Produktliste        |
+| `techstore-dashboard` | Zusammenspiel      | KPI-Karten + vollständige Bestelltabelle          |
 
 ---
 
