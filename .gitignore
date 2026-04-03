@@ -106,3 +106,5 @@ dist
 # vsvode
 
 .vscode
+
+.local_files
