@@ -1,0 +1,15 @@
+<div class="cart-item">
+  <div class="cart-item__info">
+    <div class="cart-item__name">{{ productName() }}</div>
+    <div class="cart-item__variant">{{ variantName() }}</div>
+  </div>
+  <div class="cart-item__quantity">
+    <button class="cart-item__quantity-btn" (click)="decrease.emit()">−</button>
+    <span>{{ quantity() }}</span>
+    <button class="cart-item__quantity-btn" (click)="increase.emit()">+</button>
+  </div>
+  <div class="cart-item__price">
+    <app-price-display [price]="price() * quantity()" />
+  </div>
+  <button class="btn btn--ghost btn--sm" (click)="remove.emit()">✕</button>
+</div>

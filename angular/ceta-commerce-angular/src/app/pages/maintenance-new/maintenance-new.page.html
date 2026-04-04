@@ -1,0 +1,23 @@
+@if (submitted()) {
+  <app-page-header title="Anfrage erstellt" />
+  <section class="section">
+    <div class="container">
+      <div class="empty-state">
+        <div class="empty-state__icon">✅</div>
+        <h3 class="empty-state__title">Ihre Wartungsanfrage wurde erfolgreich erstellt</h3>
+        <p class="empty-state__description">Sie werden automatisch zum Dashboard weitergeleitet…</p>
+      </div>
+    </div>
+  </section>
+} @else {
+  <app-page-header
+    title="Neue Wartungsanfrage"
+    description="Beschreiben Sie das Problem und wir kümmern uns um den Rest."
+  />
+
+  <section class="section">
+    <div class="container" style="max-width: 640px">
+      <app-request-form [productOptions]="productOptions" (formSubmit)="handleSubmit($event)" />
+    </div>
+  </section>
+}

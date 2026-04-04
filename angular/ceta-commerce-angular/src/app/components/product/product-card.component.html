@@ -1,0 +1,30 @@
+<app-card>
+  @if (variant() === 'featured') {
+    <div
+      class="card__image"
+      style="
+        background-color: var(--color-gray-100);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <span style="font-size: 3rem">{{ categoryEmoji() }}</span>
+    </div>
+  }
+  <app-card-body>
+    <app-badge [label]="product().category" variant="accent" />
+    <h3 class="product-card__name">{{ product().name }}</h3>
+    <p class="product-card__description">
+      {{ product().shortDescription }}
+    </p>
+    <app-price-display [price]="startingPrice()" [showFromPrefix]="true" />
+  </app-card-body>
+  <app-card-footer>
+    <app-button
+      label="Details ansehen"
+      variant="outline"
+      (clicked)="viewDetails.emit(product().id)"
+    />
+  </app-card-footer>
+</app-card>

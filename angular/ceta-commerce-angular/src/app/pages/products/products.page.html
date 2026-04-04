@@ -1,0 +1,47 @@
+<app-page-header
+  title="Produkte"
+  description="Spezialisierte Ausrüstung für die Baubranche – vom Schutzhelm bis zum Überwachungssystem."
+/>
+
+<section class="section">
+  <div class="container">
+    <!-- Suchfeld -->
+    <div class="mb-xl" style="max-width: 400px">
+      <app-input
+        label="Produkte durchsuchen"
+        [(value)]="searchTerm"
+        placeholder="z.B. Schutzhelm, Vermessung…"
+        type="search"
+      />
+    </div>
+
+    <!-- Ergebnisanzeige -->
+    <p class="text-muted mb-lg">
+      {{ products().length }}
+      {{ products().length === 1 ? 'Produkt' : 'Produkte' }}
+      gefunden
+    </p>
+
+    <!-- Produktliste -->
+    @if (products().length > 0) {
+      <app-product-grid>
+        @for (product of products(); track product.id) {
+          <app-product-card
+            [product]="product"
+            variant="featured"
+            (viewDetails)="handleViewDetails($event)"
+          />
+        }
+      </app-product-grid>
+    } @else {
+      <div class="empty-state">
+        <div class="empty-state__icon">🔍</div>
+        <h3 class="empty-state__title">Keine Produkte gefunden</h3>
+        <p class="empty-state__description">
+          Für "{{ searchTerm() }}" wurden keine Produkte gefunden. Versuchen Sie einen anderen
+          Suchbegriff.
+        </p>
+      </div>
+    }
+  </div>
+</section>

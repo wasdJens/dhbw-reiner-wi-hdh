@@ -1,0 +1,50 @@
+<form (submit)="handleSubmit($event)" class="flex flex--column flex--gap-lg">
+  <app-select
+    label="Produkt"
+    [(value)]="productId"
+    [options]="productOptions()"
+    placeholder="Produkt auswählen…"
+    [error]="getError('productId')"
+    [required]="true"
+  />
+
+  <app-select
+    label="Variante"
+    [(value)]="variantTier"
+    [options]="variantOptions"
+    placeholder="Variante auswählen…"
+    [error]="getError('variantTier')"
+    [required]="true"
+  />
+
+  <app-select
+    label="Priorität"
+    [(value)]="priority"
+    [options]="priorityOptions"
+    placeholder="Priorität auswählen…"
+    [error]="getError('priority')"
+    [required]="true"
+  />
+
+  <app-textarea
+    label="Problembeschreibung"
+    [(value)]="description"
+    placeholder="Beschreiben Sie das Problem so genau wie möglich. Wann tritt es auf? Wie viele Geräte sind betroffen?"
+    [rows]="5"
+    [error]="getError('description')"
+    [required]="true"
+  />
+
+  <app-input
+    label="Kontakt-E-Mail"
+    [(value)]="contactEmail"
+    placeholder="ihre-email@firma.de"
+    type="email"
+    [error]="getError('contactEmail')"
+    [required]="true"
+  />
+
+  <div>
+    <app-button label="Wartungsanfrage absenden" variant="primary" type="submit" />
+  </div>
+</form>

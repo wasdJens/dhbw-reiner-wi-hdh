@@ -1,0 +1,92 @@
+@if (!product()) {
+  <app-page-header title="Produkt nicht gefunden" />
+  <section class="section">
+    <div class="container">
+      <div class="empty-state">
+        <div class="empty-state__icon">🔍</div>
+        <h3 class="empty-state__title">Dieses Produkt existiert nicht</h3>
+        <p class="empty-state__description">
+          Das Produkt mit der ID "{{ productId() }}" konnte nicht gefunden werden.
+        </p>
+        <div class="mt-lg">
+          <app-button
+            label="Zurück zu allen Produkten"
+            variant="primary"
+            (clicked)="router.navigate(['/products'])"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+} @else {
+  <app-page-header [title]="product()!.name" [description]="product()!.category" />
+
+  <section class="section">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav class="text-sm text-muted mb-xl">
+        <a routerLink="/products" class="link">Produkte</a>
+        {{ ' / ' }}
+        <span>{{ product()!.name }}</span>
+      </nav>
+
+      <div class="grid grid--2">
+        <!-- Linke Seite: Produktbild / Platzhalter -->
+        <div>
+          <div
+            class="card__image"
+            style="
+              background-color: var(--color-gray-100);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: var(--radius-lg);
+              height: 400px;
+            "
+          >
+            <span style="font-size: 5rem">{{ categoryEmoji() }}</span>
+          </div>
+        </div>
+
+        <!-- Rechte Seite: Details -->
+        <div>
+          <app-badge [label]="product()!.category" variant="accent" />
+          <h2 class="heading-2 mt-sm">{{ product()!.name }}</h2>
+          <p class="text-muted mt-md">{{ product()!.description }}</p>
+
+          <!-- Variantenauswahl -->
+          <h3 class="heading-4 mt-xl mb-md">Variante wählen</h3>
+          <app-variant-picker
+            [variants]="product()!.variants"
+            [selectedVariantId]="selectedVariantId()"
+            (select)="selectedVariantId.set($event)"
+          />
+
+          <!-- Ausgewählte Variante: Features + Preis -->
+          @if (selectedVariant()) {
+            <div class="mt-xl">
+              <h3 class="heading-4 mb-md">Features – {{ selectedVariant()!.name }}</h3>
+              <app-feature-list [features]="selectedVariant()!.features" />
+
+              <div class="flex flex--between mt-xl">
+                <app-price-display [price]="selectedVariant()!.price" size="lg" />
+                <div class="flex flex--gap-sm">
+                  @if (addedToCart()) {
+                    <app-badge label="✓ Hinzugefügt!" variant="success" />
+                  } @else {
+                    <app-button
+                      [label]="selectedVariant()!.inStock ? 'In den Warenkorb' : 'Nicht verfügbar'"
+                      variant="primary"
+                      (clicked)="handleAddToCart()"
+                      [disabled]="!selectedVariant()!.inStock"
+                    />
+                  }
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+}

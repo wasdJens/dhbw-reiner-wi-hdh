@@ -1,0 +1,27 @@
+<div class="cart-summary">
+  <h3 class="heading-4 mb-md">Zusammenfassung</h3>
+
+  <div class="cart-summary__row">
+    <span>Artikel</span>
+    <span>{{ itemCount() }}</span>
+  </div>
+
+  <div class="cart-summary__row">
+    <span>Netto</span>
+    <app-price-display [price]="netTotal()" />
+  </div>
+
+  <div class="cart-summary__row">
+    <span>MwSt. (19%)</span>
+    <app-price-display [price]="tax()" />
+  </div>
+
+  <div class="cart-summary__row cart-summary__total">
+    <span>Gesamt</span>
+    <app-price-display [price]="total()" size="lg" />
+  </div>
+
+  <div class="mt-lg">
+    <app-button label="Zur Kasse (kommt bald)" variant="primary" size="lg" [disabled]="true" />
+  </div>
+</div>

@@ -1,0 +1,15 @@
+@if (requests().length === 0) {
+  <div class="empty-state">
+    <div class="empty-state__icon">📋</div>
+    <h3 class="empty-state__title">Keine Anfragen gefunden</h3>
+    <p class="empty-state__description">
+      Es gibt derzeit keine Wartungsanfragen mit diesem Filter.
+    </p>
+  </div>
+} @else {
+  <div class="flex flex--column flex--gap-md">
+    @for (request of requests(); track request.id) {
+      <app-request-card [request]="request" />
+    }
+  </div>
+}

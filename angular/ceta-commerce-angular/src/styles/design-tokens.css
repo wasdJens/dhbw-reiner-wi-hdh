@@ -1,0 +1,84 @@
+/* ============================================
+   Ceta Commerce – Design Tokens
+   CSS Custom Properties als zentrale Designsprache
+   ============================================ */
+
+:root {
+  /* ── Farben ────────────────────────────────── */
+
+  /* Primärfarbe: Navy – Vertrauen, Professionalität */
+  --color-primary: #1e3a5f;
+  --color-primary-light: #2a5080;
+  --color-primary-dark: #152a45;
+
+  /* Akzentfarbe: Orange – Energie, Sichtbarkeit (Baustelle!) */
+  --color-accent: #e8722a;
+  --color-accent-light: #f09050;
+  --color-accent-dark: #c55a1a;
+
+  /* Neutrals */
+  --color-white: #ffffff;
+  --color-gray-50: #f8f9fa;
+  --color-gray-100: #f1f3f5;
+  --color-gray-200: #e9ecef;
+  --color-gray-300: #dee2e6;
+  --color-gray-400: #ced4da;
+  --color-gray-500: #adb5bd;
+  --color-gray-600: #868e96;
+  --color-gray-700: #495057;
+  --color-gray-800: #343a40;
+  --color-gray-900: #212529;
+
+  /* Semantische Farben */
+  --color-success: #2b8a3e;
+  --color-warning: #e67700;
+  --color-error: #c92a2a;
+  --color-info: #1971c2;
+
+  /* ── Typografie ────────────────────────────── */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-md: 1.125rem; /* 18px */
+  --font-size-lg: 1.25rem; /* 20px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-2xl: 2rem; /* 32px */
+  --font-size-3xl: 2.5rem; /* 40px */
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* ── Abstände (4px Basis-Raster) ───────────── */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 3rem; /* 48px */
+  --spacing-3xl: 4rem; /* 64px */
+
+  /* ── Rahmen & Schatten ─────────────────────── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  /* ── Übergänge ─────────────────────────────── */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+
+  /* ── Layout ────────────────────────────────── */
+  --max-width: 1200px;
+  --header-height: 64px;
+}

@@ -1,0 +1,12 @@
+<nav class="nav">
+  @for (item of items; track item.to) {
+    <a
+      [routerLink]="item.to"
+      routerLinkActive="nav__link--active"
+      [routerLinkActiveOptions]="{ exact: item.exact }"
+      class="nav__link"
+    >
+      {{ item.label }}
+    </a>
+  }
+</nav>

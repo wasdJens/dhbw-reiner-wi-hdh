@@ -1,0 +1,25 @@
+<div class="variant-picker">
+  @for (variant of variants(); track variant.id) {
+    <div
+      class="variant-option"
+      [class.variant-option--selected]="variant.id === selectedVariantId()"
+      (click)="select.emit(variant.id)"
+      role="button"
+      tabindex="0"
+      (keydown.enter)="select.emit(variant.id)"
+    >
+      <div>
+        <div class="flex flex--gap-sm" style="align-items: center">
+          <span class="variant-option__name">
+            {{ tierLabel(variant.tier) }}
+          </span>
+          <app-badge [label]="tierLabel(variant.tier)" [variant]="tierBadge(variant.tier)" />
+          @if (!variant.inStock) {
+            <app-badge label="Nicht verfügbar" variant="error" />
+          }
+        </div>
+      </div>
+      <app-price-display [price]="variant.price" />
+    </div>
+  }
+</div>

@@ -1,0 +1,42 @@
+<app-page-header
+  title="Wartungsanfragen"
+  description="Verwalten Sie den Status Ihrer Wartungs- und Serviceanfragen."
+/>
+
+<section class="section">
+  <div class="container">
+    <!-- Header mit Aktion -->
+    <div class="flex flex--between mb-xl">
+      <div class="flex flex--gap-sm">
+        @for (option of filterOptions; track option.value) {
+          <button
+            [class]="
+              'btn btn--sm ' + (activeFilter() === option.value ? 'btn--secondary' : 'btn--ghost')
+            "
+            (click)="activeFilter.set(option.value)"
+          >
+            {{ option.label }}
+          </button>
+        }
+      </div>
+      <app-button
+        label="+ Neue Anfrage"
+        variant="primary"
+        (clicked)="router.navigate(['/maintenance/new'])"
+      />
+    </div>
+
+    <!-- Ergebniszähler -->
+    <p class="text-muted mb-md">
+      {{ filteredRequests().length }}
+      {{ filteredRequests().length === 1 ? 'Anfrage' : 'Anfragen' }}
+      @if (activeFilter() !== 'all') {
+        mit Status
+        <app-badge [label]="activeFilterLabel()" variant="info" />
+      }
+    </p>
+
+    <!-- Anfragenliste -->
+    <app-request-list [requests]="filteredRequests()" />
+  </div>
+</section>

@@ -1,0 +1,16 @@
+<div class="request-card">
+  <div>
+    <div class="request-card__title">
+      {{ request().productName }} –
+      {{ capitalizedTier() }}
+    </div>
+    <p class="request-card__meta">{{ truncatedDescription() }}</p>
+    <div class="flex flex--gap-sm mt-sm">
+      <app-status-badge [status]="request().status" />
+      <app-badge [label]="'Priorität: ' + priorityLabel()" [variant]="priorityBadgeVariant()" />
+    </div>
+  </div>
+  <div class="text-sm text-muted" style="white-space: nowrap">
+    {{ request().requestDate }}
+  </div>
+</div>

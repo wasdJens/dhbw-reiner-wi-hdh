@@ -1,0 +1,24 @@
+<div class="form-group">
+  <label class="form-label">
+    {{ label() }}
+    @if (required()) {
+      <span class="text-accent">*</span>
+    }
+  </label>
+  <select
+    class="form-input"
+    [class.form-input--error]="error()"
+    [value]="value()"
+    (change)="value.set($any($event.target).value)"
+  >
+    @if (placeholder()) {
+      <option value="" disabled>{{ placeholder() }}</option>
+    }
+    @for (option of options(); track option.value) {
+      <option [value]="option.value">{{ option.label }}</option>
+    }
+  </select>
+  @if (error()) {
+    <span class="form-error">{{ error() }}</span>
+  }
+</div>

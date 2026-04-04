@@ -1,0 +1,75 @@
+@if (cartService.cart().items.length === 0) {
+  <app-page-header title="Warenkorb" />
+  <section class="section">
+    <div class="container">
+      <div class="empty-state">
+        <div class="empty-state__icon">🛒</div>
+        <h3 class="empty-state__title">Ihr Warenkorb ist leer</h3>
+        <p class="empty-state__description">
+          Stöbern Sie in unseren Produkten und fügen Sie Artikel zu Ihrem Warenkorb hinzu.
+        </p>
+        <div class="mt-lg">
+          <app-button
+            label="Produkte ansehen"
+            variant="primary"
+            (clicked)="router.navigate(['/products'])"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+} @else {
+  <app-page-header
+    title="Warenkorb"
+    [description]="
+      cartService.cartItemCount() +
+      ' ' +
+      (cartService.cartItemCount() === 1 ? 'Artikel' : 'Artikel') +
+      ' in Ihrem Warenkorb'
+    "
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--2" style="grid-template-columns: 2fr 1fr">
+        <!-- Warenkorbinhalt -->
+        <div>
+          @for (item of cartService.cart().items; track item.productId + '-' + item.variantId) {
+            @if (productService.getProductById(item.productId); as product) {
+              @if (productService.getVariantById(item.productId, item.variantId); as variant) {
+                <app-cart-item-row
+                  [productName]="product.name"
+                  [variantName]="variant.name"
+                  [price]="variant.price"
+                  [quantity]="item.quantity"
+                  (increase)="
+                    cartService.updateQuantity(item.productId, item.variantId, item.quantity + 1)
+                  "
+                  (decrease)="
+                    cartService.updateQuantity(item.productId, item.variantId, item.quantity - 1)
+                  "
+                  (remove)="cartService.removeFromCart(item.productId, item.variantId)"
+                />
+              }
+            }
+          }
+
+          <div class="mt-lg">
+            <app-button
+              label="Warenkorb leeren"
+              variant="ghost"
+              size="sm"
+              (clicked)="cartService.clearCart()"
+            />
+          </div>
+        </div>
+
+        <!-- Zusammenfassung -->
+        <app-cart-summary
+          [itemCount]="cartService.cartItemCount()"
+          [total]="cartService.cartTotal()"
+        />
+      </div>
+    </div>
+  </section>
+}

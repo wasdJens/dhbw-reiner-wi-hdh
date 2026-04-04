@@ -1,0 +1,63 @@
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <h1 class="hero__title">Ausrüstung, die Ihre Baustelle sicherer macht</h1>
+    <p class="hero__subtitle">
+      Ceta liefert spezialisierte Technik für Baufirmen – vom smarten Schutzhelm bis zum autonomen
+      Überwachungssystem. Einfach online bestellen und Wartung direkt mitbuchen.
+    </p>
+    <div class="flex flex--center flex--gap-md">
+      <app-button
+        label="Produkte entdecken"
+        variant="primary"
+        size="lg"
+        (clicked)="router.navigate(['/products'])"
+      />
+      <app-button
+        label="Wartung anfragen"
+        variant="outline"
+        size="lg"
+        (clicked)="router.navigate(['/maintenance/new'])"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- Produkthighlights -->
+<section class="section">
+  <div class="container">
+    <h2 class="heading-2 mb-lg">Unsere Produkte</h2>
+    <app-product-grid>
+      @for (product of products; track product.id) {
+        <app-product-card
+          [product]="product"
+          variant="featured"
+          (viewDetails)="handleViewDetails($event)"
+        />
+      }
+    </app-product-grid>
+  </div>
+</section>
+
+<!-- Wartungs-CTA -->
+<section class="section" style="background-color: var(--color-gray-50)">
+  <div class="container text-center">
+    <h2 class="heading-2 mb-md">Wartung & Service – Direkt über den Webshop</h2>
+    <p class="text-muted mb-lg" style="max-width: 600px; margin-inline: auto">
+      Ihre Geräte brauchen eine Inspektion? Melden Sie Wartungsanfragen online an – wir kümmern uns
+      um den Rest. Transparente Statusverfolgung von der Anfrage bis zur Fertigstellung.
+    </p>
+    <div class="flex flex--center flex--gap-md">
+      <app-button
+        label="Neue Wartungsanfrage"
+        variant="primary"
+        (clicked)="router.navigate(['/maintenance/new'])"
+      />
+      <app-button
+        label="Anfragen verwalten"
+        variant="secondary"
+        (clicked)="router.navigate(['/maintenance'])"
+      />
+    </div>
+  </div>
+</section>

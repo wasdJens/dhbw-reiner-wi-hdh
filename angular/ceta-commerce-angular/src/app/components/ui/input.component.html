@@ -1,0 +1,19 @@
+<div class="form-group">
+  <label class="form-label">
+    {{ label() }}
+    @if (required()) {
+      <span class="text-accent">*</span>
+    }
+  </label>
+  <input
+    class="form-input"
+    [class.form-input--error]="error()"
+    [type]="type()"
+    [placeholder]="placeholder()"
+    [value]="value()"
+    (input)="value.set($any($event.target).value)"
+  />
+  @if (error()) {
+    <span class="form-error">{{ error() }}</span>
+  }
+</div>
