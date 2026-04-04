@@ -1,0 +1,11 @@
+// products.json
+[
+  { "id": 1, "name": "Widget Pro", "price": 29.99, "categoryId": 1 },
+  { "id": 2, "name": "Gadget X", "price": 49.99, "categoryId": 2 }
+]
+
+// categories.json
+[
+  { "id": 1, "name": "Werkzeuge", "description": "Alles fürs Handwerk" },
+  { "id": 2, "name": "Elektronik", "description": "Digitale Welt" }
+]

@@ -1,0 +1,116 @@
+[
+  {
+    "id": "ceta-measure",
+    "name": "CetaMeasure",
+    "slug": "ceta-measure",
+    "category": "Vermessung",
+    "shortDescription": "Präzises Laservermessungssystem für Baustellen",
+    "description": "Hochpräzise Lasertechnik für professionelle Vermessung.",
+    "imageUrl": "/images/ceta-measure.jpg",
+    "variants": [
+      {
+        "id": "ceta-measure-basic",
+        "tier": "Basic",
+        "name": "CetaMeasure Basic",
+        "price": "329,00",
+        "features": ["Lasermessung bis 100m", "Bluetooth-Sync"],
+        "inStock": true
+      },
+      {
+        "id": "ceta-measure-pro",
+        "tier": "pro",
+        "name": "CetaMeasure Pro",
+        "price": 599,
+        "features": ["Alle Basic-Features", "3D-Kartierung"],
+        "inStock": "yes"
+      },
+      {
+        "id": "ceta-measure-enterprise",
+        "tier": "enterprise",
+        "name": "CetaMeasure Enterprise",
+        "price": 1199,
+        "features": ["Alle Pro-Features", "KI-Auswertung", "Vor-Ort-Support"],
+        "inStock": true
+      }
+    ]
+  },
+  {
+    "id": "ceta-link",
+    "name": "  CetaLink  ",
+    "slug": "ceta-link",
+    "category": "kommunikation",
+    "shortDescription": "Digitales Baustellenkommunikationssystem",
+    "description": "Zuverlässige Echtzeitkommunikation für Baustellen-Teams.",
+    "imageUrl": "/images/ceta-link.jpg",
+    "variants": [
+      {
+        "id": "ceta-link-basic",
+        "tier": "basic",
+        "name": "CetaLink Basic",
+        "price": 189,
+        "features": ["Reichweite 500m", "Push-to-Talk"],
+        "in_stock": true
+      },
+      {
+        "id": "ceta-link-pro",
+        "tier": "pro",
+        "name": "CetaLink Pro",
+        "price": null,
+        "features": ["Reichweite 2km", "Gruppenkanäle"],
+        "inStock": false
+      },
+      {
+        "id": "ceta-link-enterprise",
+        "tier": "ENTERPRISE",
+        "name": "CetaLink Enterprise",
+        "price": 799,
+        "features": ["Unbegrenzte Reichweite", "Ende-zu-Ende-Verschlüsselung"],
+        "inStock": 1
+      }
+    ]
+  },
+  {
+    "id": "ceta-measure",
+    "name": "CetaMeasure Updated",
+    "slug": "ceta-measure",
+    "category": "Vermessung",
+    "shortDescription": "Überarbeitetes Vermessungssystem",
+    "description": "Neue Firmware, bessere Genauigkeit.",
+    "imageUrl": "/images/ceta-measure-v2.jpg",
+    "variants": [
+      {
+        "id": "ceta-measure-basic",
+        "tier": "basic",
+        "name": "CetaMeasure Basic",
+        "price": 299,
+        "features": ["Lasermessung bis 100m"],
+        "inStock": true
+      }
+    ]
+  },
+  {
+    "id": "ceta-vision",
+    "name": "",
+    "slug": "ceta-vision",
+    "category": "",
+    "shortDescription": "KI-gestützte Baudokumentation",
+    "description": "Automatische Bilddokumentation per KI-Kamera.",
+    "imageUrl": "/images/ceta-vision.jpg",
+    "variants": [
+      {
+        "id": "ceta-vision-basic",
+        "tier": "basic",
+        "name": "CetaVision Basic",
+        "price": -49,
+        "features": ["4K-Aufnahmen", "Cloud-Sync"],
+        "inStock": "false"
+      }
+    ]
+  },
+  {
+    "id": "ceta-track",
+    "shortDescription": "GPS-Tracking für Baumaschinen",
+    "imageUrl": "/images/ceta-track.jpg",
+    "variants": null
+  }
+]
