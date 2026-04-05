@@ -1,0 +1,13 @@
+<section class="section">
+  <div class="container">
+    <h1 class="heading-1 mb-lg">Kunden</h1>
+    <div class="grid grid--3">
+      @for (client of clients; track client.id) {
+        <app-client-card
+          [client]="client"
+          (viewDetails)="router.navigate(['/clients', $event])"
+        />
+      }
+    </div>
+  </div>
+</section>

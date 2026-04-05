@@ -1,0 +1,4 @@
+.project-card { cursor: pointer; transition: box-shadow var(--transition-fast), transform var(--transition-fast); }
+.project-card:hover { transform: translateY(-2px); }
+.card__footer { display: flex; justify-content: space-between; align-items: center; }
+.mb-xs { margin-bottom: var(--spacing-xs, 0.25rem); }

@@ -1,0 +1,17 @@
+<div class="client-card card" (click)="viewDetails.emit(client().id)" role="button" tabindex="0">
+  <div class="card__body">
+    <div class="flex flex--between mb-sm">
+      <span class="badge badge--info">{{ client().industry }}</span>
+      @if (!client().isActive) {
+        <span class="badge badge--default">Inaktiv</span>
+      }
+    </div>
+    <h3 class="heading-4 mb-xs">{{ client().name }}</h3>
+    <p class="text-sm text-muted">{{ client().contactPerson }}</p>
+    <p class="text-sm text-muted">{{ client().contactEmail }}</p>
+  </div>
+  <div class="card__footer flex flex--between">
+    <span class="text-sm text-muted">Kunde seit {{ client().since | slice:0:4 }}</span>
+    <span class="text-sm text-muted">{{ client().projectIds.length }} Projekte</span>
+  </div>
+</div>

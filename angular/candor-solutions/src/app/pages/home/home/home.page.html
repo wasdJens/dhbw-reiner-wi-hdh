@@ -1,0 +1,51 @@
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1 class="hero__title">Willkommen bei Candor Solutions</h1>
+    <p class="hero__subtitle">
+      Ihr internes Tool zur Verwaltung von Kunden, Projekten und Beratungsanfragen.
+    </p>
+    <div class="flex flex--center flex--gap-md">
+      <app-button label="Kunden ansehen" variant="primary" size="lg" (clicked)="router.navigate(['/clients'])" />
+      <app-button label="Neue Anfrage" variant="outline" size="lg" (clicked)="router.navigate(['/requests/new'])" />
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="section section--sm">
+  <div class="container">
+    <div class="grid grid--3">
+      <div class="card">
+        <div class="card__body text-center">
+          <p class="stat-number">{{ activeClientCount }}</p>
+          <p class="text-muted text-sm">Aktive Kunden</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card__body text-center">
+          <p class="stat-number">{{ totalProjectCount }}</p>
+          <p class="text-muted text-sm">Projekte gesamt</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card__body text-center">
+          <p class="stat-number">{{ openRequestCount }}</p>
+          <p class="text-muted text-sm">Offene Anfragen</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="background: var(--color-gray-50)">
+  <div class="container text-center">
+    <h2 class="heading-2 mb-md">Beratungsanfrage einreichen</h2>
+    <p class="text-muted mb-lg" style="max-width: 560px; margin-inline: auto">
+      Kunden können direkt über das Portal neue Beratungsanfragen stellen.
+      Unser Team meldet sich innerhalb von 24 Stunden.
+    </p>
+    <app-button label="Jetzt anfragen" variant="primary" size="lg" (clicked)="router.navigate(['/requests/new'])" />
+  </div>
+</section>

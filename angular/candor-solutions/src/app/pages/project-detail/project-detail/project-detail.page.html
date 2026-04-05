@@ -1,0 +1,43 @@
+@if (project(); as p) {
+  <section class="section">
+    <div class="container" style="max-width: 800px">
+      <app-button label="← Zurück" variant="ghost" (clicked)="router.navigate(['/projects'])" />
+
+      <div class="detail-header mb-lg mt-md">
+        <div class="flex flex--gap-sm mb-sm flex--wrap">
+          <app-status-badge [status]="p.status" />
+          <app-priority-badge [priority]="p.priority" />
+        </div>
+        <h1 class="heading-1 mb-sm">{{ p.title }}</h1>
+        @if (client(); as c) {
+          <p class="text-muted">Kunde: <strong>{{ c.name }}</strong></p>
+        }
+      </div>
+
+      <div class="grid grid--2 mb-lg">
+        <div>
+          <p class="text-sm text-muted">Startdatum</p>
+          <p class="font-medium">{{ p.startDate }}</p>
+        </div>
+        <div>
+          <p class="text-sm text-muted">Budget</p>
+          <p class="font-medium">{{ p.budget | number }} €</p>
+        </div>
+      </div>
+
+      <p class="mb-lg" style="line-height: var(--line-height-relaxed)">{{ p.description }}</p>
+
+      <div class="flex flex--gap-sm flex--wrap">
+        @for (tag of p.tags; track tag) {
+          <span class="badge badge--default">{{ tag }}</span>
+        }
+      </div>
+    </div>
+  </section>
+} @else {
+  <section class="section">
+    <div class="container">
+      <p class="text-muted">Projekt nicht gefunden.</p>
+    </div>
+  </section>
+}

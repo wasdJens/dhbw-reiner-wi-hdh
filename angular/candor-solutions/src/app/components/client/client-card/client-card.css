@@ -1,0 +1,3 @@
+.client-card { cursor: pointer; transition: box-shadow var(--transition-fast), transform var(--transition-fast); }
+.client-card:hover { transform: translateY(-2px); }
+.mb-xs { margin-bottom: var(--spacing-xs, 0.25rem); }

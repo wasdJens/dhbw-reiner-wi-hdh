@@ -1,0 +1,2 @@
+.footer { background: var(--color-gray-100); border-top: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0; }
+.footer__inner { text-align: center; }

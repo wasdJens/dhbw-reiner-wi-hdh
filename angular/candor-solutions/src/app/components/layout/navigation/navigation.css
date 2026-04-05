@@ -1,0 +1,4 @@
+.nav { display: flex; gap: var(--spacing-md); align-items: center; }
+.nav__link { font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--color-gray-400); transition: color var(--transition-fast); padding: var(--spacing-xs) var(--spacing-sm); border-radius: var(--radius-sm); }
+.nav__link:hover { color: var(--color-white); }
+.nav__link--active { color: var(--color-accent-light); }

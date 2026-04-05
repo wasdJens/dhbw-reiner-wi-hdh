@@ -1,0 +1,36 @@
+@if (client(); as c) {
+  <section class="section">
+    <div class="container">
+      <app-button label="← Zurück" variant="ghost" (clicked)="router.navigate(['/clients'])" />
+      <div class="detail-header mb-lg mt-md">
+        <h1 class="heading-1">{{ c.name }}</h1>
+        <p class="text-muted">{{ c.industry }} · Kunde seit {{ c.since | slice:0:4 }}</p>
+        <p class="mt-sm">
+          {{ c.contactPerson }} ·
+          <a [href]="'mailto:' + c.contactEmail" class="link">{{ c.contactEmail }}</a>
+        </p>
+      </div>
+      <div class="mb-lg">
+        <p class="text-sm text-muted">Gesamtbudget: <strong>{{ totalBudget() | number }} €</strong></p>
+      </div>
+      <h2 class="heading-3 mb-md">Projekte ({{ projects().length }})</h2>
+      <div class="grid grid--3">
+        @for (project of projects(); track project.id) {
+          <app-project-card
+            [project]="project"
+            (viewDetails)="router.navigate(['/projects', $event])"
+          />
+        }
+        @empty {
+          <p class="text-muted">Keine Projekte vorhanden.</p>
+        }
+      </div>
+    </div>
+  </section>
+} @else {
+  <section class="section">
+    <div class="container">
+      <p class="text-muted">Kunde nicht gefunden.</p>
+    </div>
+  </section>
+}

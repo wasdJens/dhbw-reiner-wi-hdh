@@ -1,0 +1,5 @@
+.header { background: var(--color-primary); height: var(--header-height); display: flex; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-md); }
+.header__inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.header__logo { display: flex; align-items: center; gap: var(--spacing-sm); text-decoration: none; }
+.header__logo-mark { width: 32px; height: 32px; background: var(--color-accent); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-weight: var(--font-weight-bold); font-size: var(--font-size-sm); color: white; }
+.header__logo-name { font-size: var(--font-size-md); font-weight: var(--font-weight-semibold); color: var(--color-white); }

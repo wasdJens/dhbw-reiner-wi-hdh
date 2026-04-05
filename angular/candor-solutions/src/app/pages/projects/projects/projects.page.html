@@ -1,0 +1,35 @@
+<section class="section">
+  <div class="container">
+    <div class="flex flex--between mb-lg">
+      <h1 class="heading-1">Projekte</h1>
+      <app-button
+        label="Neue Anfrage"
+        variant="primary"
+        (clicked)="router.navigate(['/requests/new'])"
+      />
+    </div>
+
+    <div class="flex flex--gap-sm mb-lg flex--wrap">
+      @for (filter of ['all', 'active', 'planning', 'completed']; track filter) {
+        <button
+          [class]="'btn btn--sm ' + (activeFilter() === filter ? 'btn--primary' : 'btn--secondary')"
+          (click)="setFilter(filter)"
+        >
+          {{ filter === 'all' ? 'Alle' : filter }}
+        </button>
+      }
+    </div>
+
+    <div class="grid grid--3">
+      @for (project of filteredProjects; track project.id) {
+        <app-project-card
+          [project]="project"
+          (viewDetails)="router.navigate(['/projects', $event])"
+        />
+      }
+      @empty {
+        <p class="text-muted">Keine Projekte für diesen Filter.</p>
+      }
+    </div>
+  </div>
+</section>

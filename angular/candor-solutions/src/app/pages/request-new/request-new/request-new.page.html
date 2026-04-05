@@ -1,0 +1,73 @@
+<section class="section">
+  <div class="container" style="max-width: 600px">
+    <h1 class="heading-1 mb-lg">Neue Beratungsanfrage</h1>
+
+    @if (submitted()) {
+      <div class="success-banner">
+        ✅ Ihre Anfrage wurde eingereicht. Wir melden uns innerhalb von 24 Stunden.
+        <div class="mt-md">
+          <app-button label="Zur Startseite" variant="primary" (clicked)="router.navigate(['/'])" />
+        </div>
+      </div>
+    } @else {
+      <form (ngSubmit)="submit()" class="form">
+        <div class="form__field">
+          <label class="form__label">Kunde</label>
+          <select [(ngModel)]="formData.clientId" name="clientId" class="form__input">
+            <option value="">-- Bitte wählen --</option>
+            @for (client of clients; track client.id) {
+              <option [value]="client.id">{{ client.name }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="form__field">
+          <label class="form__label">Betreff</label>
+          <input
+            [(ngModel)]="formData.title"
+            name="title"
+            type="text"
+            class="form__input"
+            placeholder="z.B. Cloud-Strategie Beratung"
+          />
+        </div>
+
+        <div class="form__field">
+          <label class="form__label">Beschreibung</label>
+          <textarea
+            [(ngModel)]="formData.description"
+            name="description"
+            rows="4"
+            class="form__input"
+            placeholder="Was benötigen Sie?"
+          ></textarea>
+        </div>
+
+        <div class="form__field">
+          <label class="form__label">Angefragt von</label>
+          <input
+            [(ngModel)]="formData.requestedBy"
+            name="requestedBy"
+            type="text"
+            class="form__input"
+            placeholder="Ihr Name"
+          />
+        </div>
+
+        <div class="form__field">
+          <label class="form__label">Priorität</label>
+          <select [(ngModel)]="formData.priority" name="priority" class="form__input">
+            <option value="low">Niedrig</option>
+            <option value="medium">Mittel</option>
+            <option value="high">Hoch</option>
+          </select>
+        </div>
+
+        <div class="flex flex--gap-md mt-lg">
+          <app-button label="Anfrage einreichen" type="submit" variant="primary" />
+          <app-button label="Abbrechen" variant="ghost" (clicked)="router.navigate(['/'])" />
+        </div>
+      </form>
+    }
+  </div>
+</section>

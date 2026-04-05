@@ -1,0 +1,7 @@
+.form { display: flex; flex-direction: column; gap: var(--spacing-lg); }
+.form__field { display: flex; flex-direction: column; gap: var(--spacing-xs); }
+.form__label { font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-gray-700); }
+.form__input { width: 100%; padding: 0.625rem var(--spacing-md); border: 1px solid var(--color-gray-300); border-radius: var(--radius-md); font-size: var(--font-size-base); font-family: var(--font-family); transition: border-color var(--transition-fast); }
+.form__input:focus { outline: none; border-color: var(--color-accent); box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15); }
+textarea.form__input { resize: vertical; }
+.success-banner { background: #dcfce7; border: 1px solid #86efac; border-radius: var(--radius-lg); padding: var(--spacing-xl); color: #15803d; font-weight: var(--font-weight-medium); }

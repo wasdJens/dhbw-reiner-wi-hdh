@@ -1,0 +1,17 @@
+<div class="project-card card" (click)="viewDetails.emit(project().id)" role="button" tabindex="0">
+  <div class="card__body">
+    <div class="flex flex--between mb-sm flex--wrap" style="gap: var(--spacing-xs)">
+      <app-status-badge [status]="project().status" />
+      <app-priority-badge [priority]="project().priority" />
+    </div>
+    <h3 class="heading-4 mb-xs">{{ project().title }}</h3>
+    <p class="text-sm text-muted mb-sm">{{ clientName() }}</p>
+    <p class="text-sm" style="color: var(--color-gray-600); line-height: var(--line-height-relaxed)">
+      {{ project().description }}
+    </p>
+  </div>
+  <div class="card__footer flex flex--between">
+    <span class="text-sm text-muted">{{ project().startDate | slice:0:4 }}</span>
+    <span class="text-sm font-semibold">{{ project().budget | number }} €</span>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+.hero { background: var(--color-primary); color: var(--color-white); padding-block: var(--spacing-3xl); text-align: center; }
+.hero__title { font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold); margin-bottom: var(--spacing-md); }
+.hero__subtitle { font-size: var(--font-size-md); color: var(--color-gray-300); margin-bottom: var(--spacing-xl); max-width: 600px; margin-inline: auto; }
+.stat-number { font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold); color: var(--color-accent); }
