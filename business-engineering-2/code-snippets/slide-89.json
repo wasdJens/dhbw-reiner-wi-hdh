@@ -1,0 +1,18 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Widget Pro",
+      "price": 29.99,
+      "category": "Werkzeuge",
+      "inStock": true
+    },
+    {
+      "id": 2,
+      "name": "Gadget X",
+      "price": 49.99,
+      "category": "Elektronik",
+      "inStock": false
+    }
+  ]
+}
