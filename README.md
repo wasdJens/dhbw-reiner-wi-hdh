@@ -2,7 +2,7 @@
 
 In diesem Git Repository befinden sich alle Unterlagen zu meinen Vorlesungen and der DHBW Heidenheim im Studiengang Wirtschaftsinformatik.
 
-**Aktuell: Unterlagen für 2026**
+**Aktuell: Unterlagen für Wintersemester 10/2026**
 
 ## Vorlesungen:
 
