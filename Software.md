@@ -1,6 +1,6 @@
 # Software 
 
-**NodeJS (Version 22.n bzw. LTS)**
+**NodeJS (LTS)**
 - Installation über Package Manager https://nodejs.org/en/download/package-manager
 - Alternativ als Executable https://nodejs.org/en/download/prebuilt-installer
 
