@@ -1,0 +1,11 @@
+/* ==========================================================================
+   overrides.css – eigene Gestaltung (freiwillig)
+
+   Die Ebene overrides steht in main.css zuletzt: Eine Regel in dieser Datei
+   gewinnt gegen die Regeln der anderen Dateien. Die Referenz lässt die Datei
+   bis auf den Farbton der Akzentfarbe leer.
+   ========================================================================== */
+
+:root {
+  --accent-hue: 45;
+}

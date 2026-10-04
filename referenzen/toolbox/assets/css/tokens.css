@@ -1,0 +1,117 @@
+/* Hallmark · custom theme (tuned) · project: Toolbox · vibe: "Technisches Handbuch: Papier, Graphit, Signal-Orange"
+ * macrostructure: Index-First (Startseite) · Long Document (Pattern-Seite)
+ * nav: Sidebar (Popover auf Mobilgeräten) · footer: Ft2 Inline single line
+ * axes: light / mono-display / warm · fonts: JetBrains Mono + Instrument Sans
+ * paper oklch(97.5% 0.008 80) · accent oklch(66% 0.19 45) signal-orange
+ */
+
+/* ==========================================================================
+   tokens.css – alle Design-Entscheidungen an einem Ort
+
+   Regel: Keine andere Datei enthält Farbwerte, Schriftnamen oder feste
+   Abstände. Alles läuft über die Custom Properties aus dieser Datei.
+   ========================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------------
+     Akzentfarbe
+     Farbton von 0 bis 360: 45 = Signal-Orange, 150 = Grün, 250 = Blau.
+     Eine eigene Akzentfarbe steht in overrides.css, nicht hier.
+     ------------------------------------------------------------------------ */
+  --accent-hue: 45;
+
+  /* ------------------------------------------------------------------------
+     Farbe
+     light-dark(hell, dunkel): Der Browser wählt passend zur Systemeinstellung.
+     Die Grautöne sind leicht warm getönt – passend zum orangen Akzent.
+     ------------------------------------------------------------------------ */
+  color-scheme: light dark;
+
+  --color-paper: light-dark(oklch(97.5% 0.008 80), oklch(17% 0.008 70));
+  --color-paper-2: light-dark(oklch(94.5% 0.011 80), oklch(21% 0.01 70));
+  --color-rule: light-dark(oklch(85% 0.012 75), oklch(33% 0.01 70));
+  --color-grid: light-dark(oklch(78% 0.014 75), oklch(38% 0.012 70));
+  --color-muted: light-dark(oklch(45% 0.012 70), oklch(73% 0.01 75));
+  --color-ink: light-dark(oklch(21% 0.012 60), oklch(93% 0.008 80));
+
+  /* Akzent für Markierungen und Fokus – nicht für Fließtext (Kontrast). */
+  --color-accent: light-dark(
+    oklch(66% 0.19 var(--accent-hue)),
+    oklch(72% 0.17 var(--accent-hue))
+  );
+  /* Akzent als Textfarbe – dunkel bzw. hell genug für 4.5:1. */
+  --color-accent-text: light-dark(
+    oklch(49% 0.16 var(--accent-hue)),
+    oklch(79% 0.13 var(--accent-hue))
+  );
+  /* Fokusrahmen: Akzent als Textfarbe, damit der Rahmen auf jeder Fläche 3:1 erreicht (WCAG 1.4.11). */
+  --color-focus: var(--color-accent-text);
+  --color-backdrop: light-dark(oklch(21% 0.012 60 / 0.45), oklch(8% 0.008 70 / 0.7));
+
+  /* ------------------------------------------------------------------------
+     Schrift
+     Zwei Familien, selbst gehostet (siehe base.css, @font-face).
+     ------------------------------------------------------------------------ */
+  --font-body: "Instrument Sans", "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Menlo, monospace;
+
+  /* Schriftgrößen: Verhältnis 1.25 (große Terz) */
+  --text-xs: 0.8rem;
+  --text-sm: 0.9rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5625rem;
+  --text-2xl: 1.953rem;
+  --text-display: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+
+  --leading-tight: 1.15;
+  --leading-body: 1.6;
+
+  /* ------------------------------------------------------------------------
+     Abstände: 4-Punkt-Raster, benannt nach Größe
+     ------------------------------------------------------------------------ */
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  /* clamp(Minimum, Wert, Maximum): 1rem bis 320 px Breite des Viewports, 4rem ab 1280 px */
+  --space-page: clamp(1rem, 5vw, 4rem);
+
+  /* ------------------------------------------------------------------------
+     Formen & Maße
+     ------------------------------------------------------------------------ */
+  --radius-sm: 2px;
+  --rule-width: 1px;
+  --focus-width: 3px;
+  --grid-size: 1rem;        /* Punktraster der Demo-Fläche */
+  --sidebar-width: 16rem;
+  --content-width: 46rem;   /* ca. 70 Zeichen Fließtext */
+  --duration-menu: 0.2s;    /* Bewegung des Popover-Menüs */
+  /* Hinweis: Media Queries können keine Custom Properties lesen.
+     Der Breakpoint für die Sidebar (64rem) steht in layout.css. */
+}
+
+/* --------------------------------------------------------------------------
+   Ersatz für Browser ohne light-dark(): nur Light Mode
+   Ohne diesen Block ist jede Deklaration mit einem Farb-Token ungültig.
+   -------------------------------------------------------------------------- */
+@supports not (color: light-dark(white, black)) {
+  :root {
+    color-scheme: light;
+
+    --color-paper: oklch(97.5% 0.008 80);
+    --color-paper-2: oklch(94.5% 0.011 80);
+    --color-rule: oklch(85% 0.012 75);
+    --color-grid: oklch(78% 0.014 75);
+    --color-muted: oklch(45% 0.012 70);
+    --color-ink: oklch(21% 0.012 60);
+    --color-accent: oklch(66% 0.19 var(--accent-hue));
+    --color-accent-text: oklch(49% 0.16 var(--accent-hue));
+    --color-backdrop: oklch(21% 0.012 60 / 0.45);
+  }
+}

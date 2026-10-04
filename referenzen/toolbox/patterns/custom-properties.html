@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Custom Properties – Toolbox</title>
+    <meta name="description" content="Eine Custom Property speichert einen Wert unter einem Namen, die Funktion var() setzt ihn ein.">
+    <link rel="stylesheet" href="../assets/css/main.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="../index.html">Toolbox</a>
+      <button class="button menu-button" type="button" popovertarget="site-nav">Menü</button>
+    </header>
+
+    <nav id="site-nav" class="site-nav" popover aria-label="Toolbox">
+      <button class="button nav-close" type="button" popovertarget="site-nav" popovertargetaction="hide">Schließen</button>
+      <ul class="nav-groups">
+        <li>
+          <p class="nav-group-label" id="nav-start">Start</p>
+          <ul aria-labelledby="nav-start">
+            <li><a href="../index.html">Übersicht</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-struktur">Struktur</p>
+          <ul aria-labelledby="nav-struktur">
+            <li><a href="../patterns/html-grundgeruest.html">HTML-Grundgerüst</a></li>
+            <li><a href="../patterns/landmarks.html">Landmarks</a></li>
+            <li><a href="../patterns/ueberschriften.html">Überschriften-Hierarchie</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-text">Text</p>
+          <ul aria-labelledby="nav-text">
+            <li><a href="../patterns/listen.html">Listen</a></li>
+            <li><a href="../patterns/links.html">Links</a></li>
+            <li><a href="../patterns/tabellen.html">Tabellen</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-navigation">Navigation</p>
+          <ul aria-labelledby="nav-navigation">
+            <li><a href="../patterns/breadcrumbs.html">Breadcrumbs</a></li>
+            <li><a href="../patterns/aktuelle-seite.html">Aktuelle Seite markieren</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-medien">Medien</p>
+          <ul aria-labelledby="nav-medien">
+            <li><a href="../patterns/bilder.html">Bilder</a></li>
+            <li><a href="../patterns/responsive-images.html">Responsive Images</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-formulare">Formulare</p>
+          <ul aria-labelledby="nav-formulare">
+            <li><a href="../patterns/label-fehlermeldung.html">Label und Fehlermeldung</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-css-architektur">CSS-Architektur</p>
+          <ul aria-labelledby="nav-css-architektur">
+            <li><a href="../patterns/cascade-layers.html">Cascade Layers</a></li>
+            <li><a href="../patterns/custom-properties.html" aria-current="page">Custom Properties</a></li>
+            <li><a href="../patterns/progressive-enhancement.html">Progressive Enhancement</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-layout">Layout</p>
+          <ul aria-labelledby="nav-layout">
+            <li><a href="../patterns/flexbox.html">Flexbox</a></li>
+            <li><a href="../patterns/seitenlayout.html">Seitenlayout mit Grid</a></li>
+            <li><a href="../patterns/auto-fill-grid.html">Spalten ohne Media Query</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-responsive">Responsive</p>
+          <ul aria-labelledby="nav-responsive">
+            <li><a href="../patterns/media-queries.html">Media Queries</a></li>
+            <li><a href="../patterns/clamp.html">Größen mit clamp()</a></li>
+            <li><a href="../patterns/container-queries.html">Container Queries</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-design-system">Design-System</p>
+          <ul aria-labelledby="nav-design-system">
+            <li><a href="../patterns/design-tokens.html">Design-Tokens</a></li>
+            <li><a href="../patterns/oklch.html">Farben mit oklch()</a></li>
+            <li><a href="../patterns/light-dark.html">Dark Mode mit light-dark()</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-interaktion">Interaktion ohne JavaScript</p>
+          <ul aria-labelledby="nav-interaktion">
+            <li><a href="../patterns/akkordeon.html">Exklusives Akkordeon</a></li>
+            <li><a href="../patterns/popover-menue.html">Popover-Menü</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-barrierefreiheit">Barrierefreiheit</p>
+          <ul aria-labelledby="nav-barrierefreiheit">
+            <li><a href="../patterns/skip-link.html">Skip-Link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="inhalt">
+      <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ol>
+          <li><a href="../index.html">Toolbox</a></li>
+          <li><a href="../index.html#css-architektur">CSS-Architektur</a></li>
+          <li><a href="custom-properties.html" aria-current="page">Custom Properties</a></li>
+        </ol>
+      </nav>
+
+      <div class="pattern-head">
+        <h1>Custom Properties</h1>
+        <p class="lead">Eine Custom Property speichert einen Wert unter einem Namen. Die Funktion <code>var()</code> setzt den Wert ein: Eine Änderung an einer Stelle wirkt an jeder Stelle, die den Namen verwendet.</p>
+        <dl class="meta">
+          <dt>Kategorie</dt>
+          <dd>CSS-Architektur</dd>
+          <dt>Kapitel</dt>
+          <dd>CSS-Fundament</dd>
+        </dl>
+      </div>
+
+      <section class="pattern-section" aria-labelledby="demo">
+        <h2 id="demo">Demo</h2>
+        <figure class="demo">
+          <figcaption><span>Drei Stellen, ein Wert: --color-accent</span><span>Live</span></figcaption>
+          <div class="demo-stage">
+            <div class="demo-sheet">
+              <p><a href="#code">Link: Linie in Akzentfarbe</a></p>
+              <nav class="demo-nav" aria-label="Beispiel für eine Navigation">
+                <ul>
+                  <li><a href="custom-properties.html" aria-current="page">Aktuelle Seite: Quadrat in Akzentfarbe</a></li>
+                </ul>
+              </nav>
+              <p>
+                <input type="radio" id="demo-akzent" name="demo-akzent" checked>
+                <label for="demo-akzent">Radio Button: Füllung in Akzentfarbe</label>
+              </p>
+            </div>
+          </div>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="code">
+        <h2 id="code">Code</h2>
+        <figure class="code">
+          <figcaption>tokens.css (Auszug)</figcaption>
+          <pre tabindex="0"><code>:root {
+  --accent-hue: 45;
+
+  --color-accent: light-dark(
+    oklch(66% 0.19 var(--accent-hue)),
+    oklch(72% 0.17 var(--accent-hue))
+  );
+}</code></pre>
+        </figure>
+        <figure class="code">
+          <figcaption>base.css (Auszug)</figcaption>
+          <pre tabindex="0"><code>a {
+  text-decoration-color: var(--color-accent);
+}</code></pre>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="warum">
+        <h2 id="warum">Warum</h2>
+        <p>Der Name einer Custom Property beginnt mit <code>--</code>. Die Toolbox definiert alle Custom Properties in <code>tokens.css</code> am Element <code>:root</code>. Jedes Element der Seite erbt die Werte.</p>
+        <p>Ohne Custom Properties steht derselbe Farbwert an jeder Stelle, die ihn verwendet. Eine andere Akzentfarbe verlangt dann eine Änderung an jeder dieser Stellen. Mit <code>--accent-hue</code> ändert sich eine Zeile: Die Datei <code>overrides.css</code> definiert den Farbton am Element <code>:root</code> neu.</p>
+        <p>Der Browser prüft den Wert erst beim Einsetzen. Ein ungültiger Wert macht die Deklaration ungültig, die ihn verwendet. Die Eigenschaft erhält dann den geerbten Wert oder ihren Anfangswert, nicht den Wert einer vorherigen Deklaration. Der Browser meldet keinen Fehler.</p>
+        <p>Der Browser berechnet eine Custom Property an dem Element, an dem sie definiert ist. <code>--color-accent</code> enthält an <code>:root</code> bereits den Farbton aus <code>--accent-hue</code>. Ein anderer Wert für <code>--accent-hue</code> an einem Element innerhalb der Seite ändert <code>--color-accent</code> deshalb nicht.</p>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="barrierefreiheit">
+        <h2 id="barrierefreiheit">Barrierefreiheit</h2>
+        <ul>
+          <li>Die Farbe des Fokusrahmens ist eine Custom Property. Ein ungültiger Wert in <code>--accent-hue</code> entfernt den Fokusrahmen auf jeder Seite, ohne Meldung des Browsers.</li>
+          <li>Nach einer Änderung der Akzentfarbe ist der Kontrast von <code>--color-accent-text</code> zum Hintergrund zu prüfen: mindestens 4,5:1.</li>
+        </ul>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="quellen">
+        <h2 id="quellen">Quellen</h2>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties">MDN – Using CSS custom properties</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/--*">MDN – Custom properties (--*)</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/var">MDN – var()</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Pager">
+        <a href="cascade-layers.html" rel="prev"><span class="pager-label">Zurück</span>Cascade Layers</a>
+        <a href="progressive-enhancement.html" rel="next"><span class="pager-label">Weiter</span>Progressive Enhancement</a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>Toolbox · Bauteile für das Web · Inhalte geprüft gegen <a href="https://developer.mozilla.org/en-US/">MDN</a></p>
+    </footer>
+  </body>
+</html>

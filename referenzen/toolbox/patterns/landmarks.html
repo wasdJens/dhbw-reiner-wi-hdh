@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Landmarks – Toolbox</title>
+    <meta name="description" content="Header, Navigation, Hauptinhalt und Footer teilen eine Seite in Bereiche, zu denen Screenreader direkt springen können.">
+    <link rel="stylesheet" href="../assets/css/main.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="../index.html">Toolbox</a>
+      <button class="button menu-button" type="button" popovertarget="site-nav">Menü</button>
+    </header>
+
+    <nav id="site-nav" class="site-nav" popover aria-label="Toolbox">
+      <button class="button nav-close" type="button" popovertarget="site-nav" popovertargetaction="hide">Schließen</button>
+      <ul class="nav-groups">
+        <li>
+          <p class="nav-group-label" id="nav-start">Start</p>
+          <ul aria-labelledby="nav-start">
+            <li><a href="../index.html">Übersicht</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-struktur">Struktur</p>
+          <ul aria-labelledby="nav-struktur">
+            <li><a href="../patterns/html-grundgeruest.html">HTML-Grundgerüst</a></li>
+            <li><a href="../patterns/landmarks.html" aria-current="page">Landmarks</a></li>
+            <li><a href="../patterns/ueberschriften.html">Überschriften-Hierarchie</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-text">Text</p>
+          <ul aria-labelledby="nav-text">
+            <li><a href="../patterns/listen.html">Listen</a></li>
+            <li><a href="../patterns/links.html">Links</a></li>
+            <li><a href="../patterns/tabellen.html">Tabellen</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-navigation">Navigation</p>
+          <ul aria-labelledby="nav-navigation">
+            <li><a href="../patterns/breadcrumbs.html">Breadcrumbs</a></li>
+            <li><a href="../patterns/aktuelle-seite.html">Aktuelle Seite markieren</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-medien">Medien</p>
+          <ul aria-labelledby="nav-medien">
+            <li><a href="../patterns/bilder.html">Bilder</a></li>
+            <li><a href="../patterns/responsive-images.html">Responsive Images</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-formulare">Formulare</p>
+          <ul aria-labelledby="nav-formulare">
+            <li><a href="../patterns/label-fehlermeldung.html">Label und Fehlermeldung</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-css-architektur">CSS-Architektur</p>
+          <ul aria-labelledby="nav-css-architektur">
+            <li><a href="../patterns/cascade-layers.html">Cascade Layers</a></li>
+            <li><a href="../patterns/custom-properties.html">Custom Properties</a></li>
+            <li><a href="../patterns/progressive-enhancement.html">Progressive Enhancement</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-layout">Layout</p>
+          <ul aria-labelledby="nav-layout">
+            <li><a href="../patterns/flexbox.html">Flexbox</a></li>
+            <li><a href="../patterns/seitenlayout.html">Seitenlayout mit Grid</a></li>
+            <li><a href="../patterns/auto-fill-grid.html">Spalten ohne Media Query</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-responsive">Responsive</p>
+          <ul aria-labelledby="nav-responsive">
+            <li><a href="../patterns/media-queries.html">Media Queries</a></li>
+            <li><a href="../patterns/clamp.html">Größen mit clamp()</a></li>
+            <li><a href="../patterns/container-queries.html">Container Queries</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-design-system">Design-System</p>
+          <ul aria-labelledby="nav-design-system">
+            <li><a href="../patterns/design-tokens.html">Design-Tokens</a></li>
+            <li><a href="../patterns/oklch.html">Farben mit oklch()</a></li>
+            <li><a href="../patterns/light-dark.html">Dark Mode mit light-dark()</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-interaktion">Interaktion ohne JavaScript</p>
+          <ul aria-labelledby="nav-interaktion">
+            <li><a href="../patterns/akkordeon.html">Exklusives Akkordeon</a></li>
+            <li><a href="../patterns/popover-menue.html">Popover-Menü</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-barrierefreiheit">Barrierefreiheit</p>
+          <ul aria-labelledby="nav-barrierefreiheit">
+            <li><a href="../patterns/skip-link.html">Skip-Link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="inhalt">
+      <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ol>
+          <li><a href="../index.html">Toolbox</a></li>
+          <li><a href="../index.html#struktur">Struktur</a></li>
+          <li><a href="landmarks.html" aria-current="page">Landmarks</a></li>
+        </ol>
+      </nav>
+
+      <div class="pattern-head">
+        <h1>Landmarks</h1>
+        <p class="lead">Header, Navigation, Hauptinhalt und Footer teilen eine Seite in Bereiche, zu denen Screenreader direkt springen können.</p>
+        <dl class="meta">
+          <dt>Kategorie</dt>
+          <dd>Struktur</dd>
+          <dt>Kapitel</dt>
+          <dd>Das Skelett</dd>
+        </dl>
+      </div>
+
+      <section class="pattern-section" aria-labelledby="demo">
+        <h2 id="demo">Demo</h2>
+        <figure class="demo">
+          <figcaption><span>HTML-Element und Rolle im Accessibility Tree</span><span>Schema</span></figcaption>
+          <div class="demo-stage">
+            <div class="landmark-map">
+              <div><span>&lt;header&gt;</span><span class="role">banner</span></div>
+              <div><span>&lt;nav&gt;</span><span class="role">navigation</span></div>
+              <div><span>&lt;main&gt;</span><span class="role">main</span></div>
+              <div><span>&lt;footer&gt;</span><span class="role">contentinfo</span></div>
+            </div>
+          </div>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="code">
+        <h2 id="code">Code</h2>
+        <figure class="code">
+          <figcaption>index.html</figcaption>
+          <pre tabindex="0"><code>&lt;body&gt;
+  &lt;header&gt;
+    &lt;a href="index.html"&gt;Toolbox&lt;/a&gt;
+  &lt;/header&gt;
+  &lt;nav aria-label="Toolbox"&gt;
+    &lt;ul&gt;…&lt;/ul&gt;
+  &lt;/nav&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Landmarks&lt;/h1&gt;
+  &lt;/main&gt;
+  &lt;footer&gt;
+    &lt;p&gt;Toolbox · Bauteile für das Web&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="warum">
+        <h2 id="warum">Warum</h2>
+        <p>Sehende erfassen den Aufbau einer Seite mit einem Blick. Screenreader brauchen dafür Landmarks: Sie listen die Bereiche auf und springen auf Tastendruck zum Hauptinhalt, statt die Navigation jedes Mal von vorn vorzulesen.</p>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="barrierefreiheit">
+        <h2 id="barrierefreiheit">Barrierefreiheit</h2>
+        <ul>
+          <li>Genau ein <code>&lt;main&gt;</code> pro Seite.</li>
+          <li><code>&lt;header&gt;</code> und <code>&lt;footer&gt;</code> werden nur als direkte Kinder von <code>&lt;body&gt;</code> zu <code>banner</code> und <code>contentinfo</code>.</li>
+          <li>Gibt es mehrere <code>&lt;nav&gt;</code>, bekommt jede einen Namen über <code>aria-label</code>.</li>
+        </ul>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="quellen">
+        <h2 id="quellen">Quellen</h2>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Structuring_documents">MDN – Structuring documents</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Accessibility_tree">MDN – Accessibility tree</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Pager">
+        <a href="html-grundgeruest.html" rel="prev"><span class="pager-label">Zurück</span>HTML-Grundgerüst</a>
+        <a href="ueberschriften.html" rel="next"><span class="pager-label">Weiter</span>Überschriften-Hierarchie</a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>Toolbox · Bauteile für das Web · Inhalte geprüft gegen <a href="https://developer.mozilla.org/en-US/">MDN</a></p>
+    </footer>
+  </body>
+</html>

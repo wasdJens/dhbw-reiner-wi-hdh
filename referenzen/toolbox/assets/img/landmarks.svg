@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="15">
+  <!-- Schema der Landmarks einer Seite. Eigene Grafik zur Toolbox, frei verwendbar (CC0 1.0). -->
+  <rect width="640" height="400" fill="#f9f6f1"/>
+  <g fill="#f0ece5" stroke="#1d1a17" stroke-width="1.5">
+    <rect x="24.75" y="24.75" width="590.5" height="72"/>
+    <rect x="24.75" y="112.75" width="590.5" height="190.5"/>
+    <rect x="24.75" y="319.25" width="590.5" height="56"/>
+  </g>
+  <rect x="399.75" y="40.75" width="199.5" height="40" fill="#f9f6f1" stroke="#1d1a17" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <rect x="44" y="53" width="11" height="11" fill="#ee6a1f"/>
+  <g fill="#1d1a17" font-weight="700">
+    <text x="64" y="65.5">&lt;header&gt;</text>
+    <text x="416" y="65.5">&lt;nav&gt;</text>
+    <text x="44" y="146">&lt;main&gt;</text>
+    <text x="44" y="352.5">&lt;footer&gt;</text>
+  </g>
+  <g fill="#5c5750" font-size="13">
+    <text x="156" y="65.5">banner</text>
+    <text x="476" y="65.5">navigation</text>
+    <text x="44" y="168">main</text>
+    <text x="126" y="352.5">contentinfo</text>
+  </g>
+</svg>

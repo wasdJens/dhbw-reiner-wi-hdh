@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Exklusives Akkordeon – Toolbox</title>
+    <meta name="description" content="Mehrere details-Elemente mit demselben Wert im Attribut name: Der Browser hält höchstens eines offen.">
+    <link rel="stylesheet" href="../assets/css/main.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="../index.html">Toolbox</a>
+      <button class="button menu-button" type="button" popovertarget="site-nav">Menü</button>
+    </header>
+
+    <nav id="site-nav" class="site-nav" popover aria-label="Toolbox">
+      <button class="button nav-close" type="button" popovertarget="site-nav" popovertargetaction="hide">Schließen</button>
+      <ul class="nav-groups">
+        <li>
+          <p class="nav-group-label" id="nav-start">Start</p>
+          <ul aria-labelledby="nav-start">
+            <li><a href="../index.html">Übersicht</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-struktur">Struktur</p>
+          <ul aria-labelledby="nav-struktur">
+            <li><a href="../patterns/html-grundgeruest.html">HTML-Grundgerüst</a></li>
+            <li><a href="../patterns/landmarks.html">Landmarks</a></li>
+            <li><a href="../patterns/ueberschriften.html">Überschriften-Hierarchie</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-text">Text</p>
+          <ul aria-labelledby="nav-text">
+            <li><a href="../patterns/listen.html">Listen</a></li>
+            <li><a href="../patterns/links.html">Links</a></li>
+            <li><a href="../patterns/tabellen.html">Tabellen</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-navigation">Navigation</p>
+          <ul aria-labelledby="nav-navigation">
+            <li><a href="../patterns/breadcrumbs.html">Breadcrumbs</a></li>
+            <li><a href="../patterns/aktuelle-seite.html">Aktuelle Seite markieren</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-medien">Medien</p>
+          <ul aria-labelledby="nav-medien">
+            <li><a href="../patterns/bilder.html">Bilder</a></li>
+            <li><a href="../patterns/responsive-images.html">Responsive Images</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-formulare">Formulare</p>
+          <ul aria-labelledby="nav-formulare">
+            <li><a href="../patterns/label-fehlermeldung.html">Label und Fehlermeldung</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-css-architektur">CSS-Architektur</p>
+          <ul aria-labelledby="nav-css-architektur">
+            <li><a href="../patterns/cascade-layers.html">Cascade Layers</a></li>
+            <li><a href="../patterns/custom-properties.html">Custom Properties</a></li>
+            <li><a href="../patterns/progressive-enhancement.html">Progressive Enhancement</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-layout">Layout</p>
+          <ul aria-labelledby="nav-layout">
+            <li><a href="../patterns/flexbox.html">Flexbox</a></li>
+            <li><a href="../patterns/seitenlayout.html">Seitenlayout mit Grid</a></li>
+            <li><a href="../patterns/auto-fill-grid.html">Spalten ohne Media Query</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-responsive">Responsive</p>
+          <ul aria-labelledby="nav-responsive">
+            <li><a href="../patterns/media-queries.html">Media Queries</a></li>
+            <li><a href="../patterns/clamp.html">Größen mit clamp()</a></li>
+            <li><a href="../patterns/container-queries.html">Container Queries</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-design-system">Design-System</p>
+          <ul aria-labelledby="nav-design-system">
+            <li><a href="../patterns/design-tokens.html">Design-Tokens</a></li>
+            <li><a href="../patterns/oklch.html">Farben mit oklch()</a></li>
+            <li><a href="../patterns/light-dark.html">Dark Mode mit light-dark()</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-interaktion">Interaktion ohne JavaScript</p>
+          <ul aria-labelledby="nav-interaktion">
+            <li><a href="../patterns/akkordeon.html" aria-current="page">Exklusives Akkordeon</a></li>
+            <li><a href="../patterns/popover-menue.html">Popover-Menü</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-barrierefreiheit">Barrierefreiheit</p>
+          <ul aria-labelledby="nav-barrierefreiheit">
+            <li><a href="../patterns/skip-link.html">Skip-Link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="inhalt">
+      <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ol>
+          <li><a href="../index.html">Toolbox</a></li>
+          <li><a href="../index.html#interaktion">Interaktion ohne JavaScript</a></li>
+          <li><a href="akkordeon.html" aria-current="page">Exklusives Akkordeon</a></li>
+        </ol>
+      </nav>
+
+      <div class="pattern-head">
+        <h1>Exklusives Akkordeon</h1>
+        <p class="lead">Ein Element <code>&lt;details&gt;</code> zeigt seinen Inhalt erst nach einem Klick auf die Zeile <code>&lt;summary&gt;</code>. Mehrere Elemente mit demselben Wert im Attribut <code>name</code> bilden eine Gruppe: Der Browser hält höchstens eines davon offen.</p>
+        <dl class="meta">
+          <dt>Kategorie</dt>
+          <dd>Interaktion ohne JavaScript</dd>
+          <dt>Kapitel</dt>
+          <dd>Interaktion ohne JavaScript</dd>
+        </dl>
+      </div>
+
+      <section class="pattern-section" aria-labelledby="demo">
+        <h2 id="demo">Demo</h2>
+        <figure class="demo">
+          <figcaption><span>Drei Einträge mit name="attribute"</span><span>Live</span></figcaption>
+          <div class="demo-stage">
+            <div class="demo-accordion">
+              <details name="attribute" open>
+                <summary>name</summary>
+                <p>Einträge mit demselben Wert bilden eine Gruppe. Öffnet die Person einen Eintrag, schließt der Browser den offenen Eintrag der Gruppe.</p>
+              </details>
+              <details name="attribute">
+                <summary>open</summary>
+                <p>Der Eintrag ist offen. Der Browser setzt und entfernt das Attribut bei jedem Klick auf die Zeile summary.</p>
+              </details>
+              <details name="attribute">
+                <summary>summary</summary>
+                <p>Das erste Kind von details. Die Zeile ist ein Tab-Stopp und öffnet den Eintrag mit Enter oder Leertaste.</p>
+              </details>
+            </div>
+          </div>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="code">
+        <h2 id="code">Code</h2>
+        <figure class="code">
+          <figcaption>ueber.html (Auszug)</figcaption>
+          <pre tabindex="0"><code>&lt;details name="werkzeuge" open&gt;
+  &lt;summary&gt;Visual Studio Code&lt;/summary&gt;
+  &lt;p&gt;Editor für HTML und CSS mit Terminal und Source Control.&lt;/p&gt;
+&lt;/details&gt;
+&lt;details name="werkzeuge"&gt;
+  &lt;summary&gt;Chrome DevTools&lt;/summary&gt;
+  &lt;p&gt;Werkzeuge im Browser für DOM, Styles, Accessibility Tree und Netzwerk.&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="warum">
+        <h2 id="warum">Warum</h2>
+        <p>Ein Akkordeon zeigt von mehreren Einträgen nur den Titel. Der Inhalt erscheint auf Anfrage. Früher brauchte das JavaScript: ein Skript für das Öffnen und eines, das die übrigen Einträge schließt.</p>
+        <p>Das Element <code>&lt;details&gt;</code> übernimmt das Öffnen, das Attribut <code>name</code> das Schließen der übrigen Einträge. Enthalten zwei Einträge einer Gruppe schon im HTML das Attribut <code>open</code>, bleibt nur der erste offen.</p>
+        <p>Ein Akkordeon eignet sich für Inhalt, den nicht jede Person braucht. Inhalt, den jede Person lesen soll, steht offen auf der Seite.</p>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="barrierefreiheit">
+        <h2 id="barrierefreiheit">Barrierefreiheit</h2>
+        <ul>
+          <li>Die Zeile <code>&lt;summary&gt;</code> hat im Accessibility Tree den Zustand <code>expanded</code>. Screenreader nennen, ob der Eintrag offen ist.</li>
+          <li>Jede Zeile <code>&lt;summary&gt;</code> ist ein Tab-Stopp. Enter und Leertaste öffnen und schließen den Eintrag.</li>
+          <li>Der Inhalt eines geschlossenen Eintrags fehlt im Accessibility Tree.</li>
+        </ul>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="quellen">
+        <h2 id="quellen">Quellen</h2>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details">MDN – &lt;details&gt;</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/summary">MDN – &lt;summary&gt;</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Pager">
+        <a href="light-dark.html" rel="prev"><span class="pager-label">Zurück</span>Dark Mode mit light-dark()</a>
+        <a href="popover-menue.html" rel="next"><span class="pager-label">Weiter</span>Popover-Menü</a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>Toolbox · Bauteile für das Web · Inhalte geprüft gegen <a href="https://developer.mozilla.org/en-US/">MDN</a></p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Breadcrumbs – Toolbox</title>
+    <meta name="description" content="Breadcrumbs zeigen den Weg von der Startseite zur aktuellen Seite: eine geordnete Liste von Links in einer eigenen Navigation.">
+    <link rel="stylesheet" href="../assets/css/main.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="../index.html">Toolbox</a>
+      <button class="button menu-button" type="button" popovertarget="site-nav">Menü</button>
+    </header>
+
+    <nav id="site-nav" class="site-nav" popover aria-label="Toolbox">
+      <button class="button nav-close" type="button" popovertarget="site-nav" popovertargetaction="hide">Schließen</button>
+      <ul class="nav-groups">
+        <li>
+          <p class="nav-group-label" id="nav-start">Start</p>
+          <ul aria-labelledby="nav-start">
+            <li><a href="../index.html">Übersicht</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-struktur">Struktur</p>
+          <ul aria-labelledby="nav-struktur">
+            <li><a href="../patterns/html-grundgeruest.html">HTML-Grundgerüst</a></li>
+            <li><a href="../patterns/landmarks.html">Landmarks</a></li>
+            <li><a href="../patterns/ueberschriften.html">Überschriften-Hierarchie</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-text">Text</p>
+          <ul aria-labelledby="nav-text">
+            <li><a href="../patterns/listen.html">Listen</a></li>
+            <li><a href="../patterns/links.html">Links</a></li>
+            <li><a href="../patterns/tabellen.html">Tabellen</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-navigation">Navigation</p>
+          <ul aria-labelledby="nav-navigation">
+            <li><a href="../patterns/breadcrumbs.html" aria-current="page">Breadcrumbs</a></li>
+            <li><a href="../patterns/aktuelle-seite.html">Aktuelle Seite markieren</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-medien">Medien</p>
+          <ul aria-labelledby="nav-medien">
+            <li><a href="../patterns/bilder.html">Bilder</a></li>
+            <li><a href="../patterns/responsive-images.html">Responsive Images</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-formulare">Formulare</p>
+          <ul aria-labelledby="nav-formulare">
+            <li><a href="../patterns/label-fehlermeldung.html">Label und Fehlermeldung</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-css-architektur">CSS-Architektur</p>
+          <ul aria-labelledby="nav-css-architektur">
+            <li><a href="../patterns/cascade-layers.html">Cascade Layers</a></li>
+            <li><a href="../patterns/custom-properties.html">Custom Properties</a></li>
+            <li><a href="../patterns/progressive-enhancement.html">Progressive Enhancement</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-layout">Layout</p>
+          <ul aria-labelledby="nav-layout">
+            <li><a href="../patterns/flexbox.html">Flexbox</a></li>
+            <li><a href="../patterns/seitenlayout.html">Seitenlayout mit Grid</a></li>
+            <li><a href="../patterns/auto-fill-grid.html">Spalten ohne Media Query</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-responsive">Responsive</p>
+          <ul aria-labelledby="nav-responsive">
+            <li><a href="../patterns/media-queries.html">Media Queries</a></li>
+            <li><a href="../patterns/clamp.html">Größen mit clamp()</a></li>
+            <li><a href="../patterns/container-queries.html">Container Queries</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-design-system">Design-System</p>
+          <ul aria-labelledby="nav-design-system">
+            <li><a href="../patterns/design-tokens.html">Design-Tokens</a></li>
+            <li><a href="../patterns/oklch.html">Farben mit oklch()</a></li>
+            <li><a href="../patterns/light-dark.html">Dark Mode mit light-dark()</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-interaktion">Interaktion ohne JavaScript</p>
+          <ul aria-labelledby="nav-interaktion">
+            <li><a href="../patterns/akkordeon.html">Exklusives Akkordeon</a></li>
+            <li><a href="../patterns/popover-menue.html">Popover-Menü</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-barrierefreiheit">Barrierefreiheit</p>
+          <ul aria-labelledby="nav-barrierefreiheit">
+            <li><a href="../patterns/skip-link.html">Skip-Link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="inhalt">
+      <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ol>
+          <li><a href="../index.html">Toolbox</a></li>
+          <li><a href="../index.html#navigation">Navigation</a></li>
+          <li><a href="breadcrumbs.html" aria-current="page">Breadcrumbs</a></li>
+        </ol>
+      </nav>
+
+      <div class="pattern-head">
+        <h1>Breadcrumbs</h1>
+        <p class="lead">Breadcrumbs zeigen den Weg von der Startseite zur aktuellen Seite: eine geordnete Liste von Links in einer eigenen Navigation.</p>
+        <dl class="meta">
+          <dt>Kategorie</dt>
+          <dd>Navigation</dd>
+          <dt>Kapitel</dt>
+          <dd>Navigation &amp; mehrere Seiten</dd>
+        </dl>
+      </div>
+
+      <section class="pattern-section" aria-labelledby="demo">
+        <h2 id="demo">Demo</h2>
+        <figure class="demo">
+          <figcaption><span>Weg zur Seite „Landmarks“</span><span>Live</span></figcaption>
+          <div class="demo-stage">
+            <div class="demo-sheet">
+              <nav class="breadcrumb" aria-label="Beispiel für Breadcrumbs">
+                <ol>
+                  <li><a href="../index.html">Toolbox</a></li>
+                  <li><a href="../index.html#struktur">Struktur</a></li>
+                  <li><a href="landmarks.html">Landmarks</a></li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="code">
+        <h2 id="code">Code</h2>
+        <figure class="code">
+          <figcaption>patterns/landmarks.html</figcaption>
+          <pre tabindex="0"><code>&lt;nav aria-label="Breadcrumbs"&gt;
+  &lt;ol&gt;
+    &lt;li&gt;&lt;a href="../index.html"&gt;Toolbox&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="../index.html#struktur"&gt;Struktur&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="landmarks.html" aria-current="page"&gt;Landmarks&lt;/a&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="warum">
+        <h2 id="warum">Warum</h2>
+        <p>Die Main Navigation nennt die Ziele einer Website. Breadcrumbs nennen die Lage der aktuellen Seite: jede übergeordnete Seite von der Startseite bis zur Seite selbst. Die Reihenfolge der Links ist fest, deshalb ist die Liste ein <code>&lt;ol&gt;</code>. Jeder Link führt zu einer übergeordneten Seite.</p>
+        <p>Die Seite liegt im Ordner <code>patterns</code>. Die Pfade zur Startseite beginnen deshalb mit <code>../</code>. Der mittlere Link verbindet einen Pfad mit einem Anchor: <code>../index.html#struktur</code>.</p>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="barrierefreiheit">
+        <h2 id="barrierefreiheit">Barrierefreiheit</h2>
+        <ul>
+          <li>Eine Seite mit Breadcrumbs enthält mindestens zwei Elemente <code>&lt;nav&gt;</code>. Das Attribut <code>aria-label</code> gibt jeder Navigation einen Namen. Ohne Namen sind die Navigationen im Accessibility Tree nicht unterscheidbar.</li>
+          <li>Der Name enthält das Wort „Navigation“ nicht. Screenreader sagen die Rolle <code>navigation</code> zusätzlich zum Namen an.</li>
+          <li>Der letzte Link trägt <code>aria-current="page"</code>. Screenreader sagen ihn als aktuelle Seite an.</li>
+          <li>Die Trennzeichen zwischen den Links erzeugt das Style&shy;sheet. Sie stehen nicht im HTML und gehören nicht zum Inhalt der Liste.</li>
+        </ul>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="quellen">
+        <h2 id="quellen">Quellen</h2>
+        <ul>
+          <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/">W3C WAI – ARIA Authoring Practices: Breadcrumb Pattern</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/nav">MDN – The Navigation Section element</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/navigation_role">MDN – ARIA: navigation role</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Pager">
+        <a href="tabellen.html" rel="prev"><span class="pager-label">Zurück</span>Tabellen</a>
+        <a href="aktuelle-seite.html" rel="next"><span class="pager-label">Weiter</span>Aktuelle Seite markieren</a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>Toolbox · Bauteile für das Web · Inhalte geprüft gegen <a href="https://developer.mozilla.org/en-US/">MDN</a></p>
+    </footer>
+  </body>
+</html>

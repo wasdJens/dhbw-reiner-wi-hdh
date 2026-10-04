@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HTML-Grundgerüst – Toolbox</title>
+    <meta name="description" content="Das Minimum, das jede HTML-Seite braucht: Dokumenttyp, Sprache, Zeichensatz, Viewport und Titel.">
+    <link rel="stylesheet" href="../assets/css/main.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="../index.html">Toolbox</a>
+      <button class="button menu-button" type="button" popovertarget="site-nav">Menü</button>
+    </header>
+
+    <nav id="site-nav" class="site-nav" popover aria-label="Toolbox">
+      <button class="button nav-close" type="button" popovertarget="site-nav" popovertargetaction="hide">Schließen</button>
+      <ul class="nav-groups">
+        <li>
+          <p class="nav-group-label" id="nav-start">Start</p>
+          <ul aria-labelledby="nav-start">
+            <li><a href="../index.html">Übersicht</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-struktur">Struktur</p>
+          <ul aria-labelledby="nav-struktur">
+            <li><a href="../patterns/html-grundgeruest.html" aria-current="page">HTML-Grundgerüst</a></li>
+            <li><a href="../patterns/landmarks.html">Landmarks</a></li>
+            <li><a href="../patterns/ueberschriften.html">Überschriften-Hierarchie</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-text">Text</p>
+          <ul aria-labelledby="nav-text">
+            <li><a href="../patterns/listen.html">Listen</a></li>
+            <li><a href="../patterns/links.html">Links</a></li>
+            <li><a href="../patterns/tabellen.html">Tabellen</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-navigation">Navigation</p>
+          <ul aria-labelledby="nav-navigation">
+            <li><a href="../patterns/breadcrumbs.html">Breadcrumbs</a></li>
+            <li><a href="../patterns/aktuelle-seite.html">Aktuelle Seite markieren</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-medien">Medien</p>
+          <ul aria-labelledby="nav-medien">
+            <li><a href="../patterns/bilder.html">Bilder</a></li>
+            <li><a href="../patterns/responsive-images.html">Responsive Images</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-formulare">Formulare</p>
+          <ul aria-labelledby="nav-formulare">
+            <li><a href="../patterns/label-fehlermeldung.html">Label und Fehlermeldung</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-css-architektur">CSS-Architektur</p>
+          <ul aria-labelledby="nav-css-architektur">
+            <li><a href="../patterns/cascade-layers.html">Cascade Layers</a></li>
+            <li><a href="../patterns/custom-properties.html">Custom Properties</a></li>
+            <li><a href="../patterns/progressive-enhancement.html">Progressive Enhancement</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-layout">Layout</p>
+          <ul aria-labelledby="nav-layout">
+            <li><a href="../patterns/flexbox.html">Flexbox</a></li>
+            <li><a href="../patterns/seitenlayout.html">Seitenlayout mit Grid</a></li>
+            <li><a href="../patterns/auto-fill-grid.html">Spalten ohne Media Query</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-responsive">Responsive</p>
+          <ul aria-labelledby="nav-responsive">
+            <li><a href="../patterns/media-queries.html">Media Queries</a></li>
+            <li><a href="../patterns/clamp.html">Größen mit clamp()</a></li>
+            <li><a href="../patterns/container-queries.html">Container Queries</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-design-system">Design-System</p>
+          <ul aria-labelledby="nav-design-system">
+            <li><a href="../patterns/design-tokens.html">Design-Tokens</a></li>
+            <li><a href="../patterns/oklch.html">Farben mit oklch()</a></li>
+            <li><a href="../patterns/light-dark.html">Dark Mode mit light-dark()</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-interaktion">Interaktion ohne JavaScript</p>
+          <ul aria-labelledby="nav-interaktion">
+            <li><a href="../patterns/akkordeon.html">Exklusives Akkordeon</a></li>
+            <li><a href="../patterns/popover-menue.html">Popover-Menü</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-barrierefreiheit">Barrierefreiheit</p>
+          <ul aria-labelledby="nav-barrierefreiheit">
+            <li><a href="../patterns/skip-link.html">Skip-Link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="inhalt">
+      <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ol>
+          <li><a href="../index.html">Toolbox</a></li>
+          <li><a href="../index.html#struktur">Struktur</a></li>
+          <li><a href="html-grundgeruest.html" aria-current="page">HTML-Grundgerüst</a></li>
+        </ol>
+      </nav>
+
+      <div class="pattern-head">
+        <h1>HTML-Grundgerüst</h1>
+        <p class="lead">Das Minimum, das jede HTML-Seite braucht: Dokumenttyp, Sprache, Zeichensatz, Viewport und Titel.</p>
+        <dl class="meta">
+          <dt>Kategorie</dt>
+          <dd>Struktur</dd>
+          <dt>Kapitel</dt>
+          <dd>Das Skelett</dd>
+        </dl>
+      </div>
+
+      <section class="pattern-section" aria-labelledby="demo">
+        <h2 id="demo">Demo</h2>
+        <figure class="demo">
+          <figcaption><span>Zwei Teile einer Seite</span><span>Schema</span></figcaption>
+          <div class="demo-stage">
+            <div class="document-map">
+              <div>
+                <strong>&lt;head&gt;</strong> – unsichtbar
+                <ul>
+                  <li>Zeichensatz</li>
+                  <li>Viewport</li>
+                  <li>Titel im Tab</li>
+                  <li>Stylesheet</li>
+                </ul>
+              </div>
+              <div>
+                <strong>&lt;body&gt;</strong> – sichtbar
+                <ul>
+                  <li>Header und Navigation</li>
+                  <li>Hauptinhalt</li>
+                  <li>Footer</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="code">
+        <h2 id="code">Code</h2>
+        <figure class="code">
+          <figcaption>index.html</figcaption>
+          <pre tabindex="0"><code>&lt;!doctype html&gt;
+&lt;html lang="de"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;title&gt;Toolbox&lt;/title&gt;
+    &lt;link rel="stylesheet" href="assets/css/main.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- sichtbarer Inhalt --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="warum">
+        <h2 id="warum">Warum</h2>
+        <p>Der <code>&lt;head&gt;</code> spricht mit Browser, Suchmaschine und Screenreader, der <code>&lt;body&gt;</code> mit den Menschen vor dem Bildschirm. Fehlt eine der Angaben im <code>&lt;head&gt;</code>, sieht die Seite oft trotzdem richtig aus – bis sie auf einem Smartphone, in einer Übersetzung oder mit einem Screenreader genutzt wird.</p>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="barrierefreiheit">
+        <h2 id="barrierefreiheit">Barrierefreiheit</h2>
+        <ul>
+          <li><code>lang="de"</code> sorgt dafür, dass Screenreader mit deutscher Aussprache vorlesen.</li>
+          <li>Der <code>&lt;title&gt;</code> ist das Erste, was ein Screenreader beim Laden einer Seite ansagt.</li>
+          <li>Den Viewport nie mit <code>user-scalable=no</code> sperren – Zoomen muss möglich bleiben.</li>
+        </ul>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="quellen">
+        <h2 id="quellen">Quellen</h2>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax">MDN – Basic HTML syntax</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata">MDN – Web page metadata</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Pager">
+        <a href="landmarks.html" rel="next"><span class="pager-label">Weiter</span>Landmarks</a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>Toolbox · Bauteile für das Web · Inhalte geprüft gegen <a href="https://developer.mozilla.org/en-US/">MDN</a></p>
+    </footer>
+  </body>
+</html>

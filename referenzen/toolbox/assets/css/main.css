@@ -1,0 +1,14 @@
+/* ==========================================================================
+   main.css – Einstiegspunkt. Die HTML-Seiten binden nur diese Datei ein.
+
+   @layer legt die Reihenfolge fest: Spätere Ebenen gewinnen gegen frühere,
+   egal wie spezifisch ein Selektor ist. So gibt es keine !important-Kriege.
+   ========================================================================== */
+
+@layer tokens, base, layout, components, overrides;
+
+@import url("tokens.css") layer(tokens);
+@import url("base.css") layer(base);
+@import url("layout.css") layer(layout);
+@import url("components.css") layer(components);
+@import url("overrides.css") layer(overrides);

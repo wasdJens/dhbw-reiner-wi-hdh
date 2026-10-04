@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Popover-Menü – Toolbox</title>
+    <meta name="description" content="Unter 64rem öffnet ein Button die Navigation als Popover: ohne JavaScript, mit Escape und Klick daneben zu schließen.">
+    <link rel="stylesheet" href="../assets/css/main.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="../index.html">Toolbox</a>
+      <button class="button menu-button" type="button" popovertarget="site-nav">Menü</button>
+    </header>
+
+    <nav id="site-nav" class="site-nav" popover aria-label="Toolbox">
+      <button class="button nav-close" type="button" popovertarget="site-nav" popovertargetaction="hide">Schließen</button>
+      <ul class="nav-groups">
+        <li>
+          <p class="nav-group-label" id="nav-start">Start</p>
+          <ul aria-labelledby="nav-start">
+            <li><a href="../index.html">Übersicht</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-struktur">Struktur</p>
+          <ul aria-labelledby="nav-struktur">
+            <li><a href="../patterns/html-grundgeruest.html">HTML-Grundgerüst</a></li>
+            <li><a href="../patterns/landmarks.html">Landmarks</a></li>
+            <li><a href="../patterns/ueberschriften.html">Überschriften-Hierarchie</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-text">Text</p>
+          <ul aria-labelledby="nav-text">
+            <li><a href="../patterns/listen.html">Listen</a></li>
+            <li><a href="../patterns/links.html">Links</a></li>
+            <li><a href="../patterns/tabellen.html">Tabellen</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-navigation">Navigation</p>
+          <ul aria-labelledby="nav-navigation">
+            <li><a href="../patterns/breadcrumbs.html">Breadcrumbs</a></li>
+            <li><a href="../patterns/aktuelle-seite.html">Aktuelle Seite markieren</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-medien">Medien</p>
+          <ul aria-labelledby="nav-medien">
+            <li><a href="../patterns/bilder.html">Bilder</a></li>
+            <li><a href="../patterns/responsive-images.html">Responsive Images</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-formulare">Formulare</p>
+          <ul aria-labelledby="nav-formulare">
+            <li><a href="../patterns/label-fehlermeldung.html">Label und Fehlermeldung</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-css-architektur">CSS-Architektur</p>
+          <ul aria-labelledby="nav-css-architektur">
+            <li><a href="../patterns/cascade-layers.html">Cascade Layers</a></li>
+            <li><a href="../patterns/custom-properties.html">Custom Properties</a></li>
+            <li><a href="../patterns/progressive-enhancement.html">Progressive Enhancement</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-layout">Layout</p>
+          <ul aria-labelledby="nav-layout">
+            <li><a href="../patterns/flexbox.html">Flexbox</a></li>
+            <li><a href="../patterns/seitenlayout.html">Seitenlayout mit Grid</a></li>
+            <li><a href="../patterns/auto-fill-grid.html">Spalten ohne Media Query</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-responsive">Responsive</p>
+          <ul aria-labelledby="nav-responsive">
+            <li><a href="../patterns/media-queries.html">Media Queries</a></li>
+            <li><a href="../patterns/clamp.html">Größen mit clamp()</a></li>
+            <li><a href="../patterns/container-queries.html">Container Queries</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-design-system">Design-System</p>
+          <ul aria-labelledby="nav-design-system">
+            <li><a href="../patterns/design-tokens.html">Design-Tokens</a></li>
+            <li><a href="../patterns/oklch.html">Farben mit oklch()</a></li>
+            <li><a href="../patterns/light-dark.html">Dark Mode mit light-dark()</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-interaktion">Interaktion ohne JavaScript</p>
+          <ul aria-labelledby="nav-interaktion">
+            <li><a href="../patterns/akkordeon.html">Exklusives Akkordeon</a></li>
+            <li><a href="../patterns/popover-menue.html" aria-current="page">Popover-Menü</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-barrierefreiheit">Barrierefreiheit</p>
+          <ul aria-labelledby="nav-barrierefreiheit">
+            <li><a href="../patterns/skip-link.html">Skip-Link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="inhalt">
+      <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ol>
+          <li><a href="../index.html">Toolbox</a></li>
+          <li><a href="../index.html#interaktion">Interaktion ohne JavaScript</a></li>
+          <li><a href="popover-menue.html" aria-current="page">Popover-Menü</a></li>
+        </ol>
+      </nav>
+
+      <div class="pattern-head">
+        <h1>Popover-Menü</h1>
+        <p class="lead">Unter 64rem öffnet der Button „Menü“ die Navigation dieser Seite als Popover. Der Browser übernimmt das Öffnen, das Schließen mit Escape oder mit einem Klick neben das Menü und die Reihenfolge des Fokus. Die Seite enthält kein JavaScript.</p>
+        <dl class="meta">
+          <dt>Kategorie</dt>
+          <dd>Interaktion ohne JavaScript</dd>
+          <dt>Kapitel</dt>
+          <dd>Interaktion ohne JavaScript</dd>
+        </dl>
+      </div>
+
+      <section class="pattern-section" aria-labelledby="demo">
+        <h2 id="demo">Demo</h2>
+        <figure class="demo">
+          <figcaption><span>Ein Popover mit der Position des Browsers</span><span>Live</span></figcaption>
+          <div class="demo-stage">
+            <p><button class="button" type="button" popovertarget="demo-popover">Popover öffnen</button></p>
+            <div id="demo-popover" class="demo-popover" popover>
+              <p>Das Popover liegt über der Seite. Escape oder ein Klick neben das Popover schließt es.</p>
+              <p><button class="button" type="button" popovertarget="demo-popover" popovertargetaction="hide">Schließen</button></p>
+            </div>
+          </div>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="code">
+        <h2 id="code">Code</h2>
+        <figure class="code">
+          <figcaption>index.html (Auszug)</figcaption>
+          <pre tabindex="0"><code>&lt;button type="button" popovertarget="site-nav"&gt;Menü&lt;/button&gt;
+
+&lt;nav id="site-nav" popover aria-label="Toolbox"&gt;
+  &lt;button type="button" popovertarget="site-nav" popovertargetaction="hide"&gt;Schließen&lt;/button&gt;
+  …
+&lt;/nav&gt;</code></pre>
+        </figure>
+        <figure class="code">
+          <figcaption>layout.css (Auszug)</figcaption>
+          <pre tabindex="0"><code>html:has(.site-nav:popover-open) {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .site-nav {
+    translate: -100% 0;
+    transition:
+      translate var(--duration-menu),
+      display var(--duration-menu) allow-discrete,
+      overlay var(--duration-menu) allow-discrete;
+  }
+
+  .site-nav:popover-open {
+    translate: 0;
+  }
+
+  @starting-style {
+    .site-nav:popover-open {
+      translate: -100% 0;
+    }
+  }
+}</code></pre>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="warum">
+        <h2 id="warum">Warum</h2>
+        <p>Das Attribut <code>popover</code> macht ein Element zum Popover. Der Browser stellt es nicht dar, bis ein Button mit <code>popovertarget</code> es öffnet. Das offene Popover liegt über allen anderen Elementen der Seite. Escape und ein Klick daneben schließen es.</p>
+        <p>Der Browser gibt jedem Popover Standardwerte, zum Beispiel <code>position: fixed</code> und einen Rahmen. Ab 64rem überschreibt der Block <code>@media</code> diese Werte: Die Navigation steht dann als Sidebar in ihrer Spalte des Grids.</p>
+        <p><code>:has()</code> trifft ein Element, wenn ein Nachfahre dem Selektor in den Klammern entspricht. <code>html:has(.site-nav:popover-open)</code> trifft das Element <code>&lt;html&gt;</code>, solange das Menü offen ist. Die Seite dahinter scrollt dann nicht.</p>
+        <p>Beim Öffnen wechselt <code>display</code> von <code>none</code> auf <code>block</code>. Ein Element ohne Darstellung hat keinen Wert, von dem eine Transition ausgeht. <code>@starting-style</code> legt diesen Startwert fest. <code>allow-discrete</code> verzögert beim Schließen den Wechsel von <code>display</code> und <code>overlay</code> bis zum Ende der Transition.</p>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="barrierefreiheit">
+        <h2 id="barrierefreiheit">Barrierefreiheit</h2>
+        <ul>
+          <li>Der Button hat im Accessibility Tree den Zustand <code>expanded</code>. Screenreader nennen, ob das Menü offen ist.</li>
+          <li>Nach dem Öffnen führt <code>Tab</code> vom Button in das Menü. Escape schließt es und setzt den Fokus zurück auf den Button.</li>
+          <li>Ein geschlossenes Menü fehlt im Accessibility Tree und in der Reihenfolge von <code>Tab</code>.</li>
+          <li>Hat die Person im System Bewegung reduziert, erscheint das Menü ohne Bewegung.</li>
+        </ul>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="quellen">
+        <h2 id="quellen">Quellen</h2>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API">MDN – Popover API</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has">MDN – :has()</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@starting-style">MDN – @starting-style</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion">MDN – prefers-reduced-motion</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Pager">
+        <a href="akkordeon.html" rel="prev"><span class="pager-label">Zurück</span>Exklusives Akkordeon</a>
+        <a href="skip-link.html" rel="next"><span class="pager-label">Weiter</span>Skip-Link</a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>Toolbox · Bauteile für das Web · Inhalte geprüft gegen <a href="https://developer.mozilla.org/en-US/">MDN</a></p>
+    </footer>
+  </body>
+</html>

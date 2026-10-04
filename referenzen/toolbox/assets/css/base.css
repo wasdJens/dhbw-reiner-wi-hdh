@@ -1,0 +1,317 @@
+/* ==========================================================================
+   base.css – Schriften, Reset und HTML-Elemente ohne Klassen
+
+   Alles hier gilt für nackte HTML-Elemente. Eine Seite, die nur base.css
+   lädt, ist bereits gut lesbar.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Schriften – selbst gehostet
+   Kein Aufruf an fremde Server: datenschutzfreundlich und offline nutzbar.
+   Lizenz: SIL Open Font License (siehe assets/fonts/OFL-*.txt)
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("../fonts/instrument-sans-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("../fonts/instrument-sans-italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("../fonts/instrument-sans-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../fonts/jetbrains-mono-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../fonts/jetbrains-mono-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------------------
+   Reset – Browser-Standards vereinheitlichen
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  /* Verhindert horizontales Scrollen, ohne position: sticky zu brechen. */
+  overflow-x: clip;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-inline-size: 100%;
+}
+
+/* Die Höhe folgt der Breite: Bilder mit den Attributen width und height
+   behalten ihr Seitenverhältnis, wenn der Platz schmaler ist als das Bild. */
+img,
+video {
+  block-size: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   Dokument
+   -------------------------------------------------------------------------- */
+html {
+  font-family: var(--font-body);
+  font-size: 100%;
+  line-height: var(--leading-body);
+  color: var(--color-ink);
+  background-color: var(--color-paper);
+  hyphens: auto;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-size: var(--text-base);
+  overflow-x: clip;
+}
+
+/* --------------------------------------------------------------------------
+   Überschriften – Mono, fett, nie kursiv
+   -------------------------------------------------------------------------- */
+h1,
+h2,
+h3 {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  hyphens: manual;
+  overflow-wrap: anywhere;
+}
+
+h1 {
+  font-size: var(--text-display);
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  font-size: var(--text-xl);
+}
+
+h3 {
+  font-size: var(--text-lg);
+}
+
+/* --------------------------------------------------------------------------
+   Text
+   -------------------------------------------------------------------------- */
+p,
+li,
+dd {
+  max-inline-size: var(--content-width);
+}
+
+strong {
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-thickness: 0.2em;
+}
+
+/* Sichtbarer Fokus – erscheint sofort, ohne Animation. */
+:focus-visible {
+  outline: var(--focus-width) solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-ink);
+}
+
+/* --------------------------------------------------------------------------
+   Code
+   -------------------------------------------------------------------------- */
+code,
+kbd,
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+:not(pre) > code {
+  /* Code erhält keine Trennstriche. */
+  hyphens: manual;
+  padding-inline: var(--space-2xs);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-paper-2);
+  box-decoration-break: clone;
+}
+
+pre {
+  overflow-x: auto;
+  tab-size: 2;
+  line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   Tabellen – Hairline unter jeder Zeile, Caption in Mono über der Tabelle
+   -------------------------------------------------------------------------- */
+table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+caption {
+  padding-block-end: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  text-align: start;
+}
+
+th,
+td {
+  padding: var(--space-xs) var(--space-sm) var(--space-xs) 0;
+  border-block-end: var(--rule-width) solid var(--color-rule);
+  text-align: start;
+  vertical-align: top;
+}
+
+/* Header-Zellen der Spalten: Linie in Textfarbe */
+thead th {
+  border-block-end-color: var(--color-ink);
+}
+
+/* --------------------------------------------------------------------------
+   Formulare – Label über dem Feld, Gruppe mit Hairline
+   -------------------------------------------------------------------------- */
+/* Ein Label direkt vor seinem Feld steht über dem Feld. */
+label:has(+ input) {
+  display: block;
+  font-weight: 700;
+}
+
+input:not([type="radio"], [type="checkbox"]) {
+  inline-size: 100%;
+  max-inline-size: 24rem;
+  padding: var(--space-xs) var(--space-sm);
+  border: var(--rule-width) solid var(--color-ink);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-paper);
+}
+
+/* Ungültige Eingabe: Balken in Akzentfarbe am Anfang des Felds.
+   :user-invalid trifft erst zu, nachdem die Person das Feld bearbeitet
+   oder das Formular abgesendet hat – :invalid schon beim Laden. */
+input:user-invalid {
+  border-color: var(--color-accent);
+  border-inline-start-width: var(--space-xs);
+  padding-inline-start: calc(var(--space-sm) - var(--space-xs) + var(--rule-width));
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-inline-end: var(--space-2xs);
+  accent-color: var(--color-accent);
+}
+
+fieldset {
+  min-inline-size: 0;
+  max-inline-size: 24rem;
+  padding: var(--space-sm) var(--space-md);
+  border: var(--rule-width) solid var(--color-rule);
+  border-radius: var(--radius-sm);
+}
+
+fieldset > * + * {
+  margin-block-start: var(--space-2xs);
+}
+
+legend {
+  padding-inline: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Akkordeon: Hairline über jedem Eintrag, summary in Mono
+   -------------------------------------------------------------------------- */
+details {
+  padding-block-start: var(--space-sm);
+  border-block-start: var(--rule-width) solid var(--color-rule);
+}
+
+summary {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+details > * + * {
+  margin-block-start: var(--space-xs);
+}
+
+/* --------------------------------------------------------------------------
+   Listen & Trennlinien
+   -------------------------------------------------------------------------- */
+ul,
+ol {
+  padding-inline-start: var(--space-lg);
+}
+
+li + li {
+  margin-block-start: var(--space-2xs);
+}
+
+hr {
+  border: 0;
+  border-block-start: var(--rule-width) solid var(--color-rule);
+}

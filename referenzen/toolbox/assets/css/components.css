@@ -1,0 +1,687 @@
+/* ==========================================================================
+   components.css – wiederverwendbare Bausteine
+
+   Jede Komponente hat eine Klasse, benannt nach ihrer Aufgabe – nie nach
+   ihrem Aussehen (.demo, nicht .orange-box). Jede Komponente ist selbst
+   ein Eintrag in der Toolbox.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Button (Menü öffnen / schließen)
+   -------------------------------------------------------------------------- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border: var(--rule-width) solid var(--color-ink);
+  border-radius: var(--radius-sm);
+  background-color: transparent;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--color-paper-2);
+}
+
+.button:active {
+  translate: 0 1px;
+}
+
+/* Menü-Buttons nur mobil. Steht hier (Ebene components) und nicht in
+   layout.css, weil .button sonst display: inline-flex durchsetzt. */
+@media (width >= 64rem) {
+  .menu-button,
+  .nav-close {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Seitennavigation: Gruppen und aktuelle Seite
+   -------------------------------------------------------------------------- */
+.nav-close {
+  margin-block-end: var(--space-lg);
+}
+
+.nav-groups,
+.nav-groups ul {
+  padding: 0;
+  list-style: none;
+}
+
+.nav-groups > li + li {
+  margin-block-start: var(--space-lg);
+}
+
+.nav-group-label {
+  margin-block-end: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+
+.nav-groups a {
+  display: block;
+  padding-block: var(--space-2xs);
+  text-decoration: none;
+}
+
+.nav-groups a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+}
+
+/* Aktuelle Seite: fett + Markierung in Akzentfarbe (nicht nur Farbe). */
+.nav-groups a[aria-current="page"],
+.demo-nav a[aria-current="page"] {
+  font-weight: 700;
+}
+
+.nav-groups a[aria-current="page"]::before,
+.demo-nav a[aria-current="page"]::before {
+  content: "";
+  display: inline-block;
+  inline-size: 0.5em;
+  block-size: 0.5em;
+  margin-inline-end: var(--space-xs);
+  background-color: var(--color-accent);
+}
+
+.nav-planned {
+  padding-block: var(--space-2xs);
+  color: var(--color-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Breadcrumbs
+   -------------------------------------------------------------------------- */
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs) var(--space-xs);
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+
+.breadcrumb li + li {
+  margin-block-start: 0;
+}
+
+.breadcrumb li + li::before {
+  content: "/";
+  margin-inline-end: var(--space-xs);
+}
+
+.breadcrumb a {
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Pattern-Header: Titel, Einleitung, Metadaten
+   -------------------------------------------------------------------------- */
+.pattern-head {
+  display: grid;
+  gap: var(--space-md);
+  margin-block: var(--space-lg) var(--space-xl);
+}
+
+.lead {
+  font-size: var(--text-lg);
+  line-height: 1.5;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: var(--space-2xs) var(--space-lg);
+  padding-block: var(--space-sm);
+  border-block: var(--rule-width) solid var(--color-rule);
+  font-size: var(--text-sm);
+}
+
+.meta dt {
+  font-family: var(--font-mono);
+  color: var(--color-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Abschnitte einer Pattern-Seite
+   -------------------------------------------------------------------------- */
+.pattern-section + .pattern-section {
+  margin-block-start: var(--space-2xl);
+}
+
+.pattern-section > * + * {
+  margin-block-start: var(--space-md);
+}
+
+/* --------------------------------------------------------------------------
+   Demo-Fläche
+   Punktraster wie auf einer Schneidematte. Kein nachgebautes Browserfenster.
+   -------------------------------------------------------------------------- */
+.demo {
+  border: var(--rule-width) solid var(--color-rule);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-paper-2);
+  background-image: radial-gradient(var(--color-grid) 1px, transparent 1.5px);
+  background-size: var(--grid-size) var(--grid-size);
+  background-position: calc(var(--grid-size) / 2) calc(var(--grid-size) / 2);
+}
+
+.demo > figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-xs) var(--space-md);
+  border-block-end: var(--rule-width) solid var(--color-rule);
+  background-color: var(--color-paper-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+
+.demo-stage {
+  padding: clamp(var(--space-md), 5vw, var(--space-xl));
+}
+
+/* --------------------------------------------------------------------------
+   Code-Block: Dateiname oben in Akzent als Textfarbe, Linien statt Fensterrahmen
+   -------------------------------------------------------------------------- */
+.code {
+  border-block: var(--rule-width) solid var(--color-rule);
+}
+
+.code > figcaption {
+  padding-block: var(--space-xs);
+  border-block-end: var(--rule-width) dashed var(--color-rule);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-accent-text);
+}
+
+.code pre {
+  padding-block: var(--space-md);
+  font-size: var(--text-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Pattern-Liste (Startseite): Einträge in Spalten
+   Die Spaltenzahl folgt dem Platz im Container, ohne Media Query.
+   Die Form folgt der Breite des Query Containers (Container Query).
+   -------------------------------------------------------------------------- */
+.pattern-list {
+  display: grid;
+  gap: var(--space-2xs);
+  padding: 0;
+  list-style: none;
+}
+
+.pattern-list > li {
+  margin: 0;
+}
+
+/* Ab 16rem Breite des Query Containers: Spalten, Hairline, Titel in Mono */
+@container (width >= 16rem) {
+  .pattern-list {
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .pattern-list > li {
+    padding-block-start: var(--space-sm);
+    border-block-start: var(--rule-width) solid var(--color-rule);
+  }
+
+  .pattern-list .pattern-title {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+}
+
+.pattern-list p {
+  margin-block-start: var(--space-2xs);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+
+.pattern-list .is-planned .pattern-title {
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Pager: vorheriges / nächstes Pattern
+   -------------------------------------------------------------------------- */
+.pager {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: var(--space-md);
+  margin-block-start: var(--space-3xl);
+}
+
+.pager a {
+  display: grid;
+  gap: var(--space-3xs);
+  padding: var(--space-md);
+  border: var(--rule-width) solid var(--color-rule);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}
+
+.pager a:hover {
+  border-color: var(--color-ink);
+}
+
+.pager a[rel="next"] {
+  text-align: end;
+}
+
+.pager-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+
+/* ==========================================================================
+   Demo-Inhalte einzelner Patterns
+   ========================================================================== */
+
+/* Blatt für Live-Inhalte: Text, Listen und Links auf Papier statt auf dem Raster */
+.demo-sheet {
+  display: grid;
+  gap: var(--space-md);
+  max-inline-size: 32rem;
+  padding: var(--space-md);
+  border: var(--rule-width) solid var(--color-ink);
+  background-color: var(--color-paper);
+}
+
+.demo-sheet dt {
+  font-weight: 700;
+}
+
+.demo-sheet dd {
+  padding-inline-start: var(--space-lg);
+}
+
+/* Landmarks: schematische Seite mit Rollen */
+.landmark-map {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas:
+    "banner  banner"
+    "nav     main"
+    "footer  footer";
+  gap: var(--space-xs);
+  max-inline-size: 32rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.landmark-map > div {
+  display: grid;
+  align-content: start;
+  gap: var(--space-3xs);
+  min-block-size: 3.5rem;
+  padding: var(--space-xs) var(--space-sm);
+  border: var(--rule-width) solid var(--color-ink);
+  background-color: var(--color-paper);
+}
+
+.landmark-map > div:nth-child(1) { grid-area: banner; }
+.landmark-map > div:nth-child(2) { grid-area: nav; }
+.landmark-map > div:nth-child(3) { grid-area: main; min-block-size: 8rem; }
+.landmark-map > div:nth-child(4) { grid-area: footer; }
+
+.landmark-map .role {
+  color: var(--color-accent-text);
+}
+
+/* Grundgerüst: head und body nebeneinander */
+.document-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: var(--space-xs);
+  max-inline-size: 32rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.document-map > div {
+  padding: var(--space-sm);
+  border: var(--rule-width) solid var(--color-ink);
+  background-color: var(--color-paper);
+}
+
+.document-map > div:first-child {
+  border-style: dashed;
+}
+
+.document-map ul {
+  margin-block-start: var(--space-xs);
+  padding-inline-start: var(--space-md);
+}
+
+/* Aktuelle Seite markieren: Navigation als Zeile von Links */
+.demo-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs) var(--space-lg);
+  padding: 0;
+  list-style: none;
+}
+
+.demo-nav li + li {
+  margin-block-start: 0;
+}
+
+.demo-nav a {
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.demo-nav a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+}
+
+/* Bilder: Bild mit Caption */
+.demo-figure img {
+  outline: var(--rule-width) solid var(--color-rule);
+}
+
+.demo-figure figcaption {
+  margin-block-start: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+
+/* Label und Fehlermeldung: Abstand zwischen Feld, Gruppe und Button */
+.demo-form {
+  display: grid;
+  gap: var(--space-md);
+}
+
+/* Flexbox: zwei Items in einem Flex-Container */
+.flex-map {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs) var(--space-lg);
+  max-inline-size: 32rem;
+  padding: var(--space-sm);
+  border: var(--rule-width) solid var(--color-ink);
+  background-color: var(--color-paper);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.flex-map > div {
+  padding: var(--space-xs) var(--space-sm);
+  border: var(--rule-width) dashed var(--color-ink);
+}
+
+/* Seitenlayout mit Grid: schematische Seite mit drei Grid Areas */
+.layout-map {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  gap: var(--space-xs);
+  max-inline-size: 32rem;
+  min-block-size: 16rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.layout-map > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: start;
+  gap: var(--space-3xs) var(--space-md);
+  padding: var(--space-xs) var(--space-sm);
+  border: var(--rule-width) solid var(--color-ink);
+  background-color: var(--color-paper);
+}
+
+.layout-map > div:nth-child(1) { grid-area: header; }
+.layout-map > div:nth-child(2) { grid-area: main; }
+.layout-map > div:nth-child(3) { grid-area: footer; }
+
+.layout-map .role {
+  color: var(--color-accent-text);
+}
+
+/* Spalten ohne Media Query: Die Spaltenzahl folgt dem Platz */
+.column-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  gap: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.column-map > div {
+  padding: var(--space-sm);
+  border: var(--rule-width) solid var(--color-ink);
+  background-color: var(--color-paper);
+}
+
+/* Media Queries: schematische Seite, die dem Viewport folgt */
+.breakpoint-map {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  gap: var(--space-xs);
+  max-inline-size: 32rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.breakpoint-map > div {
+  padding: var(--space-xs) var(--space-sm);
+  border: var(--rule-width) solid var(--color-ink);
+  background-color: var(--color-paper);
+}
+
+.breakpoint-map > div:nth-child(1) { grid-area: header; }
+.breakpoint-map > div:nth-child(2) { grid-area: nav; display: none; }
+.breakpoint-map > div:nth-child(3) { grid-area: main; min-block-size: 6rem; }
+.breakpoint-map > div:nth-child(4) { grid-area: footer; }
+
+.breakpoint-map .role {
+  display: block;
+  color: var(--color-accent-text);
+}
+
+@media (width >= 64rem) {
+  .breakpoint-map {
+    grid-template-columns: 8rem minmax(0, 1fr);
+    grid-template-areas:
+      "header header"
+      "nav    main"
+      "nav    footer";
+  }
+
+  .breakpoint-map > div:nth-child(2) {
+    display: block;
+  }
+}
+
+/* Größen mit clamp(): Beispieltext in der Größe der Hauptüberschrift */
+.clamp-sample {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: var(--text-display);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.04em;
+}
+
+/* Container Queries: dieselbe Liste in zwei Query Containern */
+.container-map {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.container-map > div {
+  container-type: inline-size;
+  padding: var(--space-sm);
+  border: var(--rule-width) solid var(--color-ink);
+  background-color: var(--color-paper);
+}
+
+.container-map > div:first-child {
+  max-inline-size: 14rem;
+}
+
+.container-map .role {
+  margin-block-end: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-accent-text);
+}
+
+/* Farben mit oklch(): Markierung und Text in den zwei Tokens der Akzentfarbe */
+.color-sample {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+.color-sample .mark {
+  display: inline-block;
+  inline-size: 0.6em;
+  block-size: 0.6em;
+  margin-inline-end: var(--space-xs);
+  background-color: var(--color-accent);
+}
+
+.color-sample .role {
+  color: var(--color-accent-text);
+}
+
+/* Dark Mode mit light-dark(): dieselben Tokens in zwei Color Schemes.
+   Der Browser wertet light-dark() an dem Element aus, das die Farbe verwendet. */
+.scheme-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: var(--space-md);
+}
+
+.scheme-map > div {
+  display: grid;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  border: var(--rule-width) solid var(--color-ink);
+  color: var(--color-ink);
+  background-color: var(--color-paper);
+}
+
+.scheme-map > div:nth-child(1) { color-scheme: light; }
+.scheme-map > div:nth-child(2) { color-scheme: dark; }
+
+.scheme-map .role {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-accent-text);
+}
+
+/* Progressive Enhancement: ein Token mit einer Funktion, die kein Browser kennt.
+   lite-dark() verhält sich wie light-dark() in einem Browser ohne das Feature. */
+.fallback-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: var(--space-md);
+}
+
+.fallback-map > div {
+  --demo-paper: lite-dark(var(--color-paper), var(--color-ink));
+  display: grid;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  border: var(--rule-width) solid var(--color-ink);
+  background-color: var(--demo-paper);
+}
+
+@supports not (color: lite-dark(white, black)) {
+  .fallback-map > div:nth-child(2) {
+    --demo-paper: var(--color-paper);
+  }
+}
+
+.fallback-map .role {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+/* Popover-Menü: ein Popover mit der Position des Browsers (Mitte des Viewports).
+   margin: auto stellt die Vorgabe des Browsers wieder her, den * { margin: 0 } überschreibt. */
+.demo-popover {
+  margin: auto;
+  max-inline-size: min(22rem, 90vw);
+  padding: var(--space-md);
+  border: var(--rule-width) solid var(--color-ink);
+  border-radius: var(--radius-sm);
+  color: var(--color-ink);
+  background-color: var(--color-paper);
+}
+
+.demo-popover > * + * {
+  margin-block-start: var(--space-sm);
+}
+
+/* Exklusives Akkordeon: Einträge auf Papier, damit das Punktraster den Text nicht stört */
+.demo-accordion {
+  max-inline-size: 32rem;
+  padding: var(--space-xs) var(--space-md) var(--space-sm);
+  background-color: var(--color-paper);
+}
+
+.demo-accordion details:first-child {
+  border-block-start: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Skip-Link – erster Tab-Stopp jeder Seite, sichtbar nur mit Fokus
+   -------------------------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  inset-block-start: var(--space-xs);
+  inset-inline-start: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  color: var(--color-paper);
+  background-color: var(--color-ink);
+  translate: 0 -200%;
+}
+
+.skip-link:focus-visible {
+  translate: none;
+}
+
+/* Demo: Der Skip-Link steht innerhalb der Fläche, nicht am Rand der Seite. */
+.demo-skip {
+  position: relative;
+  overflow: clip;
+  background-color: var(--color-paper);
+}
+
+/* Platz über dem Text für den eingeblendeten Link */
+.demo-skip > p {
+  margin-block-start: var(--space-xl);
+}

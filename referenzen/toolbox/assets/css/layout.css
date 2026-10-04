@@ -1,0 +1,170 @@
+/* ==========================================================================
+   layout.css – das Seitengerüst: Header, Sidebar, Inhalt, Footer
+
+   Mobile-first: Header / Inhalt / Footer untereinander, Navigation als Popover.
+   ≥ 64rem:      Sidebar links, Inhalt rechts.
+   Der Abstand des Inhalts zum Rand wächst mit clamp() (--space-page).
+   ========================================================================== */
+
+body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-rows: auto 1fr auto;
+  min-block-size: 100dvh;
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+.site-header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-block-end: var(--rule-width) solid var(--color-rule);
+}
+
+.wordmark {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: var(--text-lg);
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Kleines Quadrat in Akzentfarbe – das einzige „Logo“. */
+.wordmark::before {
+  content: "";
+  display: inline-block;
+  inline-size: 0.6em;
+  block-size: 0.6em;
+  margin-inline-end: var(--space-xs);
+  background-color: var(--color-accent);
+}
+
+/* --------------------------------------------------------------------------
+   Navigation
+   Mobil ist sie ein Popover am linken Rand (öffnet über den Menü-Button,
+   ohne JS). Die Maße stehen in der Grundregel, nicht in :popover-open:
+   So behält das Menü beim Schließen seine Größe.
+   -------------------------------------------------------------------------- */
+.site-nav {
+  grid-area: nav;
+  inset: 0 auto 0 0;
+  inline-size: min(20rem, 85vw);
+  block-size: 100dvh;
+  margin: 0;
+  padding: var(--space-md);
+  overflow-y: auto;
+  border: 0;
+  border-inline-end: var(--rule-width) solid var(--color-rule);
+  font-size: var(--text-sm);
+  color: var(--color-ink);
+  background-color: var(--color-paper);
+}
+
+.site-nav::backdrop {
+  background-color: var(--color-backdrop);
+}
+
+/* Bei offenem Menü scrollt die Seite dahinter nicht. */
+html:has(.site-nav:popover-open) {
+  overflow: hidden;
+}
+
+/* Das Menü fährt von links ein – nur, wenn die Person Bewegung nicht reduziert. */
+@media (prefers-reduced-motion: no-preference) {
+  .site-nav {
+    translate: -100% 0;
+    transition:
+      translate var(--duration-menu),
+      display var(--duration-menu) allow-discrete,
+      overlay var(--duration-menu) allow-discrete;
+  }
+
+  .site-nav:popover-open {
+    translate: 0;
+  }
+
+  /* Startwert der Transition */
+  @starting-style {
+    .site-nav:popover-open {
+      translate: -100% 0;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Inhalt
+   -------------------------------------------------------------------------- */
+/* main ist ein Query Container: Die Pattern-Liste fragt seine Breite ab. */
+main {
+  grid-area: main;
+  container-type: inline-size;
+  padding: var(--space-xl) var(--space-page) var(--space-2xl);
+}
+
+main > * {
+  max-inline-size: var(--content-width);
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  grid-area: footer;
+  padding: var(--space-lg) var(--space-page);
+  border-block-start: var(--rule-width) solid var(--color-rule);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Ab 64rem: Sidebar
+   -------------------------------------------------------------------------- */
+@media (width >= 64rem) {
+  body {
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+    grid-template-areas:
+      "header header"
+      "nav    main"
+      "nav    footer";
+  }
+
+  /* Das Popover wird zur Sidebar über die volle Höhe. Autorenstile
+     schlagen die Browser-Standards für [popover] (display: none,
+     position: fixed …). */
+  .site-nav[popover] {
+    display: block;
+    position: static;
+    inline-size: auto;
+    block-size: auto;
+    margin: 0;
+    padding: var(--space-lg) var(--space-md);
+    overflow: visible;
+    translate: none;
+    border: 0;
+    border-inline-end: var(--rule-width) solid var(--color-rule);
+    color: inherit;
+    background-color: var(--color-paper-2);
+  }
+
+  /* Die Liste bleibt beim Scrollen sichtbar, die Fläche läuft durch. */
+  .site-nav .nav-groups {
+    position: sticky;
+    inset-block-start: var(--space-lg);
+    max-block-size: calc(100dvh - 2 * var(--space-lg));
+    overflow-y: auto;
+  }
+
+  .site-header {
+    padding-inline: var(--space-lg);
+  }
+}

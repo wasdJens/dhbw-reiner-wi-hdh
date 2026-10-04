@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tabellen – Toolbox</title>
+    <meta name="description" content="Eine Tabelle ordnet Daten in Zeilen und Spalten. Header-Zellen und Caption benennen Spalten, Zeilen und die Tabelle.">
+    <link rel="stylesheet" href="../assets/css/main.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="../index.html">Toolbox</a>
+      <button class="button menu-button" type="button" popovertarget="site-nav">Menü</button>
+    </header>
+
+    <nav id="site-nav" class="site-nav" popover aria-label="Toolbox">
+      <button class="button nav-close" type="button" popovertarget="site-nav" popovertargetaction="hide">Schließen</button>
+      <ul class="nav-groups">
+        <li>
+          <p class="nav-group-label" id="nav-start">Start</p>
+          <ul aria-labelledby="nav-start">
+            <li><a href="../index.html">Übersicht</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-struktur">Struktur</p>
+          <ul aria-labelledby="nav-struktur">
+            <li><a href="../patterns/html-grundgeruest.html">HTML-Grundgerüst</a></li>
+            <li><a href="../patterns/landmarks.html">Landmarks</a></li>
+            <li><a href="../patterns/ueberschriften.html">Überschriften-Hierarchie</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-text">Text</p>
+          <ul aria-labelledby="nav-text">
+            <li><a href="../patterns/listen.html">Listen</a></li>
+            <li><a href="../patterns/links.html">Links</a></li>
+            <li><a href="../patterns/tabellen.html" aria-current="page">Tabellen</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-navigation">Navigation</p>
+          <ul aria-labelledby="nav-navigation">
+            <li><a href="../patterns/breadcrumbs.html">Breadcrumbs</a></li>
+            <li><a href="../patterns/aktuelle-seite.html">Aktuelle Seite markieren</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-medien">Medien</p>
+          <ul aria-labelledby="nav-medien">
+            <li><a href="../patterns/bilder.html">Bilder</a></li>
+            <li><a href="../patterns/responsive-images.html">Responsive Images</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-formulare">Formulare</p>
+          <ul aria-labelledby="nav-formulare">
+            <li><a href="../patterns/label-fehlermeldung.html">Label und Fehlermeldung</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-css-architektur">CSS-Architektur</p>
+          <ul aria-labelledby="nav-css-architektur">
+            <li><a href="../patterns/cascade-layers.html">Cascade Layers</a></li>
+            <li><a href="../patterns/custom-properties.html">Custom Properties</a></li>
+            <li><a href="../patterns/progressive-enhancement.html">Progressive Enhancement</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-layout">Layout</p>
+          <ul aria-labelledby="nav-layout">
+            <li><a href="../patterns/flexbox.html">Flexbox</a></li>
+            <li><a href="../patterns/seitenlayout.html">Seitenlayout mit Grid</a></li>
+            <li><a href="../patterns/auto-fill-grid.html">Spalten ohne Media Query</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-responsive">Responsive</p>
+          <ul aria-labelledby="nav-responsive">
+            <li><a href="../patterns/media-queries.html">Media Queries</a></li>
+            <li><a href="../patterns/clamp.html">Größen mit clamp()</a></li>
+            <li><a href="../patterns/container-queries.html">Container Queries</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-design-system">Design-System</p>
+          <ul aria-labelledby="nav-design-system">
+            <li><a href="../patterns/design-tokens.html">Design-Tokens</a></li>
+            <li><a href="../patterns/oklch.html">Farben mit oklch()</a></li>
+            <li><a href="../patterns/light-dark.html">Dark Mode mit light-dark()</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-interaktion">Interaktion ohne JavaScript</p>
+          <ul aria-labelledby="nav-interaktion">
+            <li><a href="../patterns/akkordeon.html">Exklusives Akkordeon</a></li>
+            <li><a href="../patterns/popover-menue.html">Popover-Menü</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-barrierefreiheit">Barrierefreiheit</p>
+          <ul aria-labelledby="nav-barrierefreiheit">
+            <li><a href="../patterns/skip-link.html">Skip-Link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="inhalt">
+      <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ol>
+          <li><a href="../index.html">Toolbox</a></li>
+          <li><a href="../index.html#text">Text</a></li>
+          <li><a href="tabellen.html" aria-current="page">Tabellen</a></li>
+        </ol>
+      </nav>
+
+      <div class="pattern-head">
+        <h1>Tabellen</h1>
+        <p class="lead">Das Element <code>&lt;table&gt;</code> ordnet Daten in Zeilen und Spalten. Header-Zellen benennen jede Spalte und jede Zeile, die Caption benennt die Tabelle.</p>
+        <dl class="meta">
+          <dt>Kategorie</dt>
+          <dd>Text</dd>
+          <dt>Kapitel</dt>
+          <dd>Tabellen &amp; Formulare</dd>
+        </dl>
+      </div>
+
+      <section class="pattern-section" aria-labelledby="demo">
+        <h2 id="demo">Demo</h2>
+        <figure class="demo">
+          <figcaption><span>Header-Zellen in beiden Richtungen</span><span>Live</span></figcaption>
+          <div class="demo-stage">
+            <div class="demo-sheet">
+              <table>
+                <caption>Landmarks einer Seite der Toolbox</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Element</th>
+                    <th scope="col">Rolle</th>
+                    <th scope="col">Inhalt</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row"><code>&lt;header&gt;</code></th>
+                    <td><code>banner</code></td>
+                    <td>Wordmark und Main Navigation</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><code>&lt;nav&gt;</code></th>
+                    <td><code>navigation</code></td>
+                    <td>Links der Main Navigation oder der Breadcrumbs</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><code>&lt;main&gt;</code></th>
+                    <td><code>main</code></td>
+                    <td>Breadcrumbs und Eintrag</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><code>&lt;footer&gt;</code></th>
+                    <td><code>contentinfo</code></td>
+                    <td>Name und Unterzeile der Toolbox</td>
+                  </tr>
+                </tbody>
+              </table>            </div>
+          </div>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="code">
+        <h2 id="code">Code</h2>
+        <figure class="code">
+          <figcaption>patterns/landmarks.html</figcaption>
+          <pre tabindex="0"><code>&lt;table&gt;
+  &lt;caption&gt;Landmarks einer Seite der Toolbox&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope="col"&gt;Element&lt;/th&gt;
+      &lt;th scope="col"&gt;Rolle&lt;/th&gt;
+      &lt;th scope="col"&gt;Inhalt&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;&lt;code&gt;&amp;lt;header&amp;gt;&lt;/code&gt;&lt;/th&gt;
+      &lt;td&gt;&lt;code&gt;banner&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Wordmark und Main Navigation&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;&lt;code&gt;&amp;lt;nav&amp;gt;&lt;/code&gt;&lt;/th&gt;
+      &lt;td&gt;&lt;code&gt;navigation&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Links der Main Navigation oder der Breadcrumbs&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;&lt;code&gt;&amp;lt;main&amp;gt;&lt;/code&gt;&lt;/th&gt;
+      &lt;td&gt;&lt;code&gt;main&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Breadcrumbs und Eintrag&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;&lt;code&gt;&amp;lt;footer&amp;gt;&lt;/code&gt;&lt;/th&gt;
+      &lt;td&gt;&lt;code&gt;contentinfo&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Name und Unterzeile der Toolbox&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="warum">
+        <h2 id="warum">Warum</h2>
+        <p>Eine Tabelle ist die passende Struktur, wenn jede Zeile dieselben Angaben enthält. Die Demo nennt je Landmark zwei Angaben: die Rolle und den Inhalt. Eine Description List benennt die Angaben zu einem Begriff nicht.</p>
+        <p><code>&lt;th&gt;</code> kennzeichnet eine Header-Zelle, <code>&lt;td&gt;</code> eine Datenzelle. Das Attribut <code>scope</code> nennt die Richtung einer Header-Zelle: <code>col</code> für die Spalte, <code>row</code> für die Zeile. <code>&lt;thead&gt;</code> enthält die Zeile mit den Header-Zellen der Spalten, <code>&lt;tbody&gt;</code> die Zeilen mit den Daten.</p>
+        <p>Eine Tabelle ordnet Daten, nicht die Seite. Die Anordnung von Bereichen einer Seite ist Aufgabe von CSS.</p>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="barrierefreiheit">
+        <h2 id="barrierefreiheit">Barrierefreiheit</h2>
+        <ul>
+          <li><code>&lt;caption&gt;</code> ist der Name der Tabelle im Accessibility Tree. Screenreader sagen ihn an, wenn die Person die Tabelle erreicht.</li>
+          <li>Header-Zellen haben die Rolle <code>columnheader</code> oder <code>rowheader</code>, Datenzellen die Rolle <code>cell</code>.</li>
+          <li>Screenreader sagen zu einer Datenzelle die zugehörigen Header-Zellen an. Der Wert ist dann ohne die übrige Tabelle verständlich.</li>
+          <li>In einer Tabelle ohne <code>&lt;th&gt;</code> hat jede Zelle die Rolle <code>cell</code>. Der Bezug zwischen Wert, Spalte und Zeile fehlt.</li>
+        </ul>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="quellen">
+        <h2 id="quellen">Quellen</h2>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics">MDN – HTML table basics</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Table_accessibility">MDN – HTML table accessibility</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/th">MDN – The Table Header element</a></li>
+          <li><a href="https://www.w3.org/WAI/tutorials/tables/">W3C WAI – Tables Tutorial</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Pager">
+        <a href="links.html" rel="prev"><span class="pager-label">Zurück</span>Links</a>
+        <a href="breadcrumbs.html" rel="next"><span class="pager-label">Weiter</span>Breadcrumbs</a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>Toolbox · Bauteile für das Web · Inhalte geprüft gegen <a href="https://developer.mozilla.org/en-US/">MDN</a></p>
+    </footer>
+  </body>
+</html>

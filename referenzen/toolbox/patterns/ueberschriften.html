@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Überschriften-Hierarchie – Toolbox</title>
+    <meta name="description" content="Überschriften gliedern den Inhalt einer Seite in Ebenen. Die Ebene folgt aus der Struktur des Inhalts, nicht aus der Schriftgröße.">
+    <link rel="stylesheet" href="../assets/css/main.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="../index.html">Toolbox</a>
+      <button class="button menu-button" type="button" popovertarget="site-nav">Menü</button>
+    </header>
+
+    <nav id="site-nav" class="site-nav" popover aria-label="Toolbox">
+      <button class="button nav-close" type="button" popovertarget="site-nav" popovertargetaction="hide">Schließen</button>
+      <ul class="nav-groups">
+        <li>
+          <p class="nav-group-label" id="nav-start">Start</p>
+          <ul aria-labelledby="nav-start">
+            <li><a href="../index.html">Übersicht</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-struktur">Struktur</p>
+          <ul aria-labelledby="nav-struktur">
+            <li><a href="../patterns/html-grundgeruest.html">HTML-Grundgerüst</a></li>
+            <li><a href="../patterns/landmarks.html">Landmarks</a></li>
+            <li><a href="../patterns/ueberschriften.html" aria-current="page">Überschriften-Hierarchie</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-text">Text</p>
+          <ul aria-labelledby="nav-text">
+            <li><a href="../patterns/listen.html">Listen</a></li>
+            <li><a href="../patterns/links.html">Links</a></li>
+            <li><a href="../patterns/tabellen.html">Tabellen</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-navigation">Navigation</p>
+          <ul aria-labelledby="nav-navigation">
+            <li><a href="../patterns/breadcrumbs.html">Breadcrumbs</a></li>
+            <li><a href="../patterns/aktuelle-seite.html">Aktuelle Seite markieren</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-medien">Medien</p>
+          <ul aria-labelledby="nav-medien">
+            <li><a href="../patterns/bilder.html">Bilder</a></li>
+            <li><a href="../patterns/responsive-images.html">Responsive Images</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-formulare">Formulare</p>
+          <ul aria-labelledby="nav-formulare">
+            <li><a href="../patterns/label-fehlermeldung.html">Label und Fehlermeldung</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-css-architektur">CSS-Architektur</p>
+          <ul aria-labelledby="nav-css-architektur">
+            <li><a href="../patterns/cascade-layers.html">Cascade Layers</a></li>
+            <li><a href="../patterns/custom-properties.html">Custom Properties</a></li>
+            <li><a href="../patterns/progressive-enhancement.html">Progressive Enhancement</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-layout">Layout</p>
+          <ul aria-labelledby="nav-layout">
+            <li><a href="../patterns/flexbox.html">Flexbox</a></li>
+            <li><a href="../patterns/seitenlayout.html">Seitenlayout mit Grid</a></li>
+            <li><a href="../patterns/auto-fill-grid.html">Spalten ohne Media Query</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-responsive">Responsive</p>
+          <ul aria-labelledby="nav-responsive">
+            <li><a href="../patterns/media-queries.html">Media Queries</a></li>
+            <li><a href="../patterns/clamp.html">Größen mit clamp()</a></li>
+            <li><a href="../patterns/container-queries.html">Container Queries</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-design-system">Design-System</p>
+          <ul aria-labelledby="nav-design-system">
+            <li><a href="../patterns/design-tokens.html">Design-Tokens</a></li>
+            <li><a href="../patterns/oklch.html">Farben mit oklch()</a></li>
+            <li><a href="../patterns/light-dark.html">Dark Mode mit light-dark()</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-interaktion">Interaktion ohne JavaScript</p>
+          <ul aria-labelledby="nav-interaktion">
+            <li><a href="../patterns/akkordeon.html">Exklusives Akkordeon</a></li>
+            <li><a href="../patterns/popover-menue.html">Popover-Menü</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-barrierefreiheit">Barrierefreiheit</p>
+          <ul aria-labelledby="nav-barrierefreiheit">
+            <li><a href="../patterns/skip-link.html">Skip-Link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="inhalt">
+      <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ol>
+          <li><a href="../index.html">Toolbox</a></li>
+          <li><a href="../index.html#struktur">Struktur</a></li>
+          <li><a href="ueberschriften.html" aria-current="page">Überschriften-Hierarchie</a></li>
+        </ol>
+      </nav>
+
+      <div class="pattern-head">
+        <h1>Überschriften-Hierarchie</h1>
+        <p class="lead">Überschriften gliedern den Inhalt einer Seite in Ebenen. Die Ebene folgt aus der Struktur des Inhalts, nicht aus der Schriftgröße.</p>
+        <dl class="meta">
+          <dt>Kategorie</dt>
+          <dd>Struktur</dd>
+          <dt>Kapitel</dt>
+          <dd>Text &amp; Semantik</dd>
+        </dl>
+      </div>
+
+      <section class="pattern-section" aria-labelledby="demo">
+        <h2 id="demo">Demo</h2>
+        <figure class="demo">
+          <figcaption><span>Gliederung der Startseite</span><span>Schema</span></figcaption>
+          <div class="demo-stage">
+            <div class="demo-sheet">
+              <ul>
+                <li><code>&lt;h1&gt;</code> Toolbox
+                  <ul>
+                    <li><code>&lt;h2&gt;</code> Einträge
+                      <ul>
+                        <li><code>&lt;h3&gt;</code> Das HTML-Grundgerüst</li>
+                        <li><code>&lt;h3&gt;</code> Landmarks</li>
+                      </ul>
+                    </li>
+                    <li><code>&lt;h2&gt;</code> Über dieses Projekt
+                      <ul>
+                        <li><code>&lt;h3&gt;</code> Aufbau eines Eintrags</li>
+                        <li><code>&lt;h3&gt;</code> Werkzeuge</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="code">
+        <h2 id="code">Code</h2>
+        <figure class="code">
+          <figcaption>index.html</figcaption>
+          <pre tabindex="0"><code>&lt;h1&gt;Toolbox&lt;/h1&gt;
+
+&lt;section id="eintraege"&gt;
+  &lt;h2&gt;Einträge&lt;/h2&gt;
+  &lt;article&gt;
+    &lt;h3&gt;Landmarks&lt;/h3&gt;
+  &lt;/article&gt;
+&lt;/section&gt;
+
+&lt;section id="ueber"&gt;
+  &lt;h2&gt;Über dieses Projekt&lt;/h2&gt;
+  &lt;h3&gt;Werkzeuge&lt;/h3&gt;
+&lt;/section&gt;</code></pre>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="warum">
+        <h2 id="warum">Warum</h2>
+        <p>Sehende erfassen die Gliederung einer Seite über Größe und Gewicht der Schrift. Für Screenreader und Suchmaschinen entsteht die Gliederung allein aus den Elementen <code>&lt;h1&gt;</code> bis <code>&lt;h6&gt;</code>. Ein fett gesetzter Absatz sieht aus wie eine Überschrift, gehört aber nicht zur Gliederung.</p>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="barrierefreiheit">
+        <h2 id="barrierefreiheit">Barrierefreiheit</h2>
+        <ul>
+          <li>Screenreader listen alle Überschriften mit ihrer Ebene auf und springen direkt zu einem Abschnitt.</li>
+          <li>Eine Seite enthält genau ein <code>&lt;h1&gt;</code>.</li>
+          <li>Die Hierarchie überspringt keine Ebene: Auf <code>&lt;h2&gt;</code> folgt <code>&lt;h2&gt;</code> oder <code>&lt;h3&gt;</code>. Der W3C-Validator meldet übersprungene Ebenen als Fehler.</li>
+          <li>Die Schriftgröße einer Überschrift legt CSS fest, nicht die Wahl der Ebene.</li>
+        </ul>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="quellen">
+        <h2 id="quellen">Quellen</h2>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/Heading_Elements">MDN – Heading elements</a></li>
+          <li><a href="https://www.w3.org/WAI/tutorials/page-structure/headings/">W3C WAI – Headings</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Pager">
+        <a href="landmarks.html" rel="prev"><span class="pager-label">Zurück</span>Landmarks</a>
+        <a href="listen.html" rel="next"><span class="pager-label">Weiter</span>Listen</a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>Toolbox · Bauteile für das Web · Inhalte geprüft gegen <a href="https://developer.mozilla.org/en-US/">MDN</a></p>
+    </footer>
+  </body>
+</html>

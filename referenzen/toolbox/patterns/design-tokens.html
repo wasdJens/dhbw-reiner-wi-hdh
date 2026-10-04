@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Design-Tokens – Toolbox</title>
+    <meta name="description" content="Ein Token ist eine Custom Property für einen Wert der Gestaltung. Sein Name nennt die Aufgabe, nicht das Aussehen. Jede Regel der Toolbox verwendet Tokens statt fester Werte.">
+    <link rel="stylesheet" href="../assets/css/main.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="../index.html">Toolbox</a>
+      <button class="button menu-button" type="button" popovertarget="site-nav">Menü</button>
+    </header>
+
+    <nav id="site-nav" class="site-nav" popover aria-label="Toolbox">
+      <button class="button nav-close" type="button" popovertarget="site-nav" popovertargetaction="hide">Schließen</button>
+      <ul class="nav-groups">
+        <li>
+          <p class="nav-group-label" id="nav-start">Start</p>
+          <ul aria-labelledby="nav-start">
+            <li><a href="../index.html">Übersicht</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-struktur">Struktur</p>
+          <ul aria-labelledby="nav-struktur">
+            <li><a href="../patterns/html-grundgeruest.html">HTML-Grundgerüst</a></li>
+            <li><a href="../patterns/landmarks.html">Landmarks</a></li>
+            <li><a href="../patterns/ueberschriften.html">Überschriften-Hierarchie</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-text">Text</p>
+          <ul aria-labelledby="nav-text">
+            <li><a href="../patterns/listen.html">Listen</a></li>
+            <li><a href="../patterns/links.html">Links</a></li>
+            <li><a href="../patterns/tabellen.html">Tabellen</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-navigation">Navigation</p>
+          <ul aria-labelledby="nav-navigation">
+            <li><a href="../patterns/breadcrumbs.html">Breadcrumbs</a></li>
+            <li><a href="../patterns/aktuelle-seite.html">Aktuelle Seite markieren</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-medien">Medien</p>
+          <ul aria-labelledby="nav-medien">
+            <li><a href="../patterns/bilder.html">Bilder</a></li>
+            <li><a href="../patterns/responsive-images.html">Responsive Images</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-formulare">Formulare</p>
+          <ul aria-labelledby="nav-formulare">
+            <li><a href="../patterns/label-fehlermeldung.html">Label und Fehlermeldung</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-css-architektur">CSS-Architektur</p>
+          <ul aria-labelledby="nav-css-architektur">
+            <li><a href="../patterns/cascade-layers.html">Cascade Layers</a></li>
+            <li><a href="../patterns/custom-properties.html">Custom Properties</a></li>
+            <li><a href="../patterns/progressive-enhancement.html">Progressive Enhancement</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-layout">Layout</p>
+          <ul aria-labelledby="nav-layout">
+            <li><a href="../patterns/flexbox.html">Flexbox</a></li>
+            <li><a href="../patterns/seitenlayout.html">Seitenlayout mit Grid</a></li>
+            <li><a href="../patterns/auto-fill-grid.html">Spalten ohne Media Query</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-responsive">Responsive</p>
+          <ul aria-labelledby="nav-responsive">
+            <li><a href="../patterns/media-queries.html">Media Queries</a></li>
+            <li><a href="../patterns/clamp.html">Größen mit clamp()</a></li>
+            <li><a href="../patterns/container-queries.html">Container Queries</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-design-system">Design-System</p>
+          <ul aria-labelledby="nav-design-system">
+            <li><a href="../patterns/design-tokens.html" aria-current="page">Design-Tokens</a></li>
+            <li><a href="../patterns/oklch.html">Farben mit oklch()</a></li>
+            <li><a href="../patterns/light-dark.html">Dark Mode mit light-dark()</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-interaktion">Interaktion ohne JavaScript</p>
+          <ul aria-labelledby="nav-interaktion">
+            <li><a href="../patterns/akkordeon.html">Exklusives Akkordeon</a></li>
+            <li><a href="../patterns/popover-menue.html">Popover-Menü</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-barrierefreiheit">Barrierefreiheit</p>
+          <ul aria-labelledby="nav-barrierefreiheit">
+            <li><a href="../patterns/skip-link.html">Skip-Link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="inhalt">
+      <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ol>
+          <li><a href="../index.html">Toolbox</a></li>
+          <li><a href="../index.html#design-system">Design-System</a></li>
+          <li><a href="design-tokens.html" aria-current="page">Design-Tokens</a></li>
+        </ol>
+      </nav>
+
+      <div class="pattern-head">
+        <h1>Design-Tokens</h1>
+        <p class="lead">Ein Token ist eine Custom Property für einen Wert der Gestaltung. Sein Name nennt die Aufgabe, nicht das Aussehen. Jede Regel der Toolbox verwendet Tokens statt fester Werte.</p>
+        <dl class="meta">
+          <dt>Kategorie</dt>
+          <dd>Design-System</dd>
+          <dt>Kapitel</dt>
+          <dd>Design-System</dd>
+        </dl>
+      </div>
+
+      <section class="pattern-section" aria-labelledby="demo">
+        <h2 id="demo">Demo</h2>
+        <figure class="demo">
+          <figcaption><span>Gruppen in tokens.css</span><span>Schema</span></figcaption>
+          <div class="demo-stage">
+            <div class="demo-sheet">
+              <table>
+                <caption>Tokens der Toolbox nach Gruppe, je ein Beispiel</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Gruppe</th>
+                    <th scope="col">Beispiel</th>
+                    <th scope="col">Aufgabe</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Farbe</th>
+                    <td><code>--color-paper</code></td>
+                    <td>Hintergrund der Seite</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Schrift</th>
+                    <td><code>--font-mono</code></td>
+                    <td>Überschriften, Labels und Code</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Schriftgröße</th>
+                    <td><code>--text-lg</code></td>
+                    <td>Einleitung und Wordmark</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Zeilenhöhe</th>
+                    <td><code>--leading-body</code></td>
+                    <td>Fließtext</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Abstand</th>
+                    <td><code>--space-md</code></td>
+                    <td>Abstand zwischen zwei Absätzen</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Maß</th>
+                    <td><code>--content-width</code></td>
+                    <td>größte Breite einer Textzeile</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="code">
+        <h2 id="code">Code</h2>
+        <figure class="code">
+          <figcaption>tokens.css (Auszug)</figcaption>
+          <pre tabindex="0"><code>:root {
+  --leading-tight: 1.15;
+  --leading-body: 1.6;
+}</code></pre>
+        </figure>
+        <figure class="code">
+          <figcaption>base.css (Auszug)</figcaption>
+          <pre tabindex="0"><code>html {
+  line-height: var(--leading-body);
+}
+
+h1,
+h2,
+h3 {
+  line-height: var(--leading-tight);
+}</code></pre>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="warum">
+        <h2 id="warum">Warum</h2>
+        <p>Ein Token trennt eine Entscheidung von ihrer Verwendung. Die Entscheidung „Fließtext hat die Zeilenhöhe 1,6“ steht einmal in <code>tokens.css</code>. Jede Regel, die sie braucht, verwendet <code>var(--leading-body)</code>.</p>
+        <p>Der Name nennt die Aufgabe. <code>--color-paper</code> ist im Light Mode hell und im Dark Mode dunkel. Ein Name nach dem Aussehen, zum Beispiel <code>--color-white</code>, wäre im Dark Mode falsch.</p>
+        <p>Ein fester Wert in einer Regel ist eine Entscheidung ohne Namen. Steht derselbe Wert an mehreren Stellen, zeigt das Style&shy;sheet nicht, ob die Stellen zusammengehören. Die Toolbox enthält deshalb außerhalb von <code>tokens.css</code> keinen Farbwert und keinen Schriftnamen.</p>
+        <p>Die Schriftgrößen folgen einem Verhältnis von 1,25: <code>0.8rem</code>, <code>1rem</code>, <code>1.25rem</code>, <code>1.5625rem</code>. Die Abstände folgen einem Raster von 4 px.</p>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="barrierefreiheit">
+        <h2 id="barrierefreiheit">Barrierefreiheit</h2>
+        <ul>
+          <li>Die Zeilenhöhe ist eine Zahl ohne Einheit. Jedes Element berechnet sie aus seiner eigenen Schriftgröße. Eine Zeilenhöhe mit Einheit erbt jedes Element als feste Länge.</li>
+          <li>Schriftgrößen und Abstände stehen in <code>rem</code>. Sie folgen der Schriftgröße, die eine Person im Browser einstellt.</li>
+        </ul>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="quellen">
+        <h2 id="quellen">Quellen</h2>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties">MDN – Using CSS custom properties</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/line-height">MDN – line-height</a></li>
+          <li><a href="https://www.designtokens.org/">Design Tokens Community Group</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Pager">
+        <a href="container-queries.html" rel="prev"><span class="pager-label">Zurück</span>Container Queries</a>
+        <a href="oklch.html" rel="next"><span class="pager-label">Weiter</span>Farben mit oklch()</a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>Toolbox · Bauteile für das Web · Inhalte geprüft gegen <a href="https://developer.mozilla.org/en-US/">MDN</a></p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dark Mode mit light-dark() – Toolbox</title>
+    <meta name="description" content="Die Funktion light-dark() enthält je Color Scheme eine Farbe. Der Browser wählt nach der Einstellung des Betriebssystems.">
+    <link rel="stylesheet" href="../assets/css/main.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="../index.html">Toolbox</a>
+      <button class="button menu-button" type="button" popovertarget="site-nav">Menü</button>
+    </header>
+
+    <nav id="site-nav" class="site-nav" popover aria-label="Toolbox">
+      <button class="button nav-close" type="button" popovertarget="site-nav" popovertargetaction="hide">Schließen</button>
+      <ul class="nav-groups">
+        <li>
+          <p class="nav-group-label" id="nav-start">Start</p>
+          <ul aria-labelledby="nav-start">
+            <li><a href="../index.html">Übersicht</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-struktur">Struktur</p>
+          <ul aria-labelledby="nav-struktur">
+            <li><a href="../patterns/html-grundgeruest.html">HTML-Grundgerüst</a></li>
+            <li><a href="../patterns/landmarks.html">Landmarks</a></li>
+            <li><a href="../patterns/ueberschriften.html">Überschriften-Hierarchie</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-text">Text</p>
+          <ul aria-labelledby="nav-text">
+            <li><a href="../patterns/listen.html">Listen</a></li>
+            <li><a href="../patterns/links.html">Links</a></li>
+            <li><a href="../patterns/tabellen.html">Tabellen</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-navigation">Navigation</p>
+          <ul aria-labelledby="nav-navigation">
+            <li><a href="../patterns/breadcrumbs.html">Breadcrumbs</a></li>
+            <li><a href="../patterns/aktuelle-seite.html">Aktuelle Seite markieren</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-medien">Medien</p>
+          <ul aria-labelledby="nav-medien">
+            <li><a href="../patterns/bilder.html">Bilder</a></li>
+            <li><a href="../patterns/responsive-images.html">Responsive Images</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-formulare">Formulare</p>
+          <ul aria-labelledby="nav-formulare">
+            <li><a href="../patterns/label-fehlermeldung.html">Label und Fehlermeldung</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-css-architektur">CSS-Architektur</p>
+          <ul aria-labelledby="nav-css-architektur">
+            <li><a href="../patterns/cascade-layers.html">Cascade Layers</a></li>
+            <li><a href="../patterns/custom-properties.html">Custom Properties</a></li>
+            <li><a href="../patterns/progressive-enhancement.html">Progressive Enhancement</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-layout">Layout</p>
+          <ul aria-labelledby="nav-layout">
+            <li><a href="../patterns/flexbox.html">Flexbox</a></li>
+            <li><a href="../patterns/seitenlayout.html">Seitenlayout mit Grid</a></li>
+            <li><a href="../patterns/auto-fill-grid.html">Spalten ohne Media Query</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-responsive">Responsive</p>
+          <ul aria-labelledby="nav-responsive">
+            <li><a href="../patterns/media-queries.html">Media Queries</a></li>
+            <li><a href="../patterns/clamp.html">Größen mit clamp()</a></li>
+            <li><a href="../patterns/container-queries.html">Container Queries</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-design-system">Design-System</p>
+          <ul aria-labelledby="nav-design-system">
+            <li><a href="../patterns/design-tokens.html">Design-Tokens</a></li>
+            <li><a href="../patterns/oklch.html">Farben mit oklch()</a></li>
+            <li><a href="../patterns/light-dark.html" aria-current="page">Dark Mode mit light-dark()</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-interaktion">Interaktion ohne JavaScript</p>
+          <ul aria-labelledby="nav-interaktion">
+            <li><a href="../patterns/akkordeon.html">Exklusives Akkordeon</a></li>
+            <li><a href="../patterns/popover-menue.html">Popover-Menü</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-barrierefreiheit">Barrierefreiheit</p>
+          <ul aria-labelledby="nav-barrierefreiheit">
+            <li><a href="../patterns/skip-link.html">Skip-Link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="inhalt">
+      <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ol>
+          <li><a href="../index.html">Toolbox</a></li>
+          <li><a href="../index.html#design-system">Design-System</a></li>
+          <li><a href="light-dark.html" aria-current="page">Dark Mode mit light-dark()</a></li>
+        </ol>
+      </nav>
+
+      <div class="pattern-head">
+        <h1>Dark Mode mit light-dark()</h1>
+        <p class="lead">Die Funktion <code>light-dark()</code> enthält je Color Scheme eine Farbe. Der Browser wählt nach der Einstellung des Betriebssystems.</p>
+        <dl class="meta">
+          <dt>Kategorie</dt>
+          <dd>Design-System</dd>
+          <dt>Kapitel</dt>
+          <dd>Design-System</dd>
+        </dl>
+      </div>
+
+      <section class="pattern-section" aria-labelledby="demo">
+        <h2 id="demo">Demo</h2>
+        <figure class="demo">
+          <figcaption><span>Dieselben Tokens in zwei Color Schemes</span><span>Live</span></figcaption>
+          <div class="demo-stage">
+            <div class="scheme-map">
+              <div>
+                <p class="role">color-scheme: light</p>
+                <p>Text in --color-ink auf --color-paper</p>
+                <p><a href="#code">Link mit Linie in --color-accent</a></p>
+              </div>
+              <div>
+                <p class="role">color-scheme: dark</p>
+                <p>Text in --color-ink auf --color-paper</p>
+                <p><a href="#code">Link mit Linie in --color-accent</a></p>
+              </div>
+            </div>
+          </div>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="code">
+        <h2 id="code">Code</h2>
+        <figure class="code">
+          <figcaption>tokens.css (Auszug)</figcaption>
+          <pre tabindex="0"><code>:root {
+  color-scheme: light dark;
+
+  --color-paper: light-dark(oklch(97.5% 0.008 80), oklch(17% 0.008 70));
+  --color-ink: light-dark(oklch(21% 0.012 60), oklch(93% 0.008 80));
+}</code></pre>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="warum">
+        <h2 id="warum">Warum</h2>
+        <p>Die Deklaration <code>color-scheme: light dark</code> nennt die Color Schemes, die die Seite unterstützt. Der Browser wählt eines davon nach der Einstellung des Betriebssystems. <code>light-dark()</code> liefert im Light Mode die erste Farbe und im Dark Mode die zweite.</p>
+        <p>Ohne <code>color-scheme</code> liefert <code>light-dark()</code> immer die erste Farbe. Die Seite bleibt dann hell, auch wenn das Betriebssystem den Dark Mode verwendet.</p>
+        <p>Ältere Style&shy;sheets definieren jede Farbe ein zweites Mal in einem Block <code>@media (prefers-color-scheme: dark)</code>. Mit <code>light-dark()</code> stehen beide Werte in einer Deklaration.</p>
+        <p>Der Browser wertet <code>light-dark()</code> an dem Element aus, das die Farbe verwendet. Die Demo legt <code>color-scheme</code> an zwei Elementen fest. Die Textfarbe erbt ein Element als berechnete Farbe. Ein Bereich mit eigenem Color Scheme legt deshalb auch <code>color</code> fest.</p>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="barrierefreiheit">
+        <h2 id="barrierefreiheit">Barrierefreiheit</h2>
+        <ul>
+          <li>Die Seite folgt der Einstellung der Person. Sie braucht kein Bedienelement und kein JavaScript.</li>
+          <li>Der Kontrast gilt je Color Scheme. <code>--color-accent</code> hat als Textfarbe im Dark Mode 7,25:1 und im Light Mode 3,11:1.</li>
+          <li>Bilder haben in beiden Color Schemes dieselbe Datei.</li>
+        </ul>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="quellen">
+        <h2 id="quellen">Quellen</h2>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/light-dark">MDN – light-dark()</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/color-scheme">MDN – color-scheme</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme">MDN – prefers-color-scheme</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Pager">
+        <a href="oklch.html" rel="prev"><span class="pager-label">Zurück</span>Farben mit oklch()</a>
+        <a href="akkordeon.html" rel="next"><span class="pager-label">Weiter</span>Exklusives Akkordeon</a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>Toolbox · Bauteile für das Web · Inhalte geprüft gegen <a href="https://developer.mozilla.org/en-US/">MDN</a></p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Label und Fehlermeldung – Toolbox</title>
+    <meta name="description" content="Ein Label gibt einem Feld seinen Namen. Ein Pflichtfeld prüft der Browser und zeigt eine Fehlermeldung.">
+    <link rel="stylesheet" href="../assets/css/main.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="../index.html">Toolbox</a>
+      <button class="button menu-button" type="button" popovertarget="site-nav">Menü</button>
+    </header>
+
+    <nav id="site-nav" class="site-nav" popover aria-label="Toolbox">
+      <button class="button nav-close" type="button" popovertarget="site-nav" popovertargetaction="hide">Schließen</button>
+      <ul class="nav-groups">
+        <li>
+          <p class="nav-group-label" id="nav-start">Start</p>
+          <ul aria-labelledby="nav-start">
+            <li><a href="../index.html">Übersicht</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-struktur">Struktur</p>
+          <ul aria-labelledby="nav-struktur">
+            <li><a href="../patterns/html-grundgeruest.html">HTML-Grundgerüst</a></li>
+            <li><a href="../patterns/landmarks.html">Landmarks</a></li>
+            <li><a href="../patterns/ueberschriften.html">Überschriften-Hierarchie</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-text">Text</p>
+          <ul aria-labelledby="nav-text">
+            <li><a href="../patterns/listen.html">Listen</a></li>
+            <li><a href="../patterns/links.html">Links</a></li>
+            <li><a href="../patterns/tabellen.html">Tabellen</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-navigation">Navigation</p>
+          <ul aria-labelledby="nav-navigation">
+            <li><a href="../patterns/breadcrumbs.html">Breadcrumbs</a></li>
+            <li><a href="../patterns/aktuelle-seite.html">Aktuelle Seite markieren</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-medien">Medien</p>
+          <ul aria-labelledby="nav-medien">
+            <li><a href="../patterns/bilder.html">Bilder</a></li>
+            <li><a href="../patterns/responsive-images.html">Responsive Images</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-formulare">Formulare</p>
+          <ul aria-labelledby="nav-formulare">
+            <li><a href="../patterns/label-fehlermeldung.html" aria-current="page">Label und Fehlermeldung</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-css-architektur">CSS-Architektur</p>
+          <ul aria-labelledby="nav-css-architektur">
+            <li><a href="../patterns/cascade-layers.html">Cascade Layers</a></li>
+            <li><a href="../patterns/custom-properties.html">Custom Properties</a></li>
+            <li><a href="../patterns/progressive-enhancement.html">Progressive Enhancement</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-layout">Layout</p>
+          <ul aria-labelledby="nav-layout">
+            <li><a href="../patterns/flexbox.html">Flexbox</a></li>
+            <li><a href="../patterns/seitenlayout.html">Seitenlayout mit Grid</a></li>
+            <li><a href="../patterns/auto-fill-grid.html">Spalten ohne Media Query</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-responsive">Responsive</p>
+          <ul aria-labelledby="nav-responsive">
+            <li><a href="../patterns/media-queries.html">Media Queries</a></li>
+            <li><a href="../patterns/clamp.html">Größen mit clamp()</a></li>
+            <li><a href="../patterns/container-queries.html">Container Queries</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-design-system">Design-System</p>
+          <ul aria-labelledby="nav-design-system">
+            <li><a href="../patterns/design-tokens.html">Design-Tokens</a></li>
+            <li><a href="../patterns/oklch.html">Farben mit oklch()</a></li>
+            <li><a href="../patterns/light-dark.html">Dark Mode mit light-dark()</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-interaktion">Interaktion ohne JavaScript</p>
+          <ul aria-labelledby="nav-interaktion">
+            <li><a href="../patterns/akkordeon.html">Exklusives Akkordeon</a></li>
+            <li><a href="../patterns/popover-menue.html">Popover-Menü</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="nav-group-label" id="nav-barrierefreiheit">Barrierefreiheit</p>
+          <ul aria-labelledby="nav-barrierefreiheit">
+            <li><a href="../patterns/skip-link.html">Skip-Link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="inhalt">
+      <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ol>
+          <li><a href="../index.html">Toolbox</a></li>
+          <li><a href="../index.html#formulare">Formulare</a></li>
+          <li><a href="label-fehlermeldung.html" aria-current="page">Label und Fehlermeldung</a></li>
+        </ol>
+      </nav>
+
+      <div class="pattern-head">
+        <h1>Label und Fehlermeldung</h1>
+        <p class="lead">Ein Label gibt einem Feld seinen Namen. Ein Pflichtfeld prüft der Browser: Er zeigt beim Absenden eine Fehlermeldung, und das Style&shy;sheet markiert das Feld erst nach einer Eingabe.</p>
+        <dl class="meta">
+          <dt>Kategorie</dt>
+          <dd>Formulare</dd>
+          <dt>Kapitel</dt>
+          <dd>Tabellen &amp; Formulare</dd>
+        </dl>
+      </div>
+
+      <section class="pattern-section" aria-labelledby="demo">
+        <h2 id="demo">Demo</h2>
+        <figure class="demo">
+          <figcaption><span>Suchformular mit Pflichtfeld und Gruppe</span><span>Live</span></figcaption>
+          <div class="demo-stage">
+            <div class="demo-sheet">
+              <form class="demo-form" action="https://duckduckgo.com/" method="get">
+                <p>
+                  <label for="q">Suchbegriff</label>
+                  <input type="search" id="q" name="q" required>
+                </p>
+                <fieldset>
+                  <legend>Quelle</legend>
+                  <p>
+                    <input type="radio" id="sites-mdn" name="sites" value="developer.mozilla.org" checked>
+                    <label for="sites-mdn">MDN</label>
+                  </p>
+                  <p>
+                    <input type="radio" id="sites-wai" name="sites" value="www.w3.org/WAI">
+                    <label for="sites-wai">W3C WAI</label>
+                  </p>
+                  <p>
+                    <input type="radio" id="sites-webdev" name="sites" value="web.dev">
+                    <label for="sites-webdev">web.dev</label>
+                  </p>
+                </fieldset>
+                <p><button class="button" type="submit">Mit DuckDuckGo suchen</button></p>
+              </form>            </div>
+          </div>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="code">
+        <h2 id="code">Code</h2>
+        <figure class="code">
+          <figcaption>ueber.html</figcaption>
+          <pre tabindex="0"><code>&lt;form action="https://duckduckgo.com/" method="get"&gt;
+  &lt;p&gt;
+    &lt;label for="q"&gt;Suchbegriff&lt;/label&gt;
+    &lt;input type="search" id="q" name="q" required&gt;
+  &lt;/p&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Quelle&lt;/legend&gt;
+    &lt;p&gt;
+      &lt;input type="radio" id="sites-mdn" name="sites" value="developer.mozilla.org" checked&gt;
+      &lt;label for="sites-mdn"&gt;MDN&lt;/label&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;input type="radio" id="sites-wai" name="sites" value="www.w3.org/WAI"&gt;
+      &lt;label for="sites-wai"&gt;W3C WAI&lt;/label&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;input type="radio" id="sites-webdev" name="sites" value="web.dev"&gt;
+      &lt;label for="sites-webdev"&gt;web.dev&lt;/label&gt;
+    &lt;/p&gt;
+  &lt;/fieldset&gt;
+  &lt;p&gt;&lt;button type="submit"&gt;Mit DuckDuckGo suchen&lt;/button&gt;&lt;/p&gt;
+&lt;/form&gt;</code></pre>
+        </figure>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="warum">
+        <h2 id="warum">Warum</h2>
+        <p><code>&lt;label&gt;</code> verbindet einen Text mit dem Feld, dessen <code>id</code> das Attribut <code>for</code> nennt. Der Text ist der Name des Felds im Accessibility Tree, und ein Klick auf das Label setzt den Fokus in das Feld. Ein Placeholder erfüllt diese Aufgaben nicht: Er verschwindet bei der Eingabe und ist keine Klickfläche.</p>
+        <p><code>&lt;fieldset&gt;</code> fasst Felder zu einer Gruppe zusammen, <code>&lt;legend&gt;</code> benennt die Gruppe. Radio Buttons mit demselben Wert in <code>name</code> bilden eine Auswahl, in der höchstens einer gewählt ist.</p>
+        <p>Das Attribut <code>required</code> kennzeichnet ein Pflichtfeld. Der Browser sendet das Formular nur mit einem Wert in diesem Feld ab und zeigt sonst eine Fehlermeldung am Feld. Das Style&shy;sheet markiert das Feld mit dem Selektor <code>:user-invalid</code>. Er trifft erst zu, nachdem die Person das Feld bearbeitet oder das Formular abgesendet hat. <code>:invalid</code> trifft dagegen schon beim Laden der Seite zu.</p>
+        <p>Das Formular der Demo sendet seine Daten mit <code>method="get"</code> als Teil der URL an DuckDuckGo: je Feld ein Paar aus <code>name</code> und Wert.</p>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="barrierefreiheit">
+        <h2 id="barrierefreiheit">Barrierefreiheit</h2>
+        <ul>
+          <li>Jedes Feld hat ein Label. Screenreader sagen den Namen an, wenn das Feld den Fokus erhält.</li>
+          <li>Das <code>&lt;fieldset&gt;</code> hat die Rolle <code>group</code> und den Namen aus <code>&lt;legend&gt;</code>. Ohne Gruppe fehlt zu „MDN“ die Angabe, worauf sich die Auswahl bezieht.</li>
+          <li>Tastatur: <code>Tab</code> erreicht das Feld, den gewählten Radio Button und den Button. Die Pfeiltasten wechseln zwischen den Radio Buttons, <code>Enter</code> sendet das Formular ab.</li>
+          <li>Die Markierung eines ungültigen Felds besteht aus einem Balken und einer Farbe, nicht aus der Farbe allein.</li>
+        </ul>
+      </section>
+
+      <section class="pattern-section" aria-labelledby="quellen">
+        <h2 id="quellen">Quellen</h2>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label">MDN – The Label element</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/fieldset">MDN – The Field Set element</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:user-invalid">MDN – :user-invalid</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation">MDN – Client-side form validation</a></li>
+          <li><a href="https://www.w3.org/WAI/tutorials/forms/labels/">W3C WAI – Forms Tutorial: Labeling Controls</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Pager">
+        <a href="responsive-images.html" rel="prev"><span class="pager-label">Zurück</span>Responsive Images</a>
+        <a href="cascade-layers.html" rel="next"><span class="pager-label">Weiter</span>Cascade Layers</a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>Toolbox · Bauteile für das Web · Inhalte geprüft gegen <a href="https://developer.mozilla.org/en-US/">MDN</a></p>
+    </footer>
+  </body>
+</html>
