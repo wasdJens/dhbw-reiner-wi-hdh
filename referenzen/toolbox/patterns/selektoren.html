@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Popover-Menü – Toolbox</title>
-    <meta name="description" content="Unter 64rem öffnet ein Button die Navigation als Popover: ohne JavaScript, mit Escape und Klick daneben zu schließen.">
+    <title>Selektoren – Toolbox</title>
+    <meta name="description" content="Ein Selektor wählt die Elemente aus, für die eine Regel gilt.">
     <link rel="stylesheet" href="../assets/css/main.css">
   </head>
   <body>
@@ -63,7 +63,7 @@
         <li>
           <p class="nav-group-label" id="nav-css-grundlagen">CSS-Grundlagen</p>
           <ul aria-labelledby="nav-css-grundlagen">
-            <li><a href="../patterns/selektoren.html">Selektoren</a></li>
+            <li><a href="../patterns/selektoren.html" aria-current="page">Selektoren</a></li>
             <li><a href="../patterns/box-model.html">Box Model</a></li>
           </ul>
         </li>
@@ -103,7 +103,7 @@
           <p class="nav-group-label" id="nav-interaktion">Interaktion ohne JavaScript</p>
           <ul aria-labelledby="nav-interaktion">
             <li><a href="../patterns/akkordeon.html">Exklusives Akkordeon</a></li>
-            <li><a href="../patterns/popover-menue.html" aria-current="page">Popover-Menü</a></li>
+            <li><a href="../patterns/popover-menue.html">Popover-Menü</a></li>
           </ul>
         </li>
         <li>
@@ -119,31 +119,80 @@
       <nav class="breadcrumb" aria-label="Breadcrumbs">
         <ol>
           <li><a href="../index.html">Toolbox</a></li>
-          <li><a href="../index.html#interaktion">Interaktion ohne JavaScript</a></li>
-          <li><a href="popover-menue.html" aria-current="page">Popover-Menü</a></li>
+          <li><a href="../index.html#css-grundlagen">CSS-Grundlagen</a></li>
+          <li><a href="selektoren.html" aria-current="page">Selektoren</a></li>
         </ol>
       </nav>
 
       <div class="pattern-head">
-        <h1>Popover-Menü</h1>
-        <p class="lead">Unter 64rem öffnet der Button „Menü“ die Navigation dieser Seite als Popover. Der Browser übernimmt das Öffnen, das Schließen mit Escape oder mit einem Klick neben das Menü und die Reihenfolge des Fokus. Die Seite enthält kein JavaScript.</p>
+        <h1>Selektoren</h1>
+        <p class="lead">Ein Selektor wählt die Elemente aus, für die eine Regel gilt. Er wählt nach Element, Klasse, ID, Attribut, Zustand und Lage im Dokument aus.</p>
         <dl class="meta">
           <dt>Kategorie</dt>
-          <dd>Interaktion ohne JavaScript</dd>
+          <dd>CSS-Grundlagen</dd>
           <dt>Kapitel</dt>
-          <dd>Interaktion ohne JavaScript</dd>
+          <dd>CSS-Grundlagen</dd>
         </dl>
       </div>
 
       <section class="pattern-section" aria-labelledby="demo">
         <h2 id="demo">Demo</h2>
         <figure class="demo">
-          <figcaption><span>Ein Popover mit der Position des Browsers</span><span>Live</span></figcaption>
+          <figcaption><span>Selektoren der Toolbox</span><span>Schema</span></figcaption>
           <div class="demo-stage">
-            <p><button class="button" type="button" popovertarget="demo-popover">Popover öffnen</button></p>
-            <div id="demo-popover" class="demo-popover" popover>
-              <p>Das Popover liegt über der Seite. Escape oder ein Klick neben das Popover schließt es.</p>
-              <p><button class="button" type="button" popovertarget="demo-popover" popovertargetaction="hide">Schließen</button></p>
+            <div class="demo-sheet">
+              <table>
+                <caption>Arten von Selektoren mit Beispielen aus dem Stylesheet</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Art</th>
+                    <th scope="col">Selektor</th>
+                    <th scope="col">wählt aus</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Typ</th>
+                    <td><code>h2</code></td>
+                    <td>jedes Element <code>&lt;h2&gt;</code></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Klasse</th>
+                    <td><code>.code</code></td>
+                    <td>jedes Element mit <code>class="code"</code></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">ID</th>
+                    <td><code>#inhalt</code></td>
+                    <td>das Element mit <code>id="inhalt"</code></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Attribut</th>
+                    <td><code>[aria-current="page"]</code></td>
+                    <td>jedes Element mit diesem Attribut und Wert</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Pseudoklasse</th>
+                    <td><code>:focus-visible</code></td>
+                    <td>das Element mit sichtbarem Fokus</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nachfahre</th>
+                    <td><code>nav a</code></td>
+                    <td>jedes <code>&lt;a&gt;</code> in <code>&lt;nav&gt;</code>, auch tiefer verschachtelt</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Kind</th>
+                    <td><code>.code &gt; figcaption</code></td>
+                    <td>jedes <code>&lt;figcaption&gt;</code> direkt in <code>.code</code></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nachbar</th>
+                    <td><code>h1 + p</code></td>
+                    <td>jedes <code>&lt;p&gt;</code> direkt nach <code>&lt;h1&gt;</code></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </figure>
@@ -152,73 +201,43 @@
       <section class="pattern-section" aria-labelledby="code">
         <h2 id="code">Code</h2>
         <figure class="code">
-          <figcaption>index.html (Auszug)</figcaption>
-          <pre tabindex="0"><code>&lt;button type="button" popovertarget="site-nav"&gt;Menü&lt;/button&gt;
-
-&lt;nav id="site-nav" popover aria-label="Toolbox"&gt;
-  &lt;button type="button" popovertarget="site-nav" popovertargetaction="hide"&gt;Schließen&lt;/button&gt;
-  …
-&lt;/nav&gt;</code></pre>
-        </figure>
-        <figure class="code">
-          <figcaption>layout.css (Auszug)</figcaption>
-          <pre tabindex="0"><code>html:has(.site-nav:popover-open) {
-  overflow: hidden;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .site-nav {
-    translate: -100% 0;
-    transition:
-      translate var(--duration-menu),
-      display var(--duration-menu) allow-discrete,
-      overlay var(--duration-menu) allow-discrete;
-  }
-
-  .site-nav:popover-open {
-    translate: 0;
-  }
-
-  @starting-style {
-    .site-nav:popover-open {
-      translate: -100% 0;
-    }
-  }
+          <figcaption>components.css (Auszug)</figcaption>
+          <pre tabindex="0"><code>/* Aktuelle Seite: fett + Markierung in Akzentfarbe (nicht nur Farbe). */
+.nav-groups a[aria-current="page"],
+.demo-nav a[aria-current="page"] {
+  font-weight: 700;
 }</code></pre>
         </figure>
       </section>
 
       <section class="pattern-section" aria-labelledby="warum">
         <h2 id="warum">Warum</h2>
-        <p>Das Attribut <code>popover</code> macht ein Element zum Popover. Der Browser stellt es nicht dar, bis ein Button mit <code>popovertarget</code> es öffnet. Das offene Popover liegt über allen anderen Elementen der Seite. Escape und ein Klick daneben schließen es.</p>
-        <p>Der Browser gibt jedem Popover Standardwerte, zum Beispiel <code>position: fixed</code> und einen Rahmen. Ab 64rem überschreibt der Block <code>@media</code> diese Werte: Die Navigation steht dann als Sidebar in ihrer Spalte des Grids.</p>
-        <p><code>:has()</code> trifft ein Element, wenn ein Nachfahre dem Selektor in den Klammern entspricht. <code>html:has(.site-nav:popover-open)</code> trifft das Element <code>&lt;html&gt;</code>, solange das Menü offen ist. Die Seite dahinter scrollt dann nicht.</p>
-        <p>Beim Öffnen wechselt <code>display</code> von <code>none</code> auf <code>block</code>. Ein Element ohne Darstellung hat keinen Wert, von dem eine Transition ausgeht. <code>@starting-style</code> legt diesen Startwert fest. <code>allow-discrete</code> verzögert beim Schließen den Wechsel von <code>display</code> und <code>overlay</code> bis zum Ende der Transition.</p>
+        <p>Eine Regel enthält keine Liste von Elementen. Der Browser prüft für jedes Element im DOM, ob der Selektor zutrifft. Ein neues Element mit passender Lage, Klasse oder passendem Attribut erhält die Gestaltung ohne Änderung am Stylesheet.</p>
+        <p>Selektoren lassen sich kombinieren. Das Leerzeichen wählt Nachfahren aus, <code>&gt;</code> nur direkte Kinder, <code>+</code> das direkt folgende Element. Eine Liste mit Komma wendet dieselbe Regel auf mehrere Selektoren an.</p>
+        <p>Ein Selektor, der auf kein Element zutrifft, erzeugt keine Fehlermeldung. <code>nav &gt; a</code> wählt in der Toolbox kein Element aus, weil jeder Link der Navigation in einem <code>&lt;li&gt;</code> steht.</p>
       </section>
 
       <section class="pattern-section" aria-labelledby="barrierefreiheit">
         <h2 id="barrierefreiheit">Barrierefreiheit</h2>
         <ul>
-          <li>Der Button hat im Accessibility Tree den Zustand <code>expanded</code>. Screenreader nennen, ob das Menü offen ist.</li>
-          <li>Nach dem Öffnen führt <code>Tab</code> vom Button in das Menü. Escape schließt es und setzt den Fokus zurück auf den Button.</li>
-          <li>Ein geschlossenes Menü fehlt im Accessibility Tree und in der Reihenfolge von <code>Tab</code>.</li>
-          <li>Hat die Person im System Bewegung reduziert, erscheint das Menü ohne Bewegung.</li>
+          <li>Der Selektor <code>[aria-current="page"]</code> gestaltet die aktuelle Seite über das Attribut, das ein Screenreader vorliest. Darstellung und Ansage hängen am selben Attribut und weichen nicht voneinander ab.</li>
+          <li><code>:focus-visible</code> trifft auf das Element zu, das den Fokus hat, wenn der Browser einen sichtbaren Fokus anzeigt, zum Beispiel nach der Taste <code>Tab</code>.</li>
         </ul>
       </section>
 
       <section class="pattern-section" aria-labelledby="quellen">
         <h2 id="quellen">Quellen</h2>
         <ul>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API">MDN – Popover API</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has">MDN – :has()</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@starting-style">MDN – @starting-style</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion">MDN – prefers-reduced-motion</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Basic_selectors">MDN – Basic CSS selectors</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Attribute_selectors">MDN – Attribute selectors</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements">MDN – Pseudo-classes and pseudo-elements</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Combinators">MDN – Combinators</a></li>
         </ul>
       </section>
 
       <nav class="pager" aria-label="Pager">
-        <a href="akkordeon.html" rel="prev"><span class="pager-label">Zurück</span>Exklusives Akkordeon</a>
-        <a href="skip-link.html" rel="next"><span class="pager-label">Weiter</span>Skip-Link</a>
+        <a href="label-fehlermeldung.html" rel="prev"><span class="pager-label">Zurück</span>Label und Fehlermeldung</a>
+        <a href="box-model.html" rel="next"><span class="pager-label">Weiter</span>Box Model</a>
       </nav>
     </main>
 

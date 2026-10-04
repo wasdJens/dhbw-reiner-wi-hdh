@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Popover-Menü – Toolbox</title>
-    <meta name="description" content="Unter 64rem öffnet ein Button die Navigation als Popover: ohne JavaScript, mit Escape und Klick daneben zu schließen.">
+    <title>Box Model – Toolbox</title>
+    <meta name="description" content="Jedes Element erzeugt eine Box aus Inhalt, padding, border und margin.">
     <link rel="stylesheet" href="../assets/css/main.css">
   </head>
   <body>
@@ -64,7 +64,7 @@
           <p class="nav-group-label" id="nav-css-grundlagen">CSS-Grundlagen</p>
           <ul aria-labelledby="nav-css-grundlagen">
             <li><a href="../patterns/selektoren.html">Selektoren</a></li>
-            <li><a href="../patterns/box-model.html">Box Model</a></li>
+            <li><a href="../patterns/box-model.html" aria-current="page">Box Model</a></li>
           </ul>
         </li>
         <li>
@@ -103,7 +103,7 @@
           <p class="nav-group-label" id="nav-interaktion">Interaktion ohne JavaScript</p>
           <ul aria-labelledby="nav-interaktion">
             <li><a href="../patterns/akkordeon.html">Exklusives Akkordeon</a></li>
-            <li><a href="../patterns/popover-menue.html" aria-current="page">Popover-Menü</a></li>
+            <li><a href="../patterns/popover-menue.html">Popover-Menü</a></li>
           </ul>
         </li>
         <li>
@@ -119,31 +119,38 @@
       <nav class="breadcrumb" aria-label="Breadcrumbs">
         <ol>
           <li><a href="../index.html">Toolbox</a></li>
-          <li><a href="../index.html#interaktion">Interaktion ohne JavaScript</a></li>
-          <li><a href="popover-menue.html" aria-current="page">Popover-Menü</a></li>
+          <li><a href="../index.html#css-grundlagen">CSS-Grundlagen</a></li>
+          <li><a href="box-model.html" aria-current="page">Box Model</a></li>
         </ol>
       </nav>
 
       <div class="pattern-head">
-        <h1>Popover-Menü</h1>
-        <p class="lead">Unter 64rem öffnet der Button „Menü“ die Navigation dieser Seite als Popover. Der Browser übernimmt das Öffnen, das Schließen mit Escape oder mit einem Klick neben das Menü und die Reihenfolge des Fokus. Die Seite enthält kein JavaScript.</p>
+        <h1>Box Model</h1>
+        <p class="lead">Jedes Element erzeugt eine Box aus Inhalt, <code>padding</code>, <code>border</code> und <code>margin</code>. <code>box-sizing</code> legt fest, ob <code>width</code> die Box bis zur <code>border</code> oder nur den Inhalt meint.</p>
         <dl class="meta">
           <dt>Kategorie</dt>
-          <dd>Interaktion ohne JavaScript</dd>
+          <dd>CSS-Grundlagen</dd>
           <dt>Kapitel</dt>
-          <dd>Interaktion ohne JavaScript</dd>
+          <dd>CSS-Grundlagen</dd>
         </dl>
       </div>
 
       <section class="pattern-section" aria-labelledby="demo">
         <h2 id="demo">Demo</h2>
         <figure class="demo">
-          <figcaption><span>Ein Popover mit der Position des Browsers</span><span>Live</span></figcaption>
+          <figcaption><span>Die vier Bereiche einer Box</span><span>Live</span></figcaption>
           <div class="demo-stage">
-            <p><button class="button" type="button" popovertarget="demo-popover">Popover öffnen</button></p>
-            <div id="demo-popover" class="demo-popover" popover>
-              <p>Das Popover liegt über der Seite. Escape oder ein Klick neben das Popover schließt es.</p>
-              <p><button class="button" type="button" popovertarget="demo-popover" popovertargetaction="hide">Schließen</button></p>
+            <div class="box-model">
+              <p>margin</p>
+              <div class="box-model-border">
+                <p>border</p>
+                <div class="box-model-padding">
+                  <p>padding</p>
+                  <div class="box-model-content">
+                    <p>Inhalt</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </figure>
@@ -152,73 +159,44 @@
       <section class="pattern-section" aria-labelledby="code">
         <h2 id="code">Code</h2>
         <figure class="code">
-          <figcaption>index.html (Auszug)</figcaption>
-          <pre tabindex="0"><code>&lt;button type="button" popovertarget="site-nav"&gt;Menü&lt;/button&gt;
-
-&lt;nav id="site-nav" popover aria-label="Toolbox"&gt;
-  &lt;button type="button" popovertarget="site-nav" popovertargetaction="hide"&gt;Schließen&lt;/button&gt;
-  …
-&lt;/nav&gt;</code></pre>
-        </figure>
-        <figure class="code">
-          <figcaption>layout.css (Auszug)</figcaption>
-          <pre tabindex="0"><code>html:has(.site-nav:popover-open) {
-  overflow: hidden;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .site-nav {
-    translate: -100% 0;
-    transition:
-      translate var(--duration-menu),
-      display var(--duration-menu) allow-discrete,
-      overlay var(--duration-menu) allow-discrete;
-  }
-
-  .site-nav:popover-open {
-    translate: 0;
-  }
-
-  @starting-style {
-    .site-nav:popover-open {
-      translate: -100% 0;
-    }
-  }
+          <figcaption>base.css (Auszug)</figcaption>
+          <pre tabindex="0"><code>*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }</code></pre>
         </figure>
       </section>
 
       <section class="pattern-section" aria-labelledby="warum">
         <h2 id="warum">Warum</h2>
-        <p>Das Attribut <code>popover</code> macht ein Element zum Popover. Der Browser stellt es nicht dar, bis ein Button mit <code>popovertarget</code> es öffnet. Das offene Popover liegt über allen anderen Elementen der Seite. Escape und ein Klick daneben schließen es.</p>
-        <p>Der Browser gibt jedem Popover Standardwerte, zum Beispiel <code>position: fixed</code> und einen Rahmen. Ab 64rem überschreibt der Block <code>@media</code> diese Werte: Die Navigation steht dann als Sidebar in ihrer Spalte des Grids.</p>
-        <p><code>:has()</code> trifft ein Element, wenn ein Nachfahre dem Selektor in den Klammern entspricht. <code>html:has(.site-nav:popover-open)</code> trifft das Element <code>&lt;html&gt;</code>, solange das Menü offen ist. Die Seite dahinter scrollt dann nicht.</p>
-        <p>Beim Öffnen wechselt <code>display</code> von <code>none</code> auf <code>block</code>. Ein Element ohne Darstellung hat keinen Wert, von dem eine Transition ausgeht. <code>@starting-style</code> legt diesen Startwert fest. <code>allow-discrete</code> verzögert beim Schließen den Wechsel von <code>display</code> und <code>overlay</code> bis zum Ende der Transition.</p>
+        <p>Mit dem Anfangswert <code>box-sizing: content-box</code> gilt <code>width</code> nur für den Inhalt. <code>padding</code> und <code>border</code> kommen hinzu: <code>width: 20rem</code> mit <code>padding: 2rem</code> und einer <code>border</code> von 4 px ergibt eine Box von 392 px. Mit <code>border-box</code> ist die Box 320 px breit, und der Inhalt wird schmaler.</p>
+        <p><code>display</code> legt fest, wie die Box im Textfluss steht. Eine Block-Box wie <code>&lt;p&gt;</code> beginnt in einer neuen Zeile und nimmt die ganze Breite ein. Eine Inline-Box wie <code>&lt;a&gt;</code> steht in der Zeile: <code>width</code> wirkt nicht, und <code>padding</code> oben und unten verschiebt die Zeilen nicht.</p>
+        <p>Treffen die Margins zweier Block-Boxen untereinander aufeinander, fallen sie zusammen. Der Abstand ist der größere der beiden Werte, nicht ihre Summe.</p>
+        <p>Logische Eigenschaften wie <code>margin-block-start</code> folgen der Schreibrichtung. In einem Text von oben nach unten legt <code>margin-block-start</code> den Abstand oben fest, <code>padding-inline</code> links und rechts.</p>
       </section>
 
       <section class="pattern-section" aria-labelledby="barrierefreiheit">
         <h2 id="barrierefreiheit">Barrierefreiheit</h2>
         <ul>
-          <li>Der Button hat im Accessibility Tree den Zustand <code>expanded</code>. Screenreader nennen, ob das Menü offen ist.</li>
-          <li>Nach dem Öffnen führt <code>Tab</code> vom Button in das Menü. Escape schließt es und setzt den Fokus zurück auf den Button.</li>
-          <li>Ein geschlossenes Menü fehlt im Accessibility Tree und in der Reihenfolge von <code>Tab</code>.</li>
-          <li>Hat die Person im System Bewegung reduziert, erscheint das Menü ohne Bewegung.</li>
+          <li>Der Fokusrahmen ist eine <code>outline</code>. Sie gehört nicht zur Box und verschiebt beim Fokus kein Element.</li>
+          <li><code>padding</code> gehört zur Box. Ein Klick auf das <code>padding</code> eines Links oder Buttons trifft das Element und vergrößert damit die Fläche zum Klicken (<code>2.5.8 Target Size (Minimum)</code>).</li>
         </ul>
       </section>
 
       <section class="pattern-section" aria-labelledby="quellen">
         <h2 id="quellen">Quellen</h2>
         <ul>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API">MDN – Popover API</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has">MDN – :has()</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@starting-style">MDN – @starting-style</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion">MDN – prefers-reduced-motion</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model">MDN – The box model</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/box-sizing">MDN – box-sizing</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Box_model/Margin_collapsing">MDN – Mastering margin collapsing</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Logical_properties_and_values/Basic_concepts">MDN – Basic concepts of logical properties and values</a></li>
         </ul>
       </section>
 
       <nav class="pager" aria-label="Pager">
-        <a href="akkordeon.html" rel="prev"><span class="pager-label">Zurück</span>Exklusives Akkordeon</a>
-        <a href="skip-link.html" rel="next"><span class="pager-label">Weiter</span>Skip-Link</a>
+        <a href="selektoren.html" rel="prev"><span class="pager-label">Zurück</span>Selektoren</a>
+        <a href="cascade-layers.html" rel="next"><span class="pager-label">Weiter</span>Cascade Layers</a>
       </nav>
     </main>
 

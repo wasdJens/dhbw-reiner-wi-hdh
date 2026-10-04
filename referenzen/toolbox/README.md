@@ -25,6 +25,8 @@ toolbox/
 │   ├── bilder.html
 │   ├── responsive-images.html
 │   ├── label-fehlermeldung.html
+│   ├── selektoren.html
+│   ├── box-model.html
 │   ├── cascade-layers.html
 │   ├── custom-properties.html
 │   ├── progressive-enhancement.html

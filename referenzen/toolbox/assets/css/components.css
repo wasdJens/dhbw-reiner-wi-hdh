@@ -312,6 +312,40 @@
   padding-inline-start: var(--space-lg);
 }
 
+/* Box Model: vier Bereiche einer Box, von außen nach innen */
+.box-model,
+.box-model div {
+  display: grid;
+  gap: var(--space-2xs);
+  padding: var(--space-sm);
+}
+
+.box-model {
+  max-inline-size: 32rem;
+  border: var(--rule-width) dashed var(--color-ink);
+  background-color: var(--color-paper);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.box-model-border {
+  border: var(--space-2xs) solid var(--color-ink);
+}
+
+.box-model-padding {
+  background-color: var(--color-paper-2);
+}
+
+.box-model-content {
+  border: var(--rule-width) dashed var(--color-ink);
+  background-color: var(--color-paper);
+  text-align: center;
+}
+
+.box-model-content p {
+  padding-block: var(--space-md);
+}
+
 /* Landmarks: schematische Seite mit Rollen */
 .landmark-map {
   display: grid;
