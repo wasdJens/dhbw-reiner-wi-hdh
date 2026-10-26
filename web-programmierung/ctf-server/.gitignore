@@ -1,0 +1,7 @@
+# Abhängigkeiten und Build
+node_modules/
+dist/
+
+# Lokale Daten und Konfiguration
+*.db
+.env

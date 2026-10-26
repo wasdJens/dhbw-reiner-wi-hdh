@@ -1,0 +1,8 @@
+<h1>Brauereien</h1>
+<table>
+  <tr><th>Name</th><th>Stadt</th><th>Land</th></tr>
+  {{! Eine Zeile je Brauerei aus der Liste breweries }}
+  {{#each breweries}}
+    <tr><td>{{name}}</td><td>{{city}}</td><td>{{country}}</td></tr>
+  {{/each}}
+</table>

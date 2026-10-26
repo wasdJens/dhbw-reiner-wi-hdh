@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Top-Biere</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 40rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      li {
+        font-size: 1.5rem;
+        margin-block: 0.5rem;
+      }
+    </style>
+    <!-- Client von socket.io; der Server liefert ihn, sobald es ein Gateway gibt -->
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <h1>Top-Biere</h1>
+    <ol id="ranking"></ol>
+    <p id="updated"></p>
+
+    <script>
+      // Zeigt eine Liste von Bieren im Format von GET /beers
+      function render(beers) {
+        const list = document.getElementById('ranking');
+        list.replaceChildren(
+          ...beers.map((beer) => {
+            const item = document.createElement('li');
+            item.textContent = `${beer.name} · ${beer.averageRating}`;
+            return item;
+          }),
+        );
+        document.getElementById('updated').textContent =
+          `Stand: ${new Date().toLocaleTimeString('de-DE')}`;
+      }
+
+      // Polling: fragt alle fünf Sekunden, auch ohne neue Bewertung.
+      // Nur diesen Teil änderst du in der Aufgabe.
+      async function poll() {
+        const url = '/beers?sort=averageRating&order=desc';
+        const response = await fetch(url);
+        const beers = await response.json();
+        // Biere ohne Bewertung fehlen, die besten fünf bleiben
+        const rated = beers.filter((b) => b.averageRating !== null);
+        render(rated.slice(0, 5));
+      }
+      poll();
+      setInterval(poll, 5000);
+    </script>
+  </body>
+</html>

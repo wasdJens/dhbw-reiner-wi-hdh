@@ -1,0 +1,13 @@
+<h1>Biere</h1>
+<table>
+  <tr><th>Name</th><th>Stil</th><th>Brauerei</th><th>Durchschnitt</th></tr>
+  {{#each beers}}
+    <tr>
+      <td><a href="/beers/{{id}}">{{name}}</a></td>
+      <td>{{style}}</td>
+      <td>{{brewery.name}}</td>
+      {{! Ohne Bewertung ist averageRating null: dann ein Strich }}
+      <td>{{#if averageRating}}{{averageRating}}{{else}}–{{/if}}</td>
+    </tr>
+  {{/each}}
+</table>

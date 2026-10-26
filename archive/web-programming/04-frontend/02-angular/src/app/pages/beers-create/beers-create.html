@@ -1,8 +1,0 @@
-<h1>Create beer</h1>
-<form [formGroup]="createBeerForm" (ngSubmit)="onSubmit()">
-  <input formControlName="name" type="text" />
-  <button type="submit">Create</button>
-</form>
-@if (createdBeer()) {
-<p>Created beer: {{ createdBeer()?.name }}</p>
-}

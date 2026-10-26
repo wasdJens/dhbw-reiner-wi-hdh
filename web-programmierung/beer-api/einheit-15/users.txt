@@ -1,0 +1,7 @@
+# Zugangsdaten der Beispiel-User der Beer API
+# Nur für die lokale Entwicklung. Die User gibt es ab Einheit 13 (Story 13 und 14).
+# Mit NODE_ENV=production legt die Migration SeedUsers sie nicht an (ab Einheit 14).
+#
+# name      password     rolle
+admin       admin123     admin
+gast        gast123      user

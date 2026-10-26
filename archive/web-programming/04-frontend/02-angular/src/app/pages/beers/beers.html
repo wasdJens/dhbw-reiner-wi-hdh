@@ -1,9 +1,0 @@
-<h1>Beers</h1>
-<ul>
-  @for(beer of beers(); track beer.id) {
-  <li>
-    <a [routerLink]="[beer.id]">{{ beer.name }}</a>
-  </li>
-  }
-</ul>
-<router-outlet></router-outlet>
