@@ -108,3 +108,5 @@ dist
 .vscode
 
 .local_files
+# macOS
+.DS_Store
