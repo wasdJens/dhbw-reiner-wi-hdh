@@ -2,9 +2,9 @@
 titel: Glossar Web-Programmierung
 typ: referenz
 tags: [glossar, web-programmierung]
-version: 0.30.2
-status: entwurf
-stand: 2026-10-26
+version: 0.33.0
+status: freigegeben
+stand: 2026-11-15
 ---
 
 # Glossar Web-Programmierung
@@ -22,6 +22,10 @@ Begriffe aus der Web-Programmierung, alphabetisch sortiert. Englische Fachbegrif
 ### Akzeptanzkriterium
 **Definition:** Bedingung, an der Auftraggeber und Entwicklung erkennen, dass eine User Story fertig ist. In der Beer App ist jedes Kriterium eine Anfrage mit erwarteter Antwort, zum Beispiel „`POST /beers/42/ratings` antwortet mit `404`“, und in der Regel ein Test in Postman; Story 15 prüft man im Browser.
 **Siehe auch:** [User Story](#user-story), [cohn-user-stories](quellen.md#cohn-user-stories)
+
+### Anti-Corruption Layer
+**Definition:** Schicht an der Grenze zu einem anderen System, die dessen Felder, Formate und Fehler in das eigene Modell übersetzt (Eric Evans, Domain-Driven Design). In der Beer API kennen nur Client, Zod-Schema und Mapper das Brauerei-ERP; ein Wechsel auf eine neue Version des ERP ändert nur diese Dateien.
+**Siehe auch:** [Mapper](#mapper), [Breaking Change](#breaking-change), [Timeout](#timeout)
 
 ### API
 **Definition:** Application Programming Interface – legt fest, welche Anfragen ein Programm versteht und welche Antworten es liefert. Bei einer Web-API ist jede Anfrage eine HTTP-Anfrage an einen Endpunkt.
@@ -61,7 +65,7 @@ Begriffe aus der Web-Programmierung, alphabetisch sortiert. Englische Fachbegrif
 
 ### Breaking Change
 **Definition:** Änderung an einer API, nach der ein bestehender Client nicht mehr funktioniert, zum Beispiel ein entferntes oder umbenanntes Feld, ein neuer Pflichtparameter oder ein anderer Typ. Ein neues Feld in der Antwort ist kein Breaking Change. Öffentliche APIs bringen Breaking Changes nur in einer neuen Version.
-**Siehe auch:** [OpenAPI](#openapi), [github-rest-api](quellen.md#github-rest-api)
+**Siehe auch:** [OpenAPI](#openapi), [Deprecation](#deprecation), [Semantic Versioning](#semantic-versioning), [hyrums-law](quellen.md#hyrums-law), [github-rest-api](quellen.md#github-rest-api)
 
 ### Cache
 **Definition:** Zwischenspeicher für Antworten, zum Beispiel im Browser. Der Server legt mit dem Header `Cache-Control` fest, wie lange eine Antwort gültig ist; solange fragt der Client nicht erneut an.
@@ -119,6 +123,10 @@ Begriffe aus der Web-Programmierung, alphabetisch sortiert. Englische Fachbegrif
 **Definition:** Eine Klasse erzeugt die Objekte, die sie braucht, nicht selbst, sondern bekommt sie übergeben. In NestJS nennt ein Controller den Service als Parameter im Constructor; NestJS erzeugt den Service und übergibt ihn.
 **Siehe auch:** [Provider](#provider), [Service](#service), [nestjs-docs](quellen.md#nestjs-docs)
 
+### Deprecation
+**Definition:** Abkündigung: Ein Endpunkt funktioniert noch, soll aber nicht mehr genutzt werden. Der Server meldet sie mit dem Header `Deprecation` (RFC 9745) und nennt mit `Sunset` (RFC 8594) den Zeitpunkt, ab dem der Endpunkt voraussichtlich nicht mehr antwortet.
+**Siehe auch:** [Breaking Change](#breaking-change), [Header](#header), [rfc-9745](quellen.md#rfc-9745), [rfc-8594](quellen.md#rfc-8594)
+
 ### Deployment
 **Definition:** Ausliefern einer Anwendung auf einen Server und dauerhafter Betrieb dort: übersetzen, Secrets als Umgebungsvariablen setzen, den Prozess starten und nach einem Absturz neu starten, Migrationen ausführen.
 **Siehe auch:** [Umgebungsvariable](#umgebungsvariable), [Migration](#migration), [nestjs-docs](quellen.md#nestjs-docs)
@@ -142,6 +150,10 @@ Begriffe aus der Web-Programmierung, alphabetisch sortiert. Englische Fachbegrif
 ### Entity
 **Definition:** Klasse mit dem Decorator `@Entity()`, die eine Tabelle der Datenbank beschreibt. Jede Eigenschaft mit `@Column()` ist eine Spalte, jedes Objekt der Klasse eine Zeile.
 **Siehe auch:** [ORM](#orm), [Migration](#migration), [typeorm-docs](quellen.md#typeorm-docs)
+
+### ERP
+**Definition:** Enterprise Resource Planning: System eines Unternehmens für Artikel, Bestand, Einkauf und Verkauf. Das Brauerei-ERP der Einheiten 17 und 19 liefert Bestand und Stammdaten über eine eigene API mit API Key.
+**Siehe auch:** [Stammdaten](#stammdaten), [Anti-Corruption Layer](#anti-corruption-layer), [API Key](#api-key)
 
 ### Escaping
 **Definition:** Maskieren von Zeichen, die in einem Format eine Bedeutung haben, damit sie als Text erscheinen. In HTML wird `<` zu `&lt;` und `>` zu `&gt;`. Handlebars maskiert jeden Wert in `{{ }}`; `{{{ }}}` setzt den Wert unverändert ein.
@@ -236,7 +248,7 @@ Begriffe aus der Web-Programmierung, alphabetisch sortiert. Englische Fachbegrif
 **Siehe auch:** [Load Balancer](#load-balancer), [Statelessness](#statelessness)
 
 ### Interceptor
-**Definition:** Klasse in NestJS, die vor und nach der Methode des Controllers läuft und zum Beispiel die Antwort umwandelt. Der globale `ZodSerializerInterceptor` aus `nestjs-zod` prüft die Antwort gegen das DTO aus `@ZodResponse` und entfernt Felder, die das Schema nicht kennt.
+**Definition:** Klasse in NestJS, die vor und nach der Methode des Controllers läuft und zum Beispiel die Antwort umwandelt. Der globale `ZodSerializerInterceptor` aus `nestjs-zod` prüft die Antwort gegen das DTO aus `@ZodResponse` und entfernt Felder, die das Schema nicht kennt. In Angular ist ein Interceptor eine Funktion, durch die jede Anfrage von `HttpClient` läuft, etwa um das Token anzuhängen.
 **Siehe auch:** [Pipe](#pipe), [DTO](#dto), [nestjs-docs](quellen.md#nestjs-docs)
 
 ### ISO 8601
@@ -255,13 +267,25 @@ Begriffe aus der Web-Programmierung, alphabetisch sortiert. Englische Fachbegrif
 **Definition:** JSON Web Token: drei Base64URL-Teile mit Punkt, Header, Payload und Signatur. Der Payload ist lesbar, nicht verschlüsselt; die Signatur mit dem Secret des Servers macht jede Änderung erkennbar. `exp` legt den Ablauf fest.
 **Siehe auch:** [Bearer-Token](#bearer-token), [rfc-7519](quellen.md#rfc-7519)
 
+### Lockfile
+**Definition:** Datei, die die genaue Version jedes installierten Pakets festhält, auch der indirekten; bei npm `package-lock.json`. `npm ci` installiert genau diesen Stand und bricht ab, wenn `package.json` nicht dazu passt.
+**Siehe auch:** [Semantic Versioning](#semantic-versioning), [Supply-Chain-Angriff](#supply-chain-angriff), [npm-docs](quellen.md#npm-docs)
+
 ### Load Balancer
 **Definition:** Verteiler vor mehreren gleichen Servern (Instanzen), der jeden Request an einen freien Server gibt. Das geht nur, wenn die Server zwischen zwei Requests keinen Zustand des Clients speichern.
 **Siehe auch:** [Statelessness](#statelessness), [Server](#server)
 
+### Long Running Task
+**Definition:** Aufgabe, die länger dauert, als eine Anfrage warten soll. Der Server antwortet sofort mit `202 Accepted` und nennt einen Endpunkt, an dem der Client den Stand abfragt.
+**Siehe auch:** [Queue](#queue), [Statuscode](#statuscode)
+
 ### Make or Buy
 **Definition:** Entscheidung, ob ein Teil eines Systems selbst gebaut oder als Dienst eingekauft wird, zum Beispiel Hosting oder E-Mail-Versand. Ein gekaufter Dienst übernimmt den Betrieb; die Verantwortung gegenüber den Nutzern bleibt beim Betreiber.
 **Siehe auch:** [Identity Provider](#identity-provider), [Total Cost of Ownership](#total-cost-of-ownership), [dsgvo](quellen.md#dsgvo)
+
+### Mapper
+**Definition:** Funktion, die die Daten eines anderen Systems in das eigene Modell übersetzt und zurück, zum Beispiel `toBeer` in der Webseite der Beer App (`"weizen"` → „Weizen“, `null` → fehlendes Feld) oder `toStock` in der Beer API (`bestand` → `bottles`). Ändert das andere System ein Feld, ändert sich nur der Mapper.
+**Siehe auch:** [Anti-Corruption Layer](#anti-corruption-layer), [DTO](#dto), [Frontend](#frontend), [angular-docs](quellen.md#angular-docs)
 
 ### Mass Assignment
 **Definition:** Ein Client sendet ein Feld, das er nicht setzen darf, zum Beispiel `roles` bei der Registrierung, und der Server übernimmt es. Schutz: Das Schema beschreibt genau die erlaubten Felder; `.strict()` lehnt andere mit `400` ab.
@@ -319,9 +343,17 @@ Begriffe aus der Web-Programmierung, alphabetisch sortiert. Englische Fachbegrif
 **Definition:** Object-Relational Mapping: Bibliothek, die zwischen Objekten im Code und Zeilen in Tabellen übersetzt. Die Beer API nutzt TypeORM; das SQL erzeugt das ORM.
 **Siehe auch:** [Entity](#entity), [Repository (ORM)](#repository-orm), [typeorm-docs](quellen.md#typeorm-docs)
 
+### Origin
+**Definition:** Schema, Host und Port einer Seite, zum Beispiel `http://localhost:4200`. Zwei Adressen haben dieselbe Origin nur, wenn alle drei Teile gleich sind; `http://localhost:3000` ist eine andere Origin. Der Browser sendet sie im Header `Origin`.
+**Siehe auch:** [CORS](#cors), [URL](#url), [mdn](quellen.md#mdn)
+
 ### OWASP Top 10
 **Definition:** Liste der zehn häufigsten Sicherheitsrisiken von Webanwendungen, herausgegeben vom Open Worldwide Application Security Project. Aktuell ist die Ausgabe 2025 mit A01 Broken Access Control auf Platz 1. Die Namen der Einträge bleiben englisch.
 **Siehe auch:** [Autorisierung](#autorisierung), [Injection](#injection), [owasp-top-10](quellen.md#owasp-top-10)
+
+### Paginierung
+**Definition:** Eine API liefert eine lange Liste in Seiten statt auf einmal. Die Antwort nennt die Seite und die Zahl der Seiten; der Client fragt Seite für Seite ab, im Brauerei-ERP mit dem Query-Parameter `seite`.
+**Siehe auch:** [Query-Parameter](#query-parameter), [ERP](#erp)
 
 ### Peer-to-Peer
 **Definition:** Architekturmodell, in dem gleichberechtigte Rechner (Peers) direkt miteinander Daten austauschen, ohne zentralen Server. Jeder Peer ist zugleich Client und Server.
@@ -350,6 +382,10 @@ Begriffe aus der Web-Programmierung, alphabetisch sortiert. Englische Fachbegrif
 ### Port
 **Definition:** Nummer, unter der ein Programm auf einem Rechner erreichbar ist. Standard sind 443 für `https` und 80 für `http`; die Beer API läuft auf Port 3000 (`http://localhost:3000`).
 **Siehe auch:** [URL](#url), [Server](#server), [mdn](quellen.md#mdn)
+
+### Preflight
+**Definition:** Anfrage mit der Methode `OPTIONS`, die der Browser vor einer Anfrage an eine andere Origin sendet, wenn diese etwa `Authorization` oder `Content-Type: application/json` mitschickt. Erst wenn die Antwort die Methode und die Header erlaubt, sendet der Browser die eigentliche Anfrage.
+**Siehe auch:** [CORS](#cors), [Header](#header), [mdn](quellen.md#mdn)
 
 ### Primärschlüssel
 **Definition:** Spalte, deren Wert jede Zeile einer Tabelle eindeutig kennzeichnet, in der Beer API die `id`. Die Datenbank vergibt ihn beim Einfügen, wenn die Anfrage keinen Wert setzt; die Seed-Migrationen setzen feste Werte.
@@ -427,6 +463,10 @@ Begriffe aus der Web-Programmierung, alphabetisch sortiert. Englische Fachbegrif
 **Definition:** Legt fest, wie oft NestJS einen Provider erzeugt. Standard ist eine Instanz je Module (Singleton); die Scopes `REQUEST` und `TRANSIENT` erzeugen eine Instanz je Anfrage bzw. je Klasse, die den Provider anfordert.
 **Siehe auch:** [Provider](#provider), [Singleton](#singleton), [nestjs-docs](quellen.md#nestjs-docs)
 
+### Semantic Versioning
+**Definition:** Schema für Versionsnummern MAJOR.MINOR.PATCH (SemVer): PATCH für behobene Fehler, MINOR für neue, rückwärtskompatible Funktionen, MAJOR für Breaking Changes. Ein Major-Update erfordert meist Änderungen am eigenen Code; sie stehen im Migration Guide.
+**Siehe auch:** [Breaking Change](#breaking-change), [Lockfile](#lockfile), [semver](quellen.md#semver)
+
 ### Server
 **Definition:** Programm, das auf Anfragen wartet und sie beantwortet, zum Beispiel die Beer API. Client und Server sind Rollen von Programmen, keine Geräte.
 **Siehe auch:** [Client](#client), [Statelessness](#statelessness)
@@ -467,6 +507,10 @@ Begriffe aus der Web-Programmierung, alphabetisch sortiert. Englische Fachbegrif
 **Definition:** Liste der Funktionsaufrufe bis zu der Stelle, an der eine Exception entstand, mit Dateien und Zeilennummern. Er gehört ins Terminal oder ins Log, nie in eine Antwort: Er zeigt Angreifern den Aufbau des Servers.
 **Siehe auch:** [Exception](#exception), [owasp-top-10](quellen.md#owasp-top-10)
 
+### Stammdaten
+**Definition:** Grunddaten, die sich selten ändern und von vielen Vorgängen genutzt werden, etwa Brauereien und Artikel. Ein System ist für sie führend; andere übernehmen sie per Import und erkennen Einträge an der Nummer des führenden Systems wieder.
+**Siehe auch:** [ERP](#erp), [Mapper](#mapper)
+
 ### Statelessness
 **Definition:** Zustandslosigkeit: Der Server merkt sich nichts zwischen zwei Anfragen; jede Anfrage enthält alles, was er für die Antwort braucht. Deshalb kann jede gleiche Instanz eines Servers jede Anfrage beantworten.
 **Siehe auch:** [Server](#server), [Request](#request-anfrage)
@@ -474,6 +518,10 @@ Begriffe aus der Web-Programmierung, alphabetisch sortiert. Englische Fachbegrif
 ### Statuscode
 **Definition:** Dreistellige Zahl in der Statuszeile einer Response, die das Ergebnis nennt, zum Beispiel `200` oder `404`. Die erste Ziffer nennt die Klasse: 2 Erfolg, 3 Umleitung, 4 Fehler des Clients, 5 Fehler des Servers.
 **Siehe auch:** [Response](#response-antwort), [mdn](quellen.md#mdn)
+
+### Supply-Chain-Angriff
+**Definition:** Angriff über eine Abhängigkeit statt über den eigenen Code, etwa ein Paket mit Schadcode nach der Übernahme eines Maintainer-Kontos. Skripte wie `postinstall` laufen schon bei `npm install`. Gepinnte Versionen, Lockfile und `npm audit` begrenzen das Risiko.
+**Siehe auch:** [Lockfile](#lockfile), [github-npm-supply-chain](quellen.md#github-npm-supply-chain)
 
 ### Swagger UI
 **Definition:** Werkzeug, das eine OpenAPI-Beschreibung als Webseite anzeigt: je Endpunkt Parameter, Schemas und Antworten, mit Formular zum Ausprobieren. In der Beer API unter `/api`.
@@ -490,6 +538,10 @@ Begriffe aus der Web-Programmierung, alphabetisch sortiert. Englische Fachbegrif
 ### Template-Engine
 **Definition:** Programm, das ein Template (Text mit Platzhaltern, Schleifen und Bedingungen) mit Daten füllt, zum Beispiel HTML aus `{{#each breweries}}`. Ein Layout ist ein Template, das alle Seiten rahmt. Die Beer API nutzt Handlebars über das Paket `hbs`.
 **Siehe auch:** [Escaping](#escaping), [Server-Side Rendering](#server-side-rendering), [handlebars-docs](quellen.md#handlebars-docs)
+
+### Timeout
+**Definition:** Höchste Wartezeit auf eine Antwort, nach der ein Aufruf abbricht. Ohne Timeout wartet eine Anfrage an ein Fremdsystem unbegrenzt; die Beer API bricht den Aufruf des ERP nach 2 Sekunden ab und antwortet mit `503`.
+**Siehe auch:** [Anti-Corruption Layer](#anti-corruption-layer), [Verteiltes System](#verteiltes-system)
 
 ### TLS
 **Definition:** Transport Layer Security – verschlüsselt die Verbindung zwischen Client und Server und weist über ein Zertifikat nach, dass der Server zum Namen gehört. `https` ist HTTP über TLS.
@@ -556,7 +608,7 @@ Begriffe aus der Web-Programmierung, alphabetisch sortiert. Englische Fachbegrif
 **Siehe auch:** [Skript](#skript), [Collection](#collection)
 
 ### Basisprojekt
-**Definition:** Ausgangsstand der Beer API für Einheit 5: ein NestJS-Projekt mit festen Versionen, eingerichtetem Zod und Swagger und einem Hello-World-Controller. Alle beginnen mit demselben Stand.
+**Definition:** Ausgangsstand der Beer API für Einheit 5: ein NestJS-Projekt mit festen Versionen, eingerichtetem Zod und Swagger und einem Hello-World-Controller. Alle beginnen mit demselben Stand. Das **Basisprojekt Datenbank** ist der Ausgangsstand für die Aufgaben der Einheit 12: TypeORM und SQLite sind eingerichtet, die Brauereien stehen in der Datenbank. Das **Basisprojekt des Katalogs** ist der Ausgangsstand der Einheit 19: Der Import der Brauereien aus dem Brauerei-ERP ist fertig, die Lücken der Aufgaben antworten mit `501 Not Implemented`.
 **Siehe auch:** [Lösungsstand](#lösungsstand), [Beer App](#beer-app)
 
 ### Beer App

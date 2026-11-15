@@ -1,0 +1,218 @@
+/* Schlichtes Layout, lesbar am Beamer */
+:root {
+  --text: #222;
+  --muted: #666;
+  --line: #ddd;
+  --accent: #b35900;
+  --error: #b00020;
+  --success: #1b6e2a;
+  font-family: system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+header nav,
+header .user {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+header .user {
+  margin-left: auto;
+}
+
+.wordmark {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+main {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 3rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+a.active {
+  font-weight: 700;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+form {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 30rem;
+}
+
+form.filter {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: none;
+  margin-bottom: 1rem;
+}
+
+label {
+  display: grid;
+  gap: 0.25rem;
+}
+
+label.inline {
+  display: inline-flex;
+  margin-right: 1rem;
+}
+
+input,
+select,
+textarea,
+button,
+.button {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  padding: 0.3rem 0.5rem;
+}
+
+button,
+.button {
+  justify-self: start;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+button.danger {
+  border-color: var(--error);
+  background: var(--error);
+}
+
+button.link {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.message {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--success);
+  background: #eef7ef;
+}
+
+.message.error {
+  border-left-color: var(--error);
+  background: #fdecee;
+}
+
+.form-error {
+  margin: 0;
+  color: var(--error);
+}
+
+.cards {
+  padding: 0;
+  list-style: none;
+}
+
+.cards li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.ratings {
+  padding: 0;
+  list-style: none;
+}
+
+.ratings li {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.ratings li.own {
+  border-left: 4px solid var(--accent);
+}
+
+.ratings .stars {
+  margin-right: 1rem;
+  color: var(--accent);
+}
+
+.ratings .date {
+  margin-right: 1rem;
+  color: var(--muted);
+}
+
+.ratings p {
+  margin: 0.25rem 0 0;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 1.5rem;
+}
+
+dt {
+  color: var(--muted);
+}
+
+dd {
+  margin: 0;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}

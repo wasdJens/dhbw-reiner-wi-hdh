@@ -1,0 +1,541 @@
+{
+  "info": {
+    "name": "Stammdaten-Server",
+    "description": "Beispielanfragen an den Stammdaten-Server der Prismarine Solutions GmbH. Trage in der Variable stammdatenApiKey deinen API-Key ein; alle Anfragen senden ihn im Header X-API-Key. Alle Endpunkte beschreibt die Dokumentation unter {{stammdatenUrl}}/api.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{stammdatenApiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "Personen",
+      "description": "Mitarbeiterinnen und Mitarbeiter mit Abteilung, Standort und Status.",
+      "item": [
+        {
+          "name": "Alle Personen in einer Anfrage",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{stammdatenUrl}}/v1/personen?pro_seite=500",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "v1",
+                "personen"
+              ],
+              "query": [
+                {
+                  "key": "pro_seite",
+                  "value": "500"
+                }
+              ]
+            },
+            "description": "Liefert alle 250 Personen von Stand 1 auf einer Seite."
+          }
+        },
+        {
+          "name": "Aktive Personen eines Standorts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{stammdatenUrl}}/v1/personen?status=aktiv&standort_nr=STO-01&pro_seite=10",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "v1",
+                "personen"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "aktiv"
+                },
+                {
+                  "key": "standort_nr",
+                  "value": "STO-01"
+                },
+                {
+                  "key": "pro_seite",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "Liefert die ersten 10 aktiven Personen am Standort STO-01."
+          }
+        },
+        {
+          "name": "Eine Person (P-00017)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{stammdatenUrl}}/v1/personen/P-00017",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "v1",
+                "personen",
+                "P-00017"
+              ]
+            },
+            "description": "Liefert die Person P-00017."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Abteilungen",
+      "description": "Abteilungen mit Kostenstelle und Leitung.",
+      "item": [
+        {
+          "name": "Alle Abteilungen",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{stammdatenUrl}}/v1/abteilungen",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "v1",
+                "abteilungen"
+              ]
+            },
+            "description": "Liefert alle 8 Abteilungen."
+          }
+        },
+        {
+          "name": "Eine Abteilung (ABT-06)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{stammdatenUrl}}/v1/abteilungen/ABT-06",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "v1",
+                "abteilungen",
+                "ABT-06"
+              ]
+            },
+            "description": "Liefert die Abteilung ABT-06 mit ihrer Leitung."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Standorte",
+      "description": "Standorte mit Adresse.",
+      "item": [
+        {
+          "name": "Alle Standorte",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{stammdatenUrl}}/v1/standorte",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "v1",
+                "standorte"
+              ]
+            },
+            "description": "Liefert alle 6 Standorte."
+          }
+        },
+        {
+          "name": "Ein Standort (STO-01)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{stammdatenUrl}}/v1/standorte/STO-01",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "v1",
+                "standorte",
+                "STO-01"
+              ]
+            },
+            "description": "Liefert den Standort STO-01 mit Adresse."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Räume",
+      "description": "Räume aller Standorte mit Art, Plätzen und Ausstattung.",
+      "item": [
+        {
+          "name": "Schulungsräume",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{stammdatenUrl}}/v1/raeume?art=schulung",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "v1",
+                "raeume"
+              ],
+              "query": [
+                {
+                  "key": "art",
+                  "value": "schulung"
+                }
+              ]
+            },
+            "description": "Liefert alle Schulungsräume."
+          }
+        },
+        {
+          "name": "Ein Raum (RAU-001)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{stammdatenUrl}}/v1/raeume/RAU-001",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "v1",
+                "raeume",
+                "RAU-001"
+              ]
+            },
+            "description": "Liefert den Raum RAU-001."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Inventar",
+      "description": "Geräte mit Seriennummer, Standort und verantwortlicher Person.",
+      "item": [
+        {
+          "name": "Notebooks in Betrieb",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{stammdatenUrl}}/v1/inventar?kategorie=Notebook&status=in_betrieb",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "v1",
+                "inventar"
+              ],
+              "query": [
+                {
+                  "key": "kategorie",
+                  "value": "Notebook"
+                },
+                {
+                  "key": "status",
+                  "value": "in_betrieb"
+                }
+              ]
+            },
+            "description": "Liefert alle Notebooks mit Status in_betrieb."
+          }
+        },
+        {
+          "name": "Eine Inventar-Position (INV-0003)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{stammdatenUrl}}/v1/inventar/INV-0003",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "v1",
+                "inventar",
+                "INV-0003"
+              ]
+            },
+            "description": "Liefert das Gerät INV-0003."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Artikel",
+      "description": "Artikel des Einkaufskatalogs mit Preis in Cent.",
+      "item": [
+        {
+          "name": "Lieferbare Getränke",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{stammdatenUrl}}/v1/artikel?kategorie=Getränke&status=lieferbar",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "v1",
+                "artikel"
+              ],
+              "query": [
+                {
+                  "key": "kategorie",
+                  "value": "Getränke"
+                },
+                {
+                  "key": "status",
+                  "value": "lieferbar"
+                }
+              ]
+            },
+            "description": "Liefert alle lieferbaren Artikel der Kategorie Getränke."
+          }
+        },
+        {
+          "name": "Ein Artikel (ART-0001)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{stammdatenUrl}}/v1/artikel/ART-0001",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "v1",
+                "artikel",
+                "ART-0001"
+              ]
+            },
+            "description": "Liefert den Artikel ART-0001."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Feiertage",
+      "description": "Gesetzliche Feiertage in Baden-Württemberg 2026 und 2027.",
+      "item": [
+        {
+          "name": "Feiertage 2027",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{stammdatenUrl}}/v1/feiertage?jahr=2027",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "v1",
+                "feiertage"
+              ],
+              "query": [
+                {
+                  "key": "jahr",
+                  "value": "2027"
+                }
+              ]
+            },
+            "description": "Liefert alle 12 Feiertage des Jahres 2027."
+          }
+        },
+        {
+          "name": "Ein Feiertag (2026-12-25)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{stammdatenUrl}}/v1/feiertage/2026-12-25",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "v1",
+                "feiertage",
+                "2026-12-25"
+              ]
+            },
+            "description": "Liefert den Feiertag am 25.12.2026."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Datenstände",
+      "description": "Wechsel zwischen Stand 1 (Auslieferung) und Stand 2 (nach den Änderungen vom 01.12.2026). Die Anfragen stehen in der Reihenfolge eines Ablaufs.",
+      "item": [
+        {
+          "name": "Datenstand anzeigen",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{stammdatenUrl}}/system/stand",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "system",
+                "stand"
+              ]
+            },
+            "description": "Zeigt, welcher Datenstand gerade gilt."
+          }
+        },
+        {
+          "name": "Stand 2 setzen",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{stammdatenUrl}}/system/stand",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "system",
+                "stand"
+              ]
+            },
+            "description": "Wechselt auf Stand 2 mit geänderten, neuen, inaktiven und gelöschten Datensätzen.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"stand\": 2}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Geänderte Personen seit Stand 1",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{stammdatenUrl}}/v1/personen?geaendert_seit=2026-11-16T00:00:00Z",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "v1",
+                "personen"
+              ],
+              "query": [
+                {
+                  "key": "geaendert_seit",
+                  "value": "2026-11-16T00:00:00Z"
+                }
+              ]
+            },
+            "description": "Liefert die 33 Personen, die in Stand 2 geändert, ausgetreten oder neu sind; gelöschte Personen fehlen in der Liste."
+          }
+        },
+        {
+          "name": "Gelöschte Person (P-00068)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{stammdatenUrl}}/v1/personen/P-00068",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "v1",
+                "personen",
+                "P-00068"
+              ]
+            },
+            "description": "Antwortet in Stand 2 mit 410, weil P-00068 gelöscht ist."
+          }
+        },
+        {
+          "name": "Stand 1 setzen",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{stammdatenUrl}}/system/stand",
+              "host": [
+                "{{stammdatenUrl}}"
+              ],
+              "path": [
+                "system",
+                "stand"
+              ]
+            },
+            "description": "Wechselt zurück auf den Auslieferungszustand.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"stand\": 1}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "stammdatenUrl",
+      "value": "http://localhost:3300"
+    },
+    {
+      "key": "stammdatenApiKey",
+      "value": "stammdaten-demo-key"
+    }
+  ]
+}

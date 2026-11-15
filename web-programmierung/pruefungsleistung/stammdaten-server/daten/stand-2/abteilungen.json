@@ -1,0 +1,58 @@
+[
+  {
+    "abteilung_nr": "ABT-01",
+    "name": "Geschäftsführung",
+    "kostenstelle": "KST-1000",
+    "leitung_nr": "P-00001",
+    "geaendert_am": "2026-06-13T15:53:00Z"
+  },
+  {
+    "abteilung_nr": "ABT-02",
+    "name": "Personal",
+    "kostenstelle": "KST-2100",
+    "leitung_nr": "P-00005",
+    "geaendert_am": "2025-10-21T19:40:00Z"
+  },
+  {
+    "abteilung_nr": "ABT-03",
+    "name": "Finanzen und Controlling",
+    "kostenstelle": "KST-2200",
+    "leitung_nr": "P-00009",
+    "geaendert_am": "2026-10-13T22:12:00Z"
+  },
+  {
+    "abteilung_nr": "ABT-04",
+    "name": "Vertrieb",
+    "kostenstelle": "KST-3100",
+    "leitung_nr": "P-00013",
+    "geaendert_am": "2025-07-06T08:31:00Z"
+  },
+  {
+    "abteilung_nr": "ABT-05",
+    "name": "Einkauf",
+    "kostenstelle": "KST-3200",
+    "leitung_nr": "P-00017",
+    "geaendert_am": "2025-10-06T15:38:00Z"
+  },
+  {
+    "abteilung_nr": "ABT-06",
+    "name": "IT",
+    "kostenstelle": "KST-4100",
+    "leitung_nr": "P-00021",
+    "geaendert_am": "2025-03-08T23:29:00Z"
+  },
+  {
+    "abteilung_nr": "ABT-07",
+    "name": "Facility Management",
+    "kostenstelle": "KST-4200",
+    "leitung_nr": "P-00025",
+    "geaendert_am": "2025-07-02T05:27:00Z"
+  },
+  {
+    "abteilung_nr": "ABT-08",
+    "name": "Kundenservice",
+    "kostenstelle": "KST-5100",
+    "leitung_nr": "P-00029",
+    "geaendert_am": "2026-07-31T08:40:00Z"
+  }
+]

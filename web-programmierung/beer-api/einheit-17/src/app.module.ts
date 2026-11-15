@@ -12,6 +12,7 @@ import { RatingsModule } from './ratings/ratings.module';
 import { dataSourceOptions } from './data-source';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { StockModule } from './stock/stock.module';
 
 // Validierungsfehler im Format aller anderen Fehler
 const ValidationPipe = createZodValidationPipe({
@@ -36,6 +37,7 @@ const ValidationPipe = createZodValidationPipe({
     RatingsModule,
     UsersModule,
     AuthModule,
+    StockModule,
   ],
   controllers: [AppController],
   providers: [

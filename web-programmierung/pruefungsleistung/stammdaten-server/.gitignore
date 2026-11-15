@@ -1,0 +1,6 @@
+# Abhängigkeiten und Build
+node_modules/
+dist/
+
+# Lokale Konfiguration
+.env

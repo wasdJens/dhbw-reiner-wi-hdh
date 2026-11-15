@@ -1,0 +1,46 @@
+{
+  "name": "beer-web",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "format": "prettier --write \"src/**/*.{ts,html,css}\"",
+    "api:types": "openapi-typescript http://localhost:3000/api-json -o src/app/api/schema.ts"
+  },
+  "dependencies": {
+    "@angular/common": "22.2.6",
+    "@angular/compiler": "22.2.6",
+    "@angular/core": "22.2.6",
+    "@angular/forms": "22.2.6",
+    "@angular/platform-browser": "22.2.6",
+    "@angular/router": "22.2.6",
+    "rxjs": "7.8.2",
+    "tslib": "2.9.1"
+  },
+  "devDependencies": {
+    "@angular/build": "22.2.7",
+    "@angular/cli": "22.2.7",
+    "@angular/compiler-cli": "22.2.6",
+    "openapi-typescript": "7.13.0",
+    "prettier": "3.9.10",
+    "typescript": "6.0.3"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "overrides": {
+    "openapi-typescript": {
+      "typescript": "$typescript"
+    }
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true,
+    "esbuild@0.28.2": true,
+    "fsevents@2.3.3": true,
+    "lmdb@3.5.6": true,
+    "msgpackr-extract@3.0.7": true
+  }
+}

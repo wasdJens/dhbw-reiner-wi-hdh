@@ -1,7 +1,7 @@
 {
   "info": {
     "name": "Web-Programmierung",
-    "description": "Selbstkontrolle für alle Einheiten: ein Ordner je Einheit, darin ein Ordner je Aufgabe. Beer API unter {{baseUrl}}, CTF-Server unter {{ctfUrl}}.",
+    "description": "Selbstkontrolle für alle Einheiten: ein Ordner je Einheit, darin ein Ordner je Aufgabe. Beer API und Katalog (Einheit 19) unter {{baseUrl}}, CTF-Server unter {{ctfUrl}}, Brauerei-ERP unter {{erpUrl}}.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -6957,7 +6957,7 @@
     },
     {
       "name": "Einheit 12 · Datenbank-Anbindung",
-      "description": "Einheit 12 – Datenbank-Anbindung. Vergleich zur Selbstkontrolle: Die Tests zu den Aufgaben schreibst du selbst; diese Collection zeigt, welche Fälle eine vollständige Prüfung enthält. Einen Neustart des Servers kann Postman nicht auslösen; deshalb hat jede Aufgabe einen Ordner vor und einen nach dem Neustart. Ablauf: `npm run db:reset`, Server mit `npm run start:dev`, die Ordner „vor dem Neustart“ ausführen, den Server mit Strg+C (macOS: Ctrl+C) beenden und neu starten, dann die Ordner „nach dem Neustart“. Zusatz 12.3 läuft nach `npm run db:reset` allein. Ein roter Test nennt einen Hinweis auf Ort und Ursache.",
+      "description": "Einheit 12 – Datenbank-Anbindung. Vergleich zur Selbstkontrolle: Die Tests zu den Aufgaben schreibst du selbst; diese Collection zeigt, welche Fälle eine vollständige Prüfung enthält. Einen Neustart des Servers kann Postman nicht auslösen; deshalb haben Aufgabe 12.1 und Zusatz 12.2 je einen Ordner vor und einen nach dem Neustart. Ablauf: `npm run db:reset`, Server mit `npm run start:dev`, die Ordner „vor dem Neustart“ ausführen, den Server mit Strg+C (macOS: Ctrl+C) beenden und neu starten, dann die Ordner „nach dem Neustart“. Zusatz 12.3 läuft nach `npm run db:reset` allein. Ein roter Test nennt einen Hinweis auf Ort und Ursache.",
       "item": [
         {
           "name": "Start",
@@ -7651,7 +7651,7 @@
           ]
         },
         {
-          "name": "Aufgabe 12.2 – Bewertungen in der Datenbank speichern · vor dem Neustart",
+          "name": "Zusatz 12.2 – Bewertungen in der Datenbank speichern · vor dem Neustart",
           "item": [
             {
               "name": "Vorbereitung: User 1 bewertet das Bier 1 mit 4",
@@ -7750,7 +7750,7 @@
           ]
         },
         {
-          "name": "Aufgabe 12.2 – Bewertungen in der Datenbank speichern · nach dem Neustart",
+          "name": "Zusatz 12.2 – Bewertungen in der Datenbank speichern · nach dem Neustart",
           "item": [
             {
               "name": "Eine Bewertung ist nach einem Neustart erhalten.",
@@ -13565,6 +13565,749 @@
           "description": "Die Vorbereitung bewertet Bier 1 wie in Aufgabe 16.1; eine zweite Bewertung desselben Users ersetzt die erste. Der Ordner läuft deshalb auch allein."
         }
       ]
+    },
+    {
+      "name": "Einheit 19 · Ein Fremdsystem integrieren",
+      "description": "Einheit 19 – Ein Fremdsystem integrieren. Die Ordner der Aufgaben 19.1 und 19.2 laufen gegen das Brauerei-ERP unter {{erpUrl}} mit dem API-Key aus {{erpApiKey}}, die Ordner 19.3 und 19.4 gegen den Katalog unter {{baseUrl}}. Vor dem Lauf: das ERP starten, danach den Katalog mit `npm run start:dev` frisch starten; der Katalog ist dann leer. Aufgabe 19.3 erwartet einen leeren Katalog, Aufgabe 19.4 importiert selbst und läuft auch nach 19.3. Den Fall „ERP gestoppt“ (503) prüfst du von Hand: ERP beenden und eine Bestellung senden. Ein roter Test nennt einen Hinweis auf Ort und Ursache.",
+      "item": [
+        {
+          "name": "Aufgabe 19.1 – Zugang",
+          "item": [
+            {
+              "name": "Brauereien, Seite 1 ohne Key: 401 mit AUTH_401",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Hinweise bei Rot: nennen Ort und Ursache, nie den Code",
+                      "const json = (() => { try { return pm.response.json(); } catch (e) { return undefined; } })();",
+                      "pm.test('Status 401', () => pm.expect(pm.response.code, \"Das ERP antwortet ohne Key nicht mit 401: Sendet die Anfrage trotzdem einen Header X-API-Key, etwa aus dem Reiter Authorization?\").to.eql(401));",
+                      "(pm.response.code === 401 ? pm.test : pm.test.skip)('code ist AUTH_401', () => pm.expect(json && json.code, \"Abschnitt 6 des Handbuchs nennt die Codes der Fehler.\").to.eql('AUTH_401'));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{erpUrl}}/v2/brauereien?seite=1"
+              }
+            },
+            {
+              "name": "Brauereien, Seite 1 mit Key: drei Brauereien, seiten_gesamt 3",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Hinweise bei Rot: nennen Ort und Ursache, nie den Code",
+                      "const json = (() => { try { return pm.response.json(); } catch (e) { return undefined; } })();",
+                      "const code = pm.response.code;",
+                      "function hinweis(text) {",
+                      "  if (code === 401) return \"401 mit AUTH_401: Sendet die Anfrage den Header X-API-Key mit dem Wert aus erpApiKey?\";",
+                      "  return text;",
+                      "}",
+                      "pm.test('Status 200', () => pm.expect(code, hinweis(\"Keine Antwort mit 200: Läuft das ERP unter erpUrl (http://localhost:3100)?\")).to.eql(200));",
+                      "// Folgetests nur, wenn der Statuscode stimmt; sonst zeigt nur der Statustest einen Hinweis",
+                      "let weiter = code === 200;",
+                      "// Kleine Schritte: Jeder Folgetest läuft nur, wenn der vorige grün ist",
+                      "function folge(name, fn) { (weiter ? pm.test : pm.test.skip)(name, () => { try { fn(); } catch (e) { weiter = false; throw e; } }); }",
+                      "folge(\"daten enthält drei Brauereien\", () => pm.expect(json && Array.isArray(json.daten) && json.daten.length, \"Eine Seite enthält höchstens drei Einträge in daten: Fragt die Anfrage seite=1 ab?\").to.eql(3));",
+                      "folge(\"seiten_gesamt ist 3\", () => pm.expect(json && json.seiten_gesamt, \"seiten_gesamt steht in der Hülle neben daten.\").to.eql(3));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-API-Key",
+                    "value": "{{erpApiKey}}"
+                  }
+                ],
+                "url": "{{erpUrl}}/v2/brauereien?seite=1"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Aufgabe 19.2 – Erkunden",
+          "item": [
+            {
+              "name": "Brauereien, Seite 2: drei aktive Brauereien",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Hinweise bei Rot: nennen Ort und Ursache, nie den Code",
+                      "const json = (() => { try { return pm.response.json(); } catch (e) { return undefined; } })();",
+                      "const code = pm.response.code;",
+                      "function hinweis(text) {",
+                      "  if (code === 401) return \"401 mit AUTH_401: Sendet die Anfrage den Header X-API-Key mit dem Wert aus erpApiKey?\";",
+                      "  return text;",
+                      "}",
+                      "pm.test('Status 200', () => pm.expect(code, hinweis(\"Keine Antwort mit 200: Läuft das ERP unter erpUrl (http://localhost:3100)?\")).to.eql(200));",
+                      "// Folgetests nur, wenn der Statuscode stimmt; sonst zeigt nur der Statustest einen Hinweis",
+                      "let weiter = code === 200;",
+                      "// Kleine Schritte: Jeder Folgetest läuft nur, wenn der vorige grün ist",
+                      "function folge(name, fn) { (weiter ? pm.test : pm.test.skip)(name, () => { try { fn(); } catch (e) { weiter = false; throw e; } }); }",
+                      "folge(\"daten enthält BRA-04 bis BRA-06\", () => pm.expect(json && json.daten.map((b) => b.brauerei_nr), \"Fragt die Anfrage seite=2 ab?\").to.eql(['BRA-04', 'BRA-05', 'BRA-06']));",
+                      "folge(\"alle drei sind aktiv\", () => pm.expect(json.daten.map((b) => b.status), \"Abschnitt 4 des Handbuchs beschreibt status.\").to.eql(['aktiv', 'aktiv', 'aktiv']));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-API-Key",
+                    "value": "{{erpApiKey}}"
+                  }
+                ],
+                "url": "{{erpUrl}}/v2/brauereien?seite=2"
+              }
+            },
+            {
+              "name": "Brauereien, Seite 3: Brauerei Rapp ist gesperrt",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Hinweise bei Rot: nennen Ort und Ursache, nie den Code",
+                      "const json = (() => { try { return pm.response.json(); } catch (e) { return undefined; } })();",
+                      "const code = pm.response.code;",
+                      "function hinweis(text) {",
+                      "  if (code === 401) return \"401 mit AUTH_401: Sendet die Anfrage den Header X-API-Key mit dem Wert aus erpApiKey?\";",
+                      "  return text;",
+                      "}",
+                      "pm.test('Status 200', () => pm.expect(code, hinweis(\"Keine Antwort mit 200: Läuft das ERP unter erpUrl (http://localhost:3100)?\")).to.eql(200));",
+                      "// Folgetests nur, wenn der Statuscode stimmt; sonst zeigt nur der Statustest einen Hinweis",
+                      "let weiter = code === 200;",
+                      "// Kleine Schritte: Jeder Folgetest läuft nur, wenn der vorige grün ist",
+                      "function folge(name, fn) { (weiter ? pm.test : pm.test.skip)(name, () => { try { fn(); } catch (e) { weiter = false; throw e; } }); }",
+                      "folge(\"daten enthält eine Brauerei\", () => pm.expect(json && json.daten.length, \"Fragt die Anfrage seite=3 ab?\").to.eql(1));",
+                      "folge(\"BRA-07 Brauerei Rapp\", () => pm.expect(json.daten[0].brauerei_nr + ' ' + json.daten[0].name, \"Die letzte Seite enthält die siebte Brauerei.\").to.eql('BRA-07 Brauerei Rapp'));",
+                      "folge(\"status ist gesperrt\", () => pm.expect(json.daten[0].status, \"Abschnitt 4 des Handbuchs beschreibt status.\").to.eql('gesperrt'));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-API-Key",
+                    "value": "{{erpApiKey}}"
+                  }
+                ],
+                "url": "{{erpUrl}}/v2/brauereien?seite=3"
+              }
+            },
+            {
+              "name": "Artikel von BRA-01: Nattheimer Spezial kostet 139 Cent",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Hinweise bei Rot: nennen Ort und Ursache, nie den Code",
+                      "const json = (() => { try { return pm.response.json(); } catch (e) { return undefined; } })();",
+                      "const code = pm.response.code;",
+                      "function hinweis(text) {",
+                      "  if (code === 401) return \"401 mit AUTH_401: Sendet die Anfrage den Header X-API-Key mit dem Wert aus erpApiKey?\";",
+                      "  return text;",
+                      "}",
+                      "pm.test('Status 200', () => pm.expect(code, hinweis(\"Keine Antwort mit 200: Läuft das ERP unter erpUrl (http://localhost:3100)?\")).to.eql(200));",
+                      "// Folgetests nur, wenn der Statuscode stimmt; sonst zeigt nur der Statustest einen Hinweis",
+                      "let weiter = code === 200;",
+                      "// Kleine Schritte: Jeder Folgetest läuft nur, wenn der vorige grün ist",
+                      "function folge(name, fn) { (weiter ? pm.test : pm.test.skip)(name, () => { try { fn(); } catch (e) { weiter = false; throw e; } }); }",
+                      "folge(\"daten enthält einen Artikel\", () => pm.expect(json && json.daten.length, \"Filtert die Anfrage mit dem Query-Parameter brauerei_nr=BRA-01?\").to.eql(1));",
+                      "folge(\"BR-1001 Nattheimer Spezial 0,5 l\", () => pm.expect(json.daten[0].artikel_nr + ' ' + json.daten[0].bezeichnung, \"BRA-01 hat genau einen Artikel.\").to.eql('BR-1001 Nattheimer Spezial 0,5 l'));",
+                      "folge(\"preis_cent ist 139, also 1,39 Euro\", () => pm.expect(json.daten[0].preis_cent, \"Preise stehen in Cent (Abschnitt 4 des Handbuchs).\").to.eql(139));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-API-Key",
+                    "value": "{{erpApiKey}}"
+                  }
+                ],
+                "url": "{{erpUrl}}/v2/artikel?brauerei_nr=BRA-01"
+              }
+            },
+            {
+              "name": "Bestand von BR-1001: 240 Flaschen",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Hinweise bei Rot: nennen Ort und Ursache, nie den Code",
+                      "const json = (() => { try { return pm.response.json(); } catch (e) { return undefined; } })();",
+                      "const code = pm.response.code;",
+                      "function hinweis(text) {",
+                      "  if (code === 401) return \"401 mit AUTH_401: Sendet die Anfrage den Header X-API-Key mit dem Wert aus erpApiKey?\";",
+                      "  return text;",
+                      "}",
+                      "pm.test('Status 200', () => pm.expect(code, hinweis(\"Keine Antwort mit 200: Läuft das ERP unter erpUrl (http://localhost:3100)?\")).to.eql(200));",
+                      "// Folgetests nur, wenn der Statuscode stimmt; sonst zeigt nur der Statustest einen Hinweis",
+                      "let weiter = code === 200;",
+                      "// Kleine Schritte: Jeder Folgetest läuft nur, wenn der vorige grün ist",
+                      "function folge(name, fn) { (weiter ? pm.test : pm.test.skip)(name, () => { try { fn(); } catch (e) { weiter = false; throw e; } }); }",
+                      "folge(\"lagerorte enthält zwei Einträge\", () => pm.expect(json && Array.isArray(json.lagerorte) && json.lagerorte.length, \"Fragt die Anfrage v2 ab? v1 liefert eine Summe ohne lagerorte.\").to.eql(2));",
+                      "folge(\"Summe über alle Lagerorte ist 240\", () => pm.expect(json.lagerorte.reduce((sum, l) => sum + l.bestand, 0), \"Der Bestand steht je Lagerort im Feld bestand.\").to.eql(240));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-API-Key",
+                    "value": "{{erpApiKey}}"
+                  }
+                ],
+                "url": "{{erpUrl}}/v2/artikel/BR-1001/bestand"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Aufgabe 19.3 – Biere importieren",
+          "item": [
+            {
+              "name": "Vorbereitung: Brauereien importieren",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Hinweise bei Rot: nennen Ort und Ursache, nie den Code",
+                      "const json = (() => { try { return pm.response.json(); } catch (e) { return undefined; } })();",
+                      "const routing = json && typeof json.message === 'string' && json.message.startsWith('Cannot POST');",
+                      "const code = pm.response.code;",
+                      "function hinweis(text) {",
+                      "  if (routing) return \"Kein Endpunkt für POST /breweries/import: Läuft der Katalog unter baseUrl (http://localhost:3000)?\";",
+                      "  if (code === 501) return \"501: Die Lücke ist noch offen. Die Meldung im Body nennt die Datei mit dem TODO.\";",
+                      "  if (code === 503) return \"503: Der Katalog erreicht das ERP nicht. Läuft das ERP unter ERP_URL aus .env?\";",
+                      "  if (code === 502) return \"502: Die Antwort des ERP passt nicht zum Schema. Stimmen die Felder im Schema mit Abschnitt 4 des Handbuchs überein, und stimmt ERP_API_KEY in .env?\";",
+                      "  if (code === 500) return \"500: Was meldet das Terminal von start:dev?\";",
+                      "  return text;",
+                      "}",
+                      "pm.test('Status 200', () => pm.expect(!routing && code, hinweis(\"Der Import der Brauereien antwortet nicht mit 200: Läuft der Katalog, und ist .env aus .env.example angelegt?\")).to.eql(200));",
+                      "// Folgetests nur, wenn der Statuscode stimmt; sonst zeigt nur der Statustest einen Hinweis",
+                      "let weiter = !routing && code === 200;",
+                      "// Kleine Schritte: Jeder Folgetest läuft nur, wenn der vorige grün ist",
+                      "function folge(name, fn) { (weiter ? pm.test : pm.test.skip)(name, () => { try { fn(); } catch (e) { weiter = false; throw e; } }); }"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": "{{baseUrl}}/breweries/import"
+              }
+            },
+            {
+              "name": "Erster Import: created 6, skipped 1",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Hinweise bei Rot: nennen Ort und Ursache, nie den Code",
+                      "const json = (() => { try { return pm.response.json(); } catch (e) { return undefined; } })();",
+                      "const routing = json && typeof json.message === 'string' && json.message.startsWith('Cannot POST');",
+                      "const code = pm.response.code;",
+                      "function hinweis(text) {",
+                      "  if (routing) return \"Kein Endpunkt für POST /beers/import: Steht @Post('import') im BeersController?\";",
+                      "  if (code === 501) return \"501: Die Lücke ist noch offen. Die Meldung im Body nennt die Datei mit dem TODO.\";",
+                      "  if (code === 503) return \"503: Der Katalog erreicht das ERP nicht. Läuft das ERP unter ERP_URL aus .env?\";",
+                      "  if (code === 502) return \"502: Die Antwort des ERP passt nicht zum Schema. Stimmen die Felder im Schema mit Abschnitt 4 des Handbuchs überein, und stimmt ERP_API_KEY in .env?\";",
+                      "  if (code === 500) return \"500: Was meldet das Terminal von start:dev?\";",
+                      "  return text;",
+                      "}",
+                      "pm.test('Status 200', () => pm.expect(!routing && code, hinweis(\"Der Import antwortet nicht mit 200: Was meldet das Terminal von start:dev?\")).to.eql(200));",
+                      "// Folgetests nur, wenn der Statuscode stimmt; sonst zeigt nur der Statustest einen Hinweis",
+                      "let weiter = !routing && code === 200;",
+                      "// Kleine Schritte: Jeder Folgetest läuft nur, wenn der vorige grün ist",
+                      "function folge(name, fn) { (weiter ? pm.test : pm.test.skip)(name, () => { try { fn(); } catch (e) { weiter = false; throw e; } }); }",
+                      "folge(\"created ist 6\", () => pm.expect(json && json.created, \"Nicht sechs neue Biere: Ist der Katalog frisch gestartet und sind die Brauereien importiert? Findet der Import die Brauerei über brauerei_nr und erpNumber?\").to.eql(6));",
+                      "folge(\"updated ist 0\", () => pm.expect(json.updated, \"Beim ersten Import gibt es nichts zu aktualisieren: Wird ein neues Bier auch als updated gezählt?\").to.eql(0));",
+                      "folge(\"unchanged ist 0\", () => pm.expect(json.unchanged, \"Beim ersten Import ist kein Bier unverändert: Ist der Katalog frisch gestartet?\").to.eql(0));",
+                      "folge(\"skipped ist 1\", () => pm.expect(json.skipped, \"Genau ein Artikel gehört zu einer Brauerei, die nicht im Katalog ist: Zählt der Import diesen Artikel als skipped?\").to.eql(1));",
+                      "folge(\"Bericht enthält genau created, updated, unchanged, skipped\", () => pm.expect(Object.keys(json).sort(), \"Der Bericht hat dieselben Felder wie der Import der Brauereien.\").to.eql(['created', 'skipped', 'unchanged', 'updated']));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": "{{baseUrl}}/beers/import"
+              }
+            },
+            {
+              "name": "Zweiter Import: unchanged 6, skipped 1",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Hinweise bei Rot: nennen Ort und Ursache, nie den Code",
+                      "const json = (() => { try { return pm.response.json(); } catch (e) { return undefined; } })();",
+                      "const routing = json && typeof json.message === 'string' && json.message.startsWith('Cannot POST');",
+                      "const code = pm.response.code;",
+                      "function hinweis(text) {",
+                      "  if (routing) return \"Kein Endpunkt für POST /beers/import: Steht @Post('import') im BeersController?\";",
+                      "  if (code === 501) return \"501: Die Lücke ist noch offen. Die Meldung im Body nennt die Datei mit dem TODO.\";",
+                      "  if (code === 503) return \"503: Der Katalog erreicht das ERP nicht. Läuft das ERP unter ERP_URL aus .env?\";",
+                      "  if (code === 502) return \"502: Die Antwort des ERP passt nicht zum Schema. Stimmen die Felder im Schema mit Abschnitt 4 des Handbuchs überein, und stimmt ERP_API_KEY in .env?\";",
+                      "  if (code === 500) return \"500: Was meldet das Terminal von start:dev?\";",
+                      "  return text;",
+                      "}",
+                      "pm.test('Status 200', () => pm.expect(!routing && code, hinweis(\"Der Import antwortet nicht mit 200: Was meldet das Terminal von start:dev?\")).to.eql(200));",
+                      "// Folgetests nur, wenn der Statuscode stimmt; sonst zeigt nur der Statustest einen Hinweis",
+                      "let weiter = !routing && code === 200;",
+                      "// Kleine Schritte: Jeder Folgetest läuft nur, wenn der vorige grün ist",
+                      "function folge(name, fn) { (weiter ? pm.test : pm.test.skip)(name, () => { try { fn(); } catch (e) { weiter = false; throw e; } }); }",
+                      "folge(\"created ist 0\", () => pm.expect(json && json.created, \"Der zweite Import legt Biere neu an: Erkennt der Import ein vorhandenes Bier an seiner erpNumber?\").to.eql(0));",
+                      "folge(\"updated ist 0\", () => pm.expect(json.updated, \"Der zweite Import meldet Änderungen, obwohl das ERP dieselben Daten liefert: Welches Feld unterscheidet sich zwischen Bier und Mapper?\").to.eql(0));",
+                      "folge(\"unchanged ist 6\", () => pm.expect(json.unchanged, \"Nicht sechs unveränderte Biere: Zählt der Import ein vorhandenes, gleiches Bier als unchanged?\").to.eql(6));",
+                      "folge(\"skipped ist 1\", () => pm.expect(json.skipped, \"Genau ein Artikel gehört zu einer Brauerei, die nicht im Katalog ist: Zählt der Import diesen Artikel als skipped?\").to.eql(1));",
+                      "folge(\"Bericht enthält genau created, updated, unchanged, skipped\", () => pm.expect(Object.keys(json).sort(), \"Der Bericht hat dieselben Felder wie der Import der Brauereien.\").to.eql(['created', 'skipped', 'unchanged', 'updated']));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": "{{baseUrl}}/beers/import"
+              }
+            },
+            {
+              "name": "PATCH /beers/1 ändert den Namen lokal",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Hinweise bei Rot: nennen Ort und Ursache, nie den Code",
+                      "const json = (() => { try { return pm.response.json(); } catch (e) { return undefined; } })();",
+                      "const routing = json && typeof json.message === 'string' && json.message.startsWith('Cannot PATCH');",
+                      "const code = pm.response.code;",
+                      "function hinweis(text) {",
+                      "  if (routing) return \"Kein Endpunkt für PATCH /beers/1: Läuft der Katalog unter baseUrl?\";",
+                      "  if (code === 501) return \"501: Die Lücke ist noch offen. Die Meldung im Body nennt die Datei mit dem TODO.\";",
+                      "  if (code === 503) return \"503: Der Katalog erreicht das ERP nicht. Läuft das ERP unter ERP_URL aus .env?\";",
+                      "  if (code === 502) return \"502: Die Antwort des ERP passt nicht zum Schema. Stimmen die Felder im Schema mit Abschnitt 4 des Handbuchs überein, und stimmt ERP_API_KEY in .env?\";",
+                      "  if (code === 500) return \"500: Was meldet das Terminal von start:dev?\";",
+                      "  return text;",
+                      "}",
+                      "pm.test('Status 200', () => pm.expect(!routing && code, hinweis(\"PATCH /beers/1 antwortet nicht mit 200: Gibt es Bier 1 nach dem Import?\")).to.eql(200));",
+                      "// Folgetests nur, wenn der Statuscode stimmt; sonst zeigt nur der Statustest einen Hinweis",
+                      "let weiter = !routing && code === 200;",
+                      "// Kleine Schritte: Jeder Folgetest läuft nur, wenn der vorige grün ist",
+                      "function folge(name, fn) { (weiter ? pm.test : pm.test.skip)(name, () => { try { fn(); } catch (e) { weiter = false; throw e; } }); }",
+                      "folge(\"name ist Nattheimer Test\", () => pm.expect(json && json.name, \"PATCH übernimmt name aus dem Body.\").to.eql('Nattheimer Test'));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": "{{baseUrl}}/beers/1",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Nattheimer Test\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "Import nach PATCH: updated 1",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Hinweise bei Rot: nennen Ort und Ursache, nie den Code",
+                      "const json = (() => { try { return pm.response.json(); } catch (e) { return undefined; } })();",
+                      "const routing = json && typeof json.message === 'string' && json.message.startsWith('Cannot POST');",
+                      "const code = pm.response.code;",
+                      "function hinweis(text) {",
+                      "  if (routing) return \"Kein Endpunkt für POST /beers/import: Steht @Post('import') im BeersController?\";",
+                      "  if (code === 501) return \"501: Die Lücke ist noch offen. Die Meldung im Body nennt die Datei mit dem TODO.\";",
+                      "  if (code === 503) return \"503: Der Katalog erreicht das ERP nicht. Läuft das ERP unter ERP_URL aus .env?\";",
+                      "  if (code === 502) return \"502: Die Antwort des ERP passt nicht zum Schema. Stimmen die Felder im Schema mit Abschnitt 4 des Handbuchs überein, und stimmt ERP_API_KEY in .env?\";",
+                      "  if (code === 500) return \"500: Was meldet das Terminal von start:dev?\";",
+                      "  return text;",
+                      "}",
+                      "pm.test('Status 200', () => pm.expect(!routing && code, hinweis(\"Der Import antwortet nicht mit 200: Was meldet das Terminal von start:dev?\")).to.eql(200));",
+                      "// Folgetests nur, wenn der Statuscode stimmt; sonst zeigt nur der Statustest einen Hinweis",
+                      "let weiter = !routing && code === 200;",
+                      "// Kleine Schritte: Jeder Folgetest läuft nur, wenn der vorige grün ist",
+                      "function folge(name, fn) { (weiter ? pm.test : pm.test.skip)(name, () => { try { fn(); } catch (e) { weiter = false; throw e; } }); }",
+                      "folge(\"created ist 0\", () => pm.expect(json && json.created, \"Der Import legt Biere neu an: Erkennt der Import ein vorhandenes Bier an seiner erpNumber?\").to.eql(0));",
+                      "folge(\"updated ist 1\", () => pm.expect(json.updated, \"Die lokale Änderung an Bier 1 wird nicht erkannt: Vergleicht der Import jedes Feld des Biers mit dem Ergebnis des Mappers?\").to.eql(1));",
+                      "folge(\"unchanged ist 5\", () => pm.expect(json.unchanged, \"Nicht fünf unveränderte Biere: Zählt der Import ein geändertes Bier als unchanged?\").to.eql(5));",
+                      "folge(\"skipped ist 1\", () => pm.expect(json.skipped, \"Genau ein Artikel gehört zu einer Brauerei, die nicht im Katalog ist: Zählt der Import diesen Artikel als skipped?\").to.eql(1));",
+                      "folge(\"Bericht enthält genau created, updated, unchanged, skipped\", () => pm.expect(Object.keys(json).sort(), \"Der Bericht hat dieselben Felder wie der Import der Brauereien.\").to.eql(['created', 'skipped', 'unchanged', 'updated']));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": "{{baseUrl}}/beers/import"
+              }
+            },
+            {
+              "name": "GET /beers/1 zeigt wieder den Namen aus dem ERP",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Hinweise bei Rot: nennen Ort und Ursache, nie den Code",
+                      "const json = (() => { try { return pm.response.json(); } catch (e) { return undefined; } })();",
+                      "const routing = json && typeof json.message === 'string' && json.message.startsWith('Cannot GET');",
+                      "const code = pm.response.code;",
+                      "function hinweis(text) {",
+                      "  if (routing) return \"Kein Endpunkt für GET /beers/1: Läuft der Katalog unter baseUrl?\";",
+                      "  if (code === 501) return \"501: Die Lücke ist noch offen. Die Meldung im Body nennt die Datei mit dem TODO.\";",
+                      "  if (code === 503) return \"503: Der Katalog erreicht das ERP nicht. Läuft das ERP unter ERP_URL aus .env?\";",
+                      "  if (code === 502) return \"502: Die Antwort des ERP passt nicht zum Schema. Stimmen die Felder im Schema mit Abschnitt 4 des Handbuchs überein, und stimmt ERP_API_KEY in .env?\";",
+                      "  if (code === 500) return \"500: Was meldet das Terminal von start:dev?\";",
+                      "  return text;",
+                      "}",
+                      "pm.test('Status 200', () => pm.expect(!routing && code, hinweis(\"GET /beers/1 antwortet nicht mit 200: Gibt es Bier 1 nach dem Import?\")).to.eql(200));",
+                      "// Folgetests nur, wenn der Statuscode stimmt; sonst zeigt nur der Statustest einen Hinweis",
+                      "let weiter = !routing && code === 200;",
+                      "// Kleine Schritte: Jeder Folgetest läuft nur, wenn der vorige grün ist",
+                      "function folge(name, fn) { (weiter ? pm.test : pm.test.skip)(name, () => { try { fn(); } catch (e) { weiter = false; throw e; } }); }",
+                      "folge(\"name ist Nattheimer Spezial 0,5 l\", () => pm.expect(json && json.name, \"Das ERP ist führend: Überschreibt der Import die lokale Änderung mit den Daten aus dem ERP?\").to.eql('Nattheimer Spezial 0,5 l'));",
+                      "folge(\"price ist 1.39 Euro\", () => pm.expect(json.price, \"Der Preis steht im ERP in Cent und im Katalog in Euro: Rechnet beer.mapper.ts um?\").to.eql(1.39));",
+                      "folge(\"breweryId ist 1\", () => pm.expect(json.breweryId, \"breweryId ist die id der Brauerei im Katalog, nicht die Nummer aus dem ERP: Welche id bekommt der Mapper?\").to.eql(1));",
+                      "folge(\"Kein Feld des ERP in der Antwort\", () => pm.expect(Object.keys(json || {}).filter((k) => ['artikel_nr', 'bezeichnung', 'brauerei_nr', 'sorte', 'alkohol_vol', 'preis_cent', 'ort', 'status', 'lagerorte', 'bestand', 'geaendert_am'].includes(k)), \"Felder des ERP gehören nicht in die Antwort: Übersetzt beer.mapper.ts alle Felder in das Modell des Katalogs?\").to.eql([]));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/beers/1"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Aufgabe 19.4 – Bestellung prüfen",
+          "item": [
+            {
+              "name": "Vorbereitung: Brauereien importieren",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Hinweise bei Rot: nennen Ort und Ursache, nie den Code",
+                      "const json = (() => { try { return pm.response.json(); } catch (e) { return undefined; } })();",
+                      "const routing = json && typeof json.message === 'string' && json.message.startsWith('Cannot POST');",
+                      "const code = pm.response.code;",
+                      "function hinweis(text) {",
+                      "  if (routing) return \"Kein Endpunkt für POST /breweries/import: Läuft der Katalog unter baseUrl (http://localhost:3000)?\";",
+                      "  if (code === 501) return \"501: Die Lücke ist noch offen. Die Meldung im Body nennt die Datei mit dem TODO.\";",
+                      "  if (code === 503) return \"503: Der Katalog erreicht das ERP nicht. Läuft das ERP unter ERP_URL aus .env?\";",
+                      "  if (code === 502) return \"502: Die Antwort des ERP passt nicht zum Schema. Stimmen die Felder im Schema mit Abschnitt 4 des Handbuchs überein, und stimmt ERP_API_KEY in .env?\";",
+                      "  if (code === 500) return \"500: Was meldet das Terminal von start:dev?\";",
+                      "  return text;",
+                      "}",
+                      "pm.test('Status 200', () => pm.expect(!routing && code, hinweis(\"Der Import der Brauereien antwortet nicht mit 200: Läuft der Katalog, und ist .env aus .env.example angelegt?\")).to.eql(200));",
+                      "// Folgetests nur, wenn der Statuscode stimmt; sonst zeigt nur der Statustest einen Hinweis",
+                      "let weiter = !routing && code === 200;",
+                      "// Kleine Schritte: Jeder Folgetest läuft nur, wenn der vorige grün ist",
+                      "function folge(name, fn) { (weiter ? pm.test : pm.test.skip)(name, () => { try { fn(); } catch (e) { weiter = false; throw e; } }); }"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": "{{baseUrl}}/breweries/import"
+              }
+            },
+            {
+              "name": "Vorbereitung: Biere importieren",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Hinweise bei Rot: nennen Ort und Ursache, nie den Code",
+                      "const json = (() => { try { return pm.response.json(); } catch (e) { return undefined; } })();",
+                      "const routing = json && typeof json.message === 'string' && json.message.startsWith('Cannot POST');",
+                      "const code = pm.response.code;",
+                      "function hinweis(text) {",
+                      "  if (routing) return \"Kein Endpunkt für POST /beers/import: Steht @Post('import') im BeersController?\";",
+                      "  if (code === 501) return \"501: Die Lücke ist noch offen. Die Meldung im Body nennt die Datei mit dem TODO.\";",
+                      "  if (code === 503) return \"503: Der Katalog erreicht das ERP nicht. Läuft das ERP unter ERP_URL aus .env?\";",
+                      "  if (code === 502) return \"502: Die Antwort des ERP passt nicht zum Schema. Stimmen die Felder im Schema mit Abschnitt 4 des Handbuchs überein, und stimmt ERP_API_KEY in .env?\";",
+                      "  if (code === 500) return \"500: Was meldet das Terminal von start:dev?\";",
+                      "  return text;",
+                      "}",
+                      "pm.test('Status 200', () => pm.expect(!routing && code, hinweis(\"Der Import der Biere antwortet nicht mit 200: Was meldet das Terminal von start:dev?\")).to.eql(200));",
+                      "// Folgetests nur, wenn der Statuscode stimmt; sonst zeigt nur der Statustest einen Hinweis",
+                      "let weiter = !routing && code === 200;",
+                      "// Kleine Schritte: Jeder Folgetest läuft nur, wenn der vorige grün ist",
+                      "function folge(name, fn) { (weiter ? pm.test : pm.test.skip)(name, () => { try { fn(); } catch (e) { weiter = false; throw e; } }); }"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": "{{baseUrl}}/beers/import"
+              }
+            },
+            {
+              "name": "Bestellung von Bier 1 mit 24 Flaschen: 201",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Hinweise bei Rot: nennen Ort und Ursache, nie den Code",
+                      "const json = (() => { try { return pm.response.json(); } catch (e) { return undefined; } })();",
+                      "const routing = json && typeof json.message === 'string' && json.message.startsWith('Cannot POST');",
+                      "const code = pm.response.code;",
+                      "function hinweis(text) {",
+                      "  if (routing) return \"Kein Endpunkt für POST /orders: Läuft der Katalog unter baseUrl?\";",
+                      "  if (code === 409) return \"409 für Bier 1 mit 240 Flaschen im ERP: Summiert create() den Bestand aller Lagerorte und vergleicht ihn mit bottles?\";",
+                      "  if (code === 404) return \"404 für Bier 1: Sind die Biere importiert, und sucht create() das Bier mit beerId?\";",
+                      "  if (code === 501) return \"501: Die Lücke ist noch offen. Die Meldung im Body nennt die Datei mit dem TODO.\";",
+                      "  if (code === 503) return \"503: Der Katalog erreicht das ERP nicht. Läuft das ERP unter ERP_URL aus .env?\";",
+                      "  if (code === 502) return \"502: Die Antwort des ERP passt nicht zum Schema. Stimmen die Felder im Schema mit Abschnitt 4 des Handbuchs überein, und stimmt ERP_API_KEY in .env?\";",
+                      "  if (code === 500) return \"500: Was meldet das Terminal von start:dev?\";",
+                      "  return text;",
+                      "}",
+                      "pm.test('Status 201', () => pm.expect(!routing && code, hinweis(\"Die Bestellung antwortet nicht mit 201: Was meldet die Antwort im Feld message?\")).to.eql(201));",
+                      "// Folgetests nur, wenn der Statuscode stimmt; sonst zeigt nur der Statustest einen Hinweis",
+                      "let weiter = !routing && code === 201;",
+                      "// Kleine Schritte: Jeder Folgetest läuft nur, wenn der vorige grün ist",
+                      "function folge(name, fn) { (weiter ? pm.test : pm.test.skip)(name, () => { try { fn(); } catch (e) { weiter = false; throw e; } }); }",
+                      "folge(\"beerId ist 1\", () => pm.expect(json && json.beerId, \"Die Antwort ist die gespeicherte Bestellung mit den Feldern aus dem Body.\").to.eql(1));",
+                      "folge(\"bottles ist 24\", () => pm.expect(json.bottles, \"Die Antwort ist die gespeicherte Bestellung mit den Feldern aus dem Body.\").to.eql(24));",
+                      "folge(\"id ist eine Zahl\", () => pm.expect(typeof json.id, \"Die id vergibt der Service.\").to.eql('number'));",
+                      "folge(\"Kein Feld des ERP in der Antwort\", () => pm.expect(Object.keys(json || {}).filter((k) => ['artikel_nr', 'bezeichnung', 'brauerei_nr', 'sorte', 'alkohol_vol', 'preis_cent', 'ort', 'status', 'lagerorte', 'bestand', 'geaendert_am'].includes(k)), \"Felder des ERP gehören nicht in die Antwort: Gibt create() die Bestellung zurück?\").to.eql([]));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": "{{baseUrl}}/orders",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"beerId\": 1,\n  \"bottles\": 24\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "Bestellung des Augustiner (Bestand 0): 409",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Hinweise bei Rot: nennen Ort und Ursache, nie den Code",
+                      "const json = (() => { try { return pm.response.json(); } catch (e) { return undefined; } })();",
+                      "const routing = json && typeof json.message === 'string' && json.message.startsWith('Cannot POST');",
+                      "const code = pm.response.code;",
+                      "function hinweis(text) {",
+                      "  if (routing) return \"Kein Endpunkt für POST /orders: Läuft der Katalog unter baseUrl?\";",
+                      "  if (code === 201) return \"201 für ein Bier ohne Bestand: Fragt create() den Bestand im ERP ab, bevor es die Bestellung speichert?\";",
+                      "  if (code === 501) return \"501: Die Lücke ist noch offen. Die Meldung im Body nennt die Datei mit dem TODO.\";",
+                      "  if (code === 503) return \"503: Der Katalog erreicht das ERP nicht. Läuft das ERP unter ERP_URL aus .env?\";",
+                      "  if (code === 502) return \"502: Die Antwort des ERP passt nicht zum Schema. Stimmen die Felder im Schema mit Abschnitt 4 des Handbuchs überein, und stimmt ERP_API_KEY in .env?\";",
+                      "  if (code === 500) return \"500: Was meldet das Terminal von start:dev?\";",
+                      "  return text;",
+                      "}",
+                      "pm.test('Status 409', () => pm.expect(!routing && code, hinweis(\"Kein 409 für das Augustiner: Was meldet die Antwort im Feld message?\")).to.eql(409));",
+                      "// Folgetests nur, wenn der Statuscode stimmt; sonst zeigt nur der Statustest einen Hinweis",
+                      "let weiter = !routing && code === 409;",
+                      "// Kleine Schritte: Jeder Folgetest läuft nur, wenn der vorige grün ist",
+                      "function folge(name, fn) { (weiter ? pm.test : pm.test.skip)(name, () => { try { fn(); } catch (e) { weiter = false; throw e; } }); }",
+                      "folge(\"Fehlerformat mit statusCode 409\", () => pm.expect(json && json.statusCode, \"Wirft create() eine ConflictException?\").to.eql(409));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": "{{baseUrl}}/orders",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"beerId\": 3,\n  \"bottles\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "Bestellung eines unbekannten Biers: 404",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Hinweise bei Rot: nennen Ort und Ursache, nie den Code",
+                      "const json = (() => { try { return pm.response.json(); } catch (e) { return undefined; } })();",
+                      "const routing = json && typeof json.message === 'string' && json.message.startsWith('Cannot POST');",
+                      "const code = pm.response.code;",
+                      "function hinweis(text) {",
+                      "  if (routing) return \"Kein Endpunkt für POST /orders: Läuft der Katalog unter baseUrl?\";",
+                      "  if (code === 201) return \"201 für ein Bier, das es nicht gibt: Prüft create() zuerst, ob das Bier im Katalog ist?\";",
+                      "  if (code === 502) return \"502 für ein Bier, das es nicht gibt: Sucht create() das Bier im Katalog, bevor es das ERP fragt?\";",
+                      "  if (code === 501) return \"501: Die Lücke ist noch offen. Die Meldung im Body nennt die Datei mit dem TODO.\";",
+                      "  if (code === 503) return \"503: Der Katalog erreicht das ERP nicht. Läuft das ERP unter ERP_URL aus .env?\";",
+                      "  if (code === 500) return \"500: Was meldet das Terminal von start:dev?\";",
+                      "  return text;",
+                      "}",
+                      "pm.test('Status 404', () => pm.expect(!routing && code, hinweis(\"Kein 404 für Bier 42: Sucht create() das Bier mit beersService.findOne(), bevor es das ERP fragt?\")).to.eql(404));",
+                      "// Folgetests nur, wenn der Statuscode stimmt; sonst zeigt nur der Statustest einen Hinweis",
+                      "let weiter = !routing && code === 404;",
+                      "// Kleine Schritte: Jeder Folgetest läuft nur, wenn der vorige grün ist",
+                      "function folge(name, fn) { (weiter ? pm.test : pm.test.skip)(name, () => { try { fn(); } catch (e) { weiter = false; throw e; } }); }",
+                      "folge(\"Fehlerformat mit statusCode 404\", () => pm.expect(json && json.statusCode, \"findOne wirft NotFoundException im Fehlerformat des Katalogs.\").to.eql(404));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": "{{baseUrl}}/orders",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"beerId\": 42,\n  \"bottles\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "GET /orders enthält die Bestellung von Bier 1",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Hinweise bei Rot: nennen Ort und Ursache, nie den Code",
+                      "const json = (() => { try { return pm.response.json(); } catch (e) { return undefined; } })();",
+                      "const routing = json && typeof json.message === 'string' && json.message.startsWith('Cannot GET');",
+                      "const code = pm.response.code;",
+                      "function hinweis(text) {",
+                      "  if (routing) return \"Kein Endpunkt für GET /orders: Läuft der Katalog unter baseUrl?\";",
+                      "  if (code === 501) return \"501: Die Lücke ist noch offen. Die Meldung im Body nennt die Datei mit dem TODO.\";",
+                      "  if (code === 503) return \"503: Der Katalog erreicht das ERP nicht. Läuft das ERP unter ERP_URL aus .env?\";",
+                      "  if (code === 502) return \"502: Die Antwort des ERP passt nicht zum Schema. Stimmen die Felder im Schema mit Abschnitt 4 des Handbuchs überein, und stimmt ERP_API_KEY in .env?\";",
+                      "  if (code === 500) return \"500: Was meldet das Terminal von start:dev?\";",
+                      "  return text;",
+                      "}",
+                      "pm.test('Status 200', () => pm.expect(!routing && code, hinweis(\"GET /orders antwortet nicht mit 200: Läuft der Katalog unter baseUrl?\")).to.eql(200));",
+                      "// Folgetests nur, wenn der Statuscode stimmt; sonst zeigt nur der Statustest einen Hinweis",
+                      "let weiter = !routing && code === 200;",
+                      "// Kleine Schritte: Jeder Folgetest läuft nur, wenn der vorige grün ist",
+                      "function folge(name, fn) { (weiter ? pm.test : pm.test.skip)(name, () => { try { fn(); } catch (e) { weiter = false; throw e; } }); }",
+                      "folge(\"Eine Bestellung von Bier 1 mit 24 Flaschen\", () => pm.expect(Array.isArray(json) && json.some((o) => o.beerId === 1 && o.bottles === 24), \"Speichert create() die Bestellung im Array des Service?\").to.eql(true));",
+                      "folge(\"Keine Bestellung des Augustiner oder von Bier 42\", () => pm.expect(json.some((o) => o.beerId === 3 || o.beerId === 42), \"Eine abgelehnte Bestellung wird nicht gespeichert: Wirft create() die Exception vor dem Speichern?\").to.eql(false));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/orders"
+              }
+            }
+          ]
+        }
+      ]
     }
   ],
   "variable": [
@@ -13655,6 +14398,14 @@
     {
       "key": "tokenAltesSecret",
       "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsIm5hbWUiOiJhZG1pbiIsInJvbGVzIjpbImFkbWluIl0sImlhdCI6MTc5MjY1NjAwMCwiZXhwIjoyMTA4MDE2MDAwfQ.TAQowTzWY9u0QlBk9rmYOOYMoozgxnx-vLPEHkH6uEI"
+    },
+    {
+      "key": "erpUrl",
+      "value": "http://localhost:3100"
+    },
+    {
+      "key": "erpApiKey",
+      "value": "erp-demo-key"
     }
   ]
 }

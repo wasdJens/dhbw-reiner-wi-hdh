@@ -1,0 +1,1202 @@
+[
+  {
+    "artikel_nr": "ART-0001",
+    "bezeichnung": "Kugelschreiber blau",
+    "kategorie": "Büromaterial",
+    "einheit": "Stück",
+    "preis_cent": 129,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-06-29T15:13:00Z"
+  },
+  {
+    "artikel_nr": "ART-0002",
+    "bezeichnung": "Kugelschreiber schwarz",
+    "kategorie": "Büromaterial",
+    "einheit": "Stück",
+    "preis_cent": 129,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-05-17T11:22:00Z"
+  },
+  {
+    "artikel_nr": "ART-0003",
+    "bezeichnung": "Bleistift HB",
+    "kategorie": "Büromaterial",
+    "einheit": "Stück",
+    "preis_cent": 69,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-12-01T08:00:00Z"
+  },
+  {
+    "artikel_nr": "ART-0004",
+    "bezeichnung": "Textmarker gelb",
+    "kategorie": "Büromaterial",
+    "einheit": "Stück",
+    "preis_cent": 149,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-03-09T16:08:00Z"
+  },
+  {
+    "artikel_nr": "ART-0005",
+    "bezeichnung": "Textmarker grün",
+    "kategorie": "Büromaterial",
+    "einheit": "Stück",
+    "preis_cent": 149,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-08-09T19:31:00Z"
+  },
+  {
+    "artikel_nr": "ART-0006",
+    "bezeichnung": "Radiergummi",
+    "kategorie": "Büromaterial",
+    "einheit": "Stück",
+    "preis_cent": 79,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-03-02T09:40:00Z"
+  },
+  {
+    "artikel_nr": "ART-0007",
+    "bezeichnung": "Lineal 30 cm",
+    "kategorie": "Büromaterial",
+    "einheit": "Stück",
+    "preis_cent": 199,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-05-14T17:14:00Z"
+  },
+  {
+    "artikel_nr": "ART-0008",
+    "bezeichnung": "Schere",
+    "kategorie": "Büromaterial",
+    "einheit": "Stück",
+    "preis_cent": 549,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-03-14T07:52:00Z"
+  },
+  {
+    "artikel_nr": "ART-0009",
+    "bezeichnung": "Tacker",
+    "kategorie": "Büromaterial",
+    "einheit": "Stück",
+    "preis_cent": 1290,
+    "mwst_satz": 19,
+    "status": "nicht_lieferbar",
+    "geaendert_am": "2026-06-11T08:14:00Z"
+  },
+  {
+    "artikel_nr": "ART-0010",
+    "bezeichnung": "Locher",
+    "kategorie": "Büromaterial",
+    "einheit": "Stück",
+    "preis_cent": 1490,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-05-05T23:22:00Z"
+  },
+  {
+    "artikel_nr": "ART-0011",
+    "bezeichnung": "Haftnotizen 76 × 76 mm",
+    "kategorie": "Büromaterial",
+    "einheit": "Stück",
+    "preis_cent": 249,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-02-24T11:54:00Z"
+  },
+  {
+    "artikel_nr": "ART-0012",
+    "bezeichnung": "Ordner A4 breit",
+    "kategorie": "Büromaterial",
+    "einheit": "Stück",
+    "preis_cent": 399,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-04-18T11:01:00Z"
+  },
+  {
+    "artikel_nr": "ART-0013",
+    "bezeichnung": "Ordner A4 schmal",
+    "kategorie": "Büromaterial",
+    "einheit": "Stück",
+    "preis_cent": 379,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-06-06T19:23:00Z"
+  },
+  {
+    "artikel_nr": "ART-0014",
+    "bezeichnung": "Klarsichthüllen A4 (100 Stück)",
+    "kategorie": "Büromaterial",
+    "einheit": "Stück",
+    "preis_cent": 699,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-11-08T23:14:00Z"
+  },
+  {
+    "artikel_nr": "ART-0015",
+    "bezeichnung": "Briefumschläge DIN lang (50 Stück)",
+    "kategorie": "Büromaterial",
+    "einheit": "Stück",
+    "preis_cent": 549,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-05-27T09:41:00Z"
+  },
+  {
+    "artikel_nr": "ART-0016",
+    "bezeichnung": "Kopierpapier A4, 500 Blatt",
+    "kategorie": "Papier",
+    "einheit": "Packung",
+    "preis_cent": 649,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-05-31T20:10:00Z"
+  },
+  {
+    "artikel_nr": "ART-0017",
+    "bezeichnung": "Kopierpapier A3, 500 Blatt",
+    "kategorie": "Papier",
+    "einheit": "Packung",
+    "preis_cent": 1390,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-08-30T21:05:00Z"
+  },
+  {
+    "artikel_nr": "ART-0018",
+    "bezeichnung": "Recyclingpapier A4, 500 Blatt",
+    "kategorie": "Papier",
+    "einheit": "Packung",
+    "preis_cent": 599,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-06-02T21:38:00Z"
+  },
+  {
+    "artikel_nr": "ART-0019",
+    "bezeichnung": "Collegeblock A4 kariert",
+    "kategorie": "Papier",
+    "einheit": "Packung",
+    "preis_cent": 299,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-03-09T19:30:00Z"
+  },
+  {
+    "artikel_nr": "ART-0020",
+    "bezeichnung": "Collegeblock A4 liniert",
+    "kategorie": "Papier",
+    "einheit": "Packung",
+    "preis_cent": 299,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-08-29T21:38:00Z"
+  },
+  {
+    "artikel_nr": "ART-0021",
+    "bezeichnung": "Notizblock A5",
+    "kategorie": "Papier",
+    "einheit": "Packung",
+    "preis_cent": 209,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-12-01T08:00:00Z"
+  },
+  {
+    "artikel_nr": "ART-0022",
+    "bezeichnung": "Flipchart-Block, 20 Blatt",
+    "kategorie": "Papier",
+    "einheit": "Packung",
+    "preis_cent": 1490,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-05-03T03:48:00Z"
+  },
+  {
+    "artikel_nr": "ART-0023",
+    "bezeichnung": "Etiketten A4 (100 Blatt)",
+    "kategorie": "Papier",
+    "einheit": "Packung",
+    "preis_cent": 2290,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-04-28T22:05:00Z"
+  },
+  {
+    "artikel_nr": "ART-0024",
+    "bezeichnung": "Fotopapier A4 (50 Blatt)",
+    "kategorie": "Papier",
+    "einheit": "Packung",
+    "preis_cent": 1590,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-05-10T19:12:00Z"
+  },
+  {
+    "artikel_nr": "ART-0025",
+    "bezeichnung": "Karteikarten A6 (100 Stück)",
+    "kategorie": "Papier",
+    "einheit": "Packung",
+    "preis_cent": 249,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-11-11T19:36:00Z"
+  },
+  {
+    "artikel_nr": "ART-0026",
+    "bezeichnung": "USB-C-Ladegerät 65 W",
+    "kategorie": "IT-Zubehör",
+    "einheit": "Stück",
+    "preis_cent": 3490,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-09-30T19:04:00Z"
+  },
+  {
+    "artikel_nr": "ART-0027",
+    "bezeichnung": "USB-C-Kabel 1 m",
+    "kategorie": "IT-Zubehör",
+    "einheit": "Stück",
+    "preis_cent": 999,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-10-10T02:21:00Z"
+  },
+  {
+    "artikel_nr": "ART-0028",
+    "bezeichnung": "HDMI-Kabel 2 m",
+    "kategorie": "IT-Zubehör",
+    "einheit": "Stück",
+    "preis_cent": 1290,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-07-26T01:27:00Z"
+  },
+  {
+    "artikel_nr": "ART-0029",
+    "bezeichnung": "Maus kabellos",
+    "kategorie": "IT-Zubehör",
+    "einheit": "Stück",
+    "preis_cent": 2490,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-02-25T23:04:00Z"
+  },
+  {
+    "artikel_nr": "ART-0030",
+    "bezeichnung": "Tastatur kabellos",
+    "kategorie": "IT-Zubehör",
+    "einheit": "Stück",
+    "preis_cent": 4490,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-08-15T17:20:00Z"
+  },
+  {
+    "artikel_nr": "ART-0031",
+    "bezeichnung": "Headset USB",
+    "kategorie": "IT-Zubehör",
+    "einheit": "Stück",
+    "preis_cent": 5990,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-09-11T03:29:00Z"
+  },
+  {
+    "artikel_nr": "ART-0032",
+    "bezeichnung": "Webcam Full HD",
+    "kategorie": "IT-Zubehör",
+    "einheit": "Stück",
+    "preis_cent": 6990,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-08-17T22:49:00Z"
+  },
+  {
+    "artikel_nr": "ART-0033",
+    "bezeichnung": "USB-Stick 64 GB",
+    "kategorie": "IT-Zubehör",
+    "einheit": "Stück",
+    "preis_cent": 1190,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-11-20T14:09:00Z"
+  },
+  {
+    "artikel_nr": "ART-0034",
+    "bezeichnung": "SSD extern 1 TB",
+    "kategorie": "IT-Zubehör",
+    "einheit": "Stück",
+    "preis_cent": 8990,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-10-07T23:03:00Z"
+  },
+  {
+    "artikel_nr": "ART-0035",
+    "bezeichnung": "Monitor 27\"",
+    "kategorie": "IT-Zubehör",
+    "einheit": "Stück",
+    "preis_cent": 24900,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-09-24T07:18:00Z"
+  },
+  {
+    "artikel_nr": "ART-0036",
+    "bezeichnung": "Dockingstation USB-C",
+    "kategorie": "IT-Zubehör",
+    "einheit": "Stück",
+    "preis_cent": 14900,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-04-12T20:38:00Z"
+  },
+  {
+    "artikel_nr": "ART-0037",
+    "bezeichnung": "Mauspad",
+    "kategorie": "IT-Zubehör",
+    "einheit": "Stück",
+    "preis_cent": 790,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-02-22T15:40:00Z"
+  },
+  {
+    "artikel_nr": "ART-0038",
+    "bezeichnung": "Laptopständer",
+    "kategorie": "IT-Zubehör",
+    "einheit": "Stück",
+    "preis_cent": 3490,
+    "mwst_satz": 19,
+    "status": "nicht_lieferbar",
+    "geaendert_am": "2025-07-30T04:33:00Z"
+  },
+  {
+    "artikel_nr": "ART-0039",
+    "bezeichnung": "Powerbank 20.000 mAh",
+    "kategorie": "IT-Zubehör",
+    "einheit": "Stück",
+    "preis_cent": 3990,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-01-22T21:29:00Z"
+  },
+  {
+    "artikel_nr": "ART-0040",
+    "bezeichnung": "Netzwerkkabel 5 m",
+    "kategorie": "IT-Zubehör",
+    "einheit": "Stück",
+    "preis_cent": 690,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-10-16T22:01:00Z"
+  },
+  {
+    "artikel_nr": "ART-0041",
+    "bezeichnung": "Toner schwarz",
+    "kategorie": "Druckerzubehör",
+    "einheit": "Stück",
+    "preis_cent": 8990,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-10-28T11:41:00Z"
+  },
+  {
+    "artikel_nr": "ART-0042",
+    "bezeichnung": "Toner cyan",
+    "kategorie": "Druckerzubehör",
+    "einheit": "Stück",
+    "preis_cent": 11490,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-04-04T14:29:00Z"
+  },
+  {
+    "artikel_nr": "ART-0043",
+    "bezeichnung": "Toner magenta",
+    "kategorie": "Druckerzubehör",
+    "einheit": "Stück",
+    "preis_cent": 11490,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-06-01T02:51:00Z"
+  },
+  {
+    "artikel_nr": "ART-0044",
+    "bezeichnung": "Toner gelb",
+    "kategorie": "Druckerzubehör",
+    "einheit": "Stück",
+    "preis_cent": 11490,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-09-29T00:31:00Z"
+  },
+  {
+    "artikel_nr": "ART-0045",
+    "bezeichnung": "Tintenpatrone schwarz",
+    "kategorie": "Druckerzubehör",
+    "einheit": "Stück",
+    "preis_cent": 2490,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-10-14T06:18:00Z"
+  },
+  {
+    "artikel_nr": "ART-0046",
+    "bezeichnung": "Tintenpatrone farbig",
+    "kategorie": "Druckerzubehör",
+    "einheit": "Stück",
+    "preis_cent": 3290,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-09-14T20:31:00Z"
+  },
+  {
+    "artikel_nr": "ART-0047",
+    "bezeichnung": "Trommeleinheit",
+    "kategorie": "Druckerzubehör",
+    "einheit": "Stück",
+    "preis_cent": 15900,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-02-02T23:22:00Z"
+  },
+  {
+    "artikel_nr": "ART-0048",
+    "bezeichnung": "Resttonerbehälter",
+    "kategorie": "Druckerzubehör",
+    "einheit": "Stück",
+    "preis_cent": 2190,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-11-04T06:59:00Z"
+  },
+  {
+    "artikel_nr": "ART-0049",
+    "bezeichnung": "Mineralwasser still, 12 × 0,75 l",
+    "kategorie": "Getränke",
+    "einheit": "Kiste",
+    "preis_cent": 989,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2026-12-01T08:00:00Z"
+  },
+  {
+    "artikel_nr": "ART-0050",
+    "bezeichnung": "Mineralwasser medium, 12 × 0,75 l",
+    "kategorie": "Getränke",
+    "einheit": "Kiste",
+    "preis_cent": 899,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2025-09-08T05:13:00Z"
+  },
+  {
+    "artikel_nr": "ART-0051",
+    "bezeichnung": "Apfelschorle, 12 × 0,5 l",
+    "kategorie": "Getränke",
+    "einheit": "Kiste",
+    "preis_cent": 1190,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2026-06-27T22:36:00Z"
+  },
+  {
+    "artikel_nr": "ART-0052",
+    "bezeichnung": "Orangensaft, 6 × 1 l",
+    "kategorie": "Getränke",
+    "einheit": "Kiste",
+    "preis_cent": 1490,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2026-08-03T19:28:00Z"
+  },
+  {
+    "artikel_nr": "ART-0053",
+    "bezeichnung": "Cola, 12 × 0,5 l",
+    "kategorie": "Getränke",
+    "einheit": "Kiste",
+    "preis_cent": 1690,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2025-10-29T17:23:00Z"
+  },
+  {
+    "artikel_nr": "ART-0054",
+    "bezeichnung": "Eistee Pfirsich, 12 × 0,5 l",
+    "kategorie": "Getränke",
+    "einheit": "Kiste",
+    "preis_cent": 1290,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2025-11-06T18:13:00Z"
+  },
+  {
+    "artikel_nr": "ART-0055",
+    "bezeichnung": "Kaffeebohnen 1 kg",
+    "kategorie": "Getränke",
+    "einheit": "Kiste",
+    "preis_cent": 1990,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2026-05-25T23:37:00Z"
+  },
+  {
+    "artikel_nr": "ART-0056",
+    "bezeichnung": "Espressobohnen 1 kg",
+    "kategorie": "Getränke",
+    "einheit": "Kiste",
+    "preis_cent": 2290,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2026-11-14T04:02:00Z"
+  },
+  {
+    "artikel_nr": "ART-0057",
+    "bezeichnung": "Pfefferminztee (100 Beutel)",
+    "kategorie": "Getränke",
+    "einheit": "Kiste",
+    "preis_cent": 799,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2025-01-17T07:33:00Z"
+  },
+  {
+    "artikel_nr": "ART-0058",
+    "bezeichnung": "Früchtetee (100 Beutel)",
+    "kategorie": "Getränke",
+    "einheit": "Kiste",
+    "preis_cent": 799,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2025-05-18T02:17:00Z"
+  },
+  {
+    "artikel_nr": "ART-0059",
+    "bezeichnung": "Milch 1,5 %, 12 × 1 l",
+    "kategorie": "Getränke",
+    "einheit": "Kiste",
+    "preis_cent": 1390,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2025-03-10T01:57:00Z"
+  },
+  {
+    "artikel_nr": "ART-0060",
+    "bezeichnung": "Haferdrink, 6 × 1 l",
+    "kategorie": "Getränke",
+    "einheit": "Kiste",
+    "preis_cent": 1190,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2025-06-10T08:06:00Z"
+  },
+  {
+    "artikel_nr": "ART-0061",
+    "bezeichnung": "Kekse gemischt 1 kg",
+    "kategorie": "Lebensmittel",
+    "einheit": "Packung",
+    "preis_cent": 999,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2025-05-05T11:26:00Z"
+  },
+  {
+    "artikel_nr": "ART-0062",
+    "bezeichnung": "Müsliriegel (24 Stück)",
+    "kategorie": "Lebensmittel",
+    "einheit": "Packung",
+    "preis_cent": 1290,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2025-10-01T18:32:00Z"
+  },
+  {
+    "artikel_nr": "ART-0063",
+    "bezeichnung": "Nüsse gemischt 1 kg",
+    "kategorie": "Lebensmittel",
+    "einheit": "Packung",
+    "preis_cent": 1690,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2025-02-12T21:05:00Z"
+  },
+  {
+    "artikel_nr": "ART-0064",
+    "bezeichnung": "Obstkorb klein",
+    "kategorie": "Lebensmittel",
+    "einheit": "Packung",
+    "preis_cent": 2490,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2026-09-25T03:33:00Z"
+  },
+  {
+    "artikel_nr": "ART-0065",
+    "bezeichnung": "Obstkorb groß",
+    "kategorie": "Lebensmittel",
+    "einheit": "Packung",
+    "preis_cent": 3990,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2026-04-24T11:35:00Z"
+  },
+  {
+    "artikel_nr": "ART-0066",
+    "bezeichnung": "Zucker 1 kg",
+    "kategorie": "Lebensmittel",
+    "einheit": "Packung",
+    "preis_cent": 149,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2026-08-13T02:09:00Z"
+  },
+  {
+    "artikel_nr": "ART-0067",
+    "bezeichnung": "Zuckersticks (500 Stück)",
+    "kategorie": "Lebensmittel",
+    "einheit": "Packung",
+    "preis_cent": 899,
+    "mwst_satz": 7,
+    "status": "nicht_lieferbar",
+    "geaendert_am": "2025-06-17T15:34:00Z"
+  },
+  {
+    "artikel_nr": "ART-0068",
+    "bezeichnung": "Brezeln (20 Stück)",
+    "kategorie": "Lebensmittel",
+    "einheit": "Packung",
+    "preis_cent": 1590,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2026-07-23T22:06:00Z"
+  },
+  {
+    "artikel_nr": "ART-0069",
+    "bezeichnung": "Belegte Brötchen (10 Stück)",
+    "kategorie": "Lebensmittel",
+    "einheit": "Packung",
+    "preis_cent": 2990,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2025-10-23T03:01:00Z"
+  },
+  {
+    "artikel_nr": "ART-0070",
+    "bezeichnung": "Fruchtgummi 1 kg",
+    "kategorie": "Lebensmittel",
+    "einheit": "Packung",
+    "preis_cent": 989,
+    "mwst_satz": 7,
+    "status": "lieferbar",
+    "geaendert_am": "2026-12-01T08:00:00Z"
+  },
+  {
+    "artikel_nr": "ART-0071",
+    "bezeichnung": "Spülmittel 1 l",
+    "kategorie": "Reinigung",
+    "einheit": "Packung",
+    "preis_cent": 249,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-01-09T16:17:00Z"
+  },
+  {
+    "artikel_nr": "ART-0072",
+    "bezeichnung": "Spülmaschinentabs (100 Stück)",
+    "kategorie": "Reinigung",
+    "einheit": "Packung",
+    "preis_cent": 1490,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-04-25T01:23:00Z"
+  },
+  {
+    "artikel_nr": "ART-0073",
+    "bezeichnung": "Handseife 500 ml",
+    "kategorie": "Reinigung",
+    "einheit": "Packung",
+    "preis_cent": 299,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-03-03T08:12:00Z"
+  },
+  {
+    "artikel_nr": "ART-0074",
+    "bezeichnung": "Papierhandtücher (20 Rollen)",
+    "kategorie": "Reinigung",
+    "einheit": "Packung",
+    "preis_cent": 2490,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-07-05T22:45:00Z"
+  },
+  {
+    "artikel_nr": "ART-0075",
+    "bezeichnung": "Toilettenpapier (32 Rollen)",
+    "kategorie": "Reinigung",
+    "einheit": "Packung",
+    "preis_cent": 1590,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-03-22T09:53:00Z"
+  },
+  {
+    "artikel_nr": "ART-0076",
+    "bezeichnung": "Desinfektionsmittel 1 l",
+    "kategorie": "Reinigung",
+    "einheit": "Packung",
+    "preis_cent": 899,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-03-06T16:27:00Z"
+  },
+  {
+    "artikel_nr": "ART-0077",
+    "bezeichnung": "Müllbeutel 60 l (50 Stück)",
+    "kategorie": "Reinigung",
+    "einheit": "Packung",
+    "preis_cent": 699,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-05-31T16:09:00Z"
+  },
+  {
+    "artikel_nr": "ART-0078",
+    "bezeichnung": "Glasreiniger 1 l",
+    "kategorie": "Reinigung",
+    "einheit": "Packung",
+    "preis_cent": 349,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-01-31T00:35:00Z"
+  },
+  {
+    "artikel_nr": "ART-0079",
+    "bezeichnung": "Mikrofasertücher (10 Stück)",
+    "kategorie": "Reinigung",
+    "einheit": "Packung",
+    "preis_cent": 899,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-12-11T16:55:00Z"
+  },
+  {
+    "artikel_nr": "ART-0080",
+    "bezeichnung": "Allzweckreiniger 1 l",
+    "kategorie": "Reinigung",
+    "einheit": "Packung",
+    "preis_cent": 299,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-09-21T19:23:00Z"
+  },
+  {
+    "artikel_nr": "ART-0081",
+    "bezeichnung": "Sicherheitsschuhe S3",
+    "kategorie": "Arbeitsschutz",
+    "einheit": "Stück",
+    "preis_cent": 8990,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-06-24T11:36:00Z"
+  },
+  {
+    "artikel_nr": "ART-0082",
+    "bezeichnung": "Arbeitshandschuhe (Paar)",
+    "kategorie": "Arbeitsschutz",
+    "einheit": "Stück",
+    "preis_cent": 499,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-05-14T17:13:00Z"
+  },
+  {
+    "artikel_nr": "ART-0083",
+    "bezeichnung": "Schutzbrille",
+    "kategorie": "Arbeitsschutz",
+    "einheit": "Stück",
+    "preis_cent": 899,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-12-02T09:49:00Z"
+  },
+  {
+    "artikel_nr": "ART-0084",
+    "bezeichnung": "Gehörschutz",
+    "kategorie": "Arbeitsschutz",
+    "einheit": "Stück",
+    "preis_cent": 1990,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-11-29T00:50:00Z"
+  },
+  {
+    "artikel_nr": "ART-0085",
+    "bezeichnung": "Warnweste",
+    "kategorie": "Arbeitsschutz",
+    "einheit": "Stück",
+    "preis_cent": 399,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-05-03T04:39:00Z"
+  },
+  {
+    "artikel_nr": "ART-0086",
+    "bezeichnung": "Erste-Hilfe-Kasten DIN 13157",
+    "kategorie": "Arbeitsschutz",
+    "einheit": "Stück",
+    "preis_cent": 3490,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-06-06T07:14:00Z"
+  },
+  {
+    "artikel_nr": "ART-0087",
+    "bezeichnung": "Feuerlöscher 6 kg",
+    "kategorie": "Arbeitsschutz",
+    "einheit": "Stück",
+    "preis_cent": 6990,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-04-29T22:54:00Z"
+  },
+  {
+    "artikel_nr": "ART-0088",
+    "bezeichnung": "Atemschutzmasken FFP2 (20 Stück)",
+    "kategorie": "Arbeitsschutz",
+    "einheit": "Stück",
+    "preis_cent": 1490,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-02-16T09:48:00Z"
+  },
+  {
+    "artikel_nr": "ART-0089",
+    "bezeichnung": "Bürostuhl ergonomisch",
+    "kategorie": "Möbel",
+    "einheit": "Stück",
+    "preis_cent": 34900,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-11-27T20:15:00Z"
+  },
+  {
+    "artikel_nr": "ART-0090",
+    "bezeichnung": "Schreibtisch höhenverstellbar",
+    "kategorie": "Möbel",
+    "einheit": "Stück",
+    "preis_cent": 59900,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-04-05T07:15:00Z"
+  },
+  {
+    "artikel_nr": "ART-0091",
+    "bezeichnung": "Rollcontainer",
+    "kategorie": "Möbel",
+    "einheit": "Stück",
+    "preis_cent": 17900,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-02-04T10:58:00Z"
+  },
+  {
+    "artikel_nr": "ART-0092",
+    "bezeichnung": "Aktenschrank",
+    "kategorie": "Möbel",
+    "einheit": "Stück",
+    "preis_cent": 39900,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-07-30T18:42:00Z"
+  },
+  {
+    "artikel_nr": "ART-0093",
+    "bezeichnung": "Besprechungstisch für 6 Personen",
+    "kategorie": "Möbel",
+    "einheit": "Stück",
+    "preis_cent": 44900,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-09-03T04:11:00Z"
+  },
+  {
+    "artikel_nr": "ART-0094",
+    "bezeichnung": "Stapelstuhl",
+    "kategorie": "Möbel",
+    "einheit": "Stück",
+    "preis_cent": 6990,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-06-29T22:23:00Z"
+  },
+  {
+    "artikel_nr": "ART-0095",
+    "bezeichnung": "Garderobe",
+    "kategorie": "Möbel",
+    "einheit": "Stück",
+    "preis_cent": 12900,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-01-03T09:23:00Z"
+  },
+  {
+    "artikel_nr": "ART-0096",
+    "bezeichnung": "Whiteboard 120 × 90 cm",
+    "kategorie": "Möbel",
+    "einheit": "Stück",
+    "preis_cent": 14900,
+    "mwst_satz": 19,
+    "status": "nicht_lieferbar",
+    "geaendert_am": "2025-10-15T20:20:00Z"
+  },
+  {
+    "artikel_nr": "ART-0097",
+    "bezeichnung": "Pinnwand 120 × 90 cm",
+    "kategorie": "Möbel",
+    "einheit": "Stück",
+    "preis_cent": 9990,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-08-31T07:32:00Z"
+  },
+  {
+    "artikel_nr": "ART-0098",
+    "bezeichnung": "Schreibtischlampe LED",
+    "kategorie": "Möbel",
+    "einheit": "Stück",
+    "preis_cent": 4990,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-01-25T16:09:00Z"
+  },
+  {
+    "artikel_nr": "ART-0099",
+    "bezeichnung": "Kugelschreiber mit Logo (100 Stück)",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 8900,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-05-27T17:49:00Z"
+  },
+  {
+    "artikel_nr": "ART-0100",
+    "bezeichnung": "Baumwolltasche mit Logo",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 390,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-04-09T15:28:00Z"
+  },
+  {
+    "artikel_nr": "ART-0101",
+    "bezeichnung": "Tasse mit Logo",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 690,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-11-18T19:50:00Z"
+  },
+  {
+    "artikel_nr": "ART-0102",
+    "bezeichnung": "Notizbuch mit Logo",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 790,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-12-09T10:07:00Z"
+  },
+  {
+    "artikel_nr": "ART-0103",
+    "bezeichnung": "Trinkflasche mit Logo",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 1290,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-04-18T18:41:00Z"
+  },
+  {
+    "artikel_nr": "ART-0104",
+    "bezeichnung": "Visitenkarten (250 Stück)",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 2739,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-12-01T08:00:00Z"
+  },
+  {
+    "artikel_nr": "ART-0105",
+    "bezeichnung": "Flyer A5 (500 Stück)",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 4990,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-01-14T20:57:00Z"
+  },
+  {
+    "artikel_nr": "ART-0106",
+    "bezeichnung": "Roll-up-Banner",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 8990,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-02-13T05:04:00Z"
+  },
+  {
+    "artikel_nr": "ART-0107",
+    "bezeichnung": "Aufkleber (100 Stück)",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 2990,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-11-09T16:00:00Z"
+  },
+  {
+    "artikel_nr": "ART-0108",
+    "bezeichnung": "Lanyard mit Logo",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 190,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-10-09T10:20:00Z"
+  },
+  {
+    "artikel_nr": "ART-0109",
+    "bezeichnung": "USB-Stick mit Logo",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 690,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-01-22T11:22:00Z"
+  },
+  {
+    "artikel_nr": "ART-0110",
+    "bezeichnung": "Regenschirm mit Logo",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 1490,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-04-15T04:14:00Z"
+  },
+  {
+    "artikel_nr": "ART-0111",
+    "bezeichnung": "Kapuzenpullover mit Logo",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 3490,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-06-05T09:38:00Z"
+  },
+  {
+    "artikel_nr": "ART-0112",
+    "bezeichnung": "T-Shirt mit Logo",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 990,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-01-22T13:18:00Z"
+  },
+  {
+    "artikel_nr": "ART-0113",
+    "bezeichnung": "Mütze mit Logo",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 1190,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-10-18T09:07:00Z"
+  },
+  {
+    "artikel_nr": "ART-0114",
+    "bezeichnung": "Schlüsselanhänger mit Logo",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 290,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-11-26T23:50:00Z"
+  },
+  {
+    "artikel_nr": "ART-0115",
+    "bezeichnung": "Wandkalender 2027",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 1490,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-05-24T09:39:00Z"
+  },
+  {
+    "artikel_nr": "ART-0116",
+    "bezeichnung": "Mousepad mit Logo",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 590,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-09-26T16:50:00Z"
+  },
+  {
+    "artikel_nr": "ART-0117",
+    "bezeichnung": "Turnbeutel mit Logo",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 490,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-11-03T12:23:00Z"
+  },
+  {
+    "artikel_nr": "ART-0118",
+    "bezeichnung": "Powerbank mit Logo",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 1990,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2026-10-07T19:24:00Z"
+  },
+  {
+    "artikel_nr": "ART-0119",
+    "bezeichnung": "Thermobecher mit Logo",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 1490,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-04-22T07:06:00Z"
+  },
+  {
+    "artikel_nr": "ART-0120",
+    "bezeichnung": "Zollstock mit Logo",
+    "kategorie": "Werbemittel",
+    "einheit": "Stück",
+    "preis_cent": 390,
+    "mwst_satz": 19,
+    "status": "lieferbar",
+    "geaendert_am": "2025-10-03T07:25:00Z"
+  }
+]

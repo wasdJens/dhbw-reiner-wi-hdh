@@ -2,9 +2,9 @@
 titel: Beer App – Anforderungen
 typ: referenz
 tags: [web-programmierung, beer-app, anforderungen, user-story, backlog]
-version: 0.5.4
+version: 0.7.0
 status: review
-stand: 2026-10-25
+stand: 2026-11-15
 ---
 
 # Beer App – Anforderungen
@@ -20,7 +20,7 @@ Die App ist ein verteiltes System aus drei Teilen:
 | Teil | Aufgabe | Wer baut |
 |---|---|---|
 | Server mit API | Speichert die Daten, prüft die Regeln, liefert JSON | du, in dieser Vorlesung |
-| Webseite | Zeigt die Daten im Browser | später, als Client der API |
+| Webseite | Zeigt die Daten im Browser | Jens, gezeigt in Einheit 18 |
 | Mobile App | Zeigt die Daten auf dem Smartphone | später, als Client der API |
 
 Die Vorlesung baut den Server. Er heißt **Beer API**.
@@ -37,7 +37,7 @@ Bis zur Anmeldung (Story 13) gibt es keine Rollen: Jede Anfrage darf alles.
 
 ## 3. Datenmodell
 
-Die Beer API kennt sechs Ressourcen. Die Spalte „Ab Story“ nennt die Story, mit der eine Ressource oder ein Feld dazukommt. Alle `id` sind ganze Zahlen, die der Server vergibt.
+Die Beer API kennt sieben Ressourcen. Die Spalte „Ab Story“ nennt die Story, mit der eine Ressource oder ein Feld dazukommt. Alle `id` sind ganze Zahlen, die der Server vergibt.
 
 ### Beer
 
@@ -72,6 +72,16 @@ Die Brauereien entstehen im Live-Coding der Vorlesung: Jede Einheit zeigt ihr Ko
 | `score` | Ganzzahl | ja | Sterne von 1 bis 5 | 10 |
 | `comment` | String | nein | Freitext | 10 |
 | `createdAt` | String | ja | Zeitpunkt als ISO 8601, vom Server gesetzt | 10 |
+
+### Stock
+
+Den Lagerbestand führt die Brauerei in ihrem ERP. Die Beer API speichert ihn nicht, sie liest ihn bei jeder Anfrage dort. Die Artikelnummer eines Biers im ERP kennt nur der Server; sie erscheint in keiner Antwort.
+
+| Feld | Typ | Pflicht | Bedeutung | Ab Story |
+|---|---|---|---|---|
+| `beerId` | Ganzzahl | ja | `id` des Biers; steht im Pfad | 17 |
+| `bottles` | Ganzzahl | ja | vorrätige Flaschen in allen Lagerorten der Brauerei | 17 |
+| `asOf` | String | ja | Tag der letzten Inventur im ERP als ISO 8601, etwa `2026-11-15` | 17 |
 
 ### User, Role und UserRole
 
@@ -134,7 +144,7 @@ Eine Regel gilt ab ihrer Story für alle folgenden Stories.
 
 ## 5. Product Backlog
 
-Das Backlog enthält eine User Story je Einheit, von Story 5 (erstes NestJS-Projekt) bis Story 16 (HTML-Seiten). Die Nummer der Story ist die Nummer der Einheit im Roten Faden der Vorlesung.
+Das Backlog enthält eine User Story je Einheit, von Story 5 (erstes NestJS-Projekt) bis Story 16 (HTML-Seiten), dazu Story 17 (Lagerbestand aus dem ERP) und Story 18 (Webseite). Die Nummer der Story ist die Nummer der Einheit im Roten Faden der Vorlesung.
 
 Eine User Story beschreibt eine Anforderung aus Sicht eines Stakeholders: **Als** Rolle **möchte ich** Funktion, **damit** Nutzen. Die Akzeptanzkriterien legen fest, wann die Story erfüllt ist. Jedes Kriterium beschreibt ein beobachtbares Verhalten, meist Statuscode und Antwort einer Anfrage. Bis Story 10 prüft die Postman-Collection der Einheit die Kriterien zur Selbstkontrolle. Ab Story 11 schreibst du die Tests selbst; die Collection der Einheit dient dann zum Vergleich. Kriterien mit „Zusatz“ gehören zur Zusatzaufgabe der Einheit.
 
@@ -278,6 +288,37 @@ Diese Kriterien prüfst du im Browser, nicht mit Postman.
 - `GET /beers` mit `Accept: application/json` antwortet weiterhin mit JSON.
 - `GET /beers/1` mit `Accept: text/html` zeigt das Nattheimer Spezial mit allen Bewertungen.
 - `GET /beers/42` mit `Accept: text/html` antwortet mit `404`.
+
+### Story 17 – Lagerbestand aus dem ERP
+
+> **Als** Gast **möchte ich** auf der Detailseite eines Biers sehen, wie viele Flaschen vorrätig sind, **damit** ich weiß, ob ich es bei der Brauerei bekomme. Den Bestand pflegt die Brauerei in ihrem ERP; die Beer API liest ihn dort.
+
+- `GET /beers/1/stock` antwortet `200` mit `{ "beerId": 1, "bottles": 240, "asOf": "2026-11-15" }`, ohne Anmeldung.
+- Die Antwort ist an Version 1 und Version 2 des ERP Feld für Feld gleich. Clients der Beer API merken den Wechsel des ERP nicht.
+- Ein Bier ohne Artikelnummer liefert `404` mit „Beer 5 has no article number“, ein unbekanntes Bier `404` „Beer 42 not found“. Beides kommt im Fehlerformat der Beer API.
+- Läuft das ERP nicht oder antwortet es nicht innerhalb von 2 Sekunden, kommt `503` „Stock service unavailable“. `GET /beers` und `GET /beers/1` laufen weiter.
+- Eine Antwort des ERP, die nicht zum erwarteten Schema passt, ergibt `502` „Invalid response from stock service“.
+- An Version 1 des ERP schreibt die Beer API bei jedem Aufruf eine Warnung ins Terminal, weil das ERP den Header `Deprecation` sendet. An Version 2 fehlt die Warnung.
+- Felder und Fehlertexte des ERP erscheinen nie in einer Antwort der Beer API.
+
+Die Story zeigt Jens in Einheit 17; die Einheit hat keine Aufgaben. Das ERP und die Beer API am Stand der Einheit liegen in deinen Unterlagen.
+
+### Story 18 – Die Beer App im Browser
+
+> **Als** Gast **möchte ich** die Beer App im Browser nutzen, Biere finden, mich registrieren und bewerten, **damit** ich kein Werkzeug wie Postman brauche. **Als** Admin pflege ich Biere und Brauereien auf derselben Webseite.
+
+- `/beers` zeigt nach `npm run db:reset` die vier Biere der Beispieldaten mit Name, Stil als Anzeigename („Weizen“), Alkoholgehalt („5,4 %“) und „noch keine Bewertung“.
+- Stil-Filter und Sortierung (Name, Alkohol, Durchschnitt) laufen über die Query-Parameter von `GET /beers`.
+- Registrierung mit dem Namen `gast` zeigt „Der Name ist vergeben.“ (`409`); mit einem neuen Namen ist man danach angemeldet, der Header zeigt den Namen.
+- Anmeldung mit falschem Passwort zeigt „Name oder Passwort ist falsch.“ und bleibt auf der Seite (`401`).
+- Angemeldet zeigt die Detailseite eines Biers ein Formular „Bewerten“; nach dem Absenden zeigt sie den neuen Durchschnitt und die Bewertung mit Datum, ohne Neuladen. Eine zweite Bewertung ersetzt die erste (R4), die eigene Bewertung ist markiert.
+- Als `admin`: Brauerei und Bier anlegen, ändern, löschen. Eine Brauerei mit Bieren löschen zeigt „Die Brauerei hat noch Biere.“ (`409`). Ungültige Eingaben (etwa `abv` 25, R1) zeigen „Bitte prüfe deine Eingaben.“ (`400`).
+- Als `gast` sind die Admin-Aktionen ausgeblendet; `/admin/…` direkt aufgerufen führt auf `/beers`.
+- Das Token geht nur an die Beer API. Nach Neuladen bleibt man angemeldet; „Abmelden“ löscht das Token.
+- Components kennen nur das Client-Modell; die Typen der Server-DTOs entstehen aus `/api-json`.
+- Angemeldet zeigt `/my-ratings` die eigenen Bewertungen mit Biername, Sternen, Kommentar und Datum.
+
+Diese Kriterien prüfst du im Browser, nicht mit Postman. Die Webseite `beer-web` zeigt Jens in Einheit 18; die Aufgaben dazu sind optional.
 
 ## Änderungen
 

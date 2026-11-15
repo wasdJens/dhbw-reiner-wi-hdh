@@ -65,7 +65,8 @@ export class BeersController {
     const beer = await this.beersService.findOne(id);
     const ratings = await this.beersService.findRatings(id);
     res.format({
-      json: () => res.json(beer),
+      // parse entfernt articleNumber: JSON bleibt wie BeerDto
+      json: () => res.json(BeerSchema.parse(beer)),
       html: () => res.render('beer', { beer, ratings }),
     });
   }

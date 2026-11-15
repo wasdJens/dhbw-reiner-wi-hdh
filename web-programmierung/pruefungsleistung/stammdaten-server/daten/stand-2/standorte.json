@@ -1,0 +1,56 @@
+[
+  {
+    "standort_nr": "STO-01",
+    "name": "Zentrale Heidenheim",
+    "strasse": "Hafenstraße 12",
+    "plz": "89518",
+    "ort": "Heidenheim an der Brenz",
+    "land": "DE",
+    "geaendert_am": "2025-07-06T20:05:00Z"
+  },
+  {
+    "standort_nr": "STO-02",
+    "name": "Niederlassung Ulm",
+    "strasse": "Am Wasserturm 4",
+    "plz": "89073",
+    "ort": "Ulm",
+    "land": "DE",
+    "geaendert_am": "2026-07-03T19:13:00Z"
+  },
+  {
+    "standort_nr": "STO-03",
+    "name": "Niederlassung Stuttgart",
+    "strasse": "Leuchtturmweg 27",
+    "plz": "70173",
+    "ort": "Stuttgart",
+    "land": "DE",
+    "geaendert_am": "2025-03-01T10:19:00Z"
+  },
+  {
+    "standort_nr": "STO-04",
+    "name": "Niederlassung Aalen",
+    "strasse": "Muschelgasse 8",
+    "plz": "73430",
+    "ort": "Aalen",
+    "land": "DE",
+    "geaendert_am": "2025-04-27T02:02:00Z"
+  },
+  {
+    "standort_nr": "STO-05",
+    "name": "Lager Giengen",
+    "strasse": "Industriestraße 51",
+    "plz": "89537",
+    "ort": "Giengen an der Brenz",
+    "land": "DE",
+    "geaendert_am": "2025-07-20T21:32:00Z"
+  },
+  {
+    "standort_nr": "STO-06",
+    "name": "Schulungszentrum Augsburg",
+    "strasse": "Korallenplatz 3",
+    "plz": "86150",
+    "ort": "Augsburg",
+    "land": "DE",
+    "geaendert_am": "2025-05-03T09:50:00Z"
+  }
+]

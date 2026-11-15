@@ -1,0 +1,61 @@
+{
+  "info": {
+    "name": "Brauerei-ERP",
+    "description": "Beispielanfragen an das Brauerei-ERP. Trage in der Variable erpApiKey deinen API-Key ein; alle Anfragen senden ihn im Header X-API-Key. Alle Endpunkte beschreibt die Dokumentation unter {{erpUrl}}/api.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      { "key": "key", "value": "X-API-Key", "type": "string" },
+      { "key": "value", "value": "{{erpApiKey}}", "type": "string" },
+      { "key": "in", "value": "header", "type": "string" }
+    ]
+  },
+  "item": [
+    {
+      "name": "Bestand eines Artikels (v2, BR-1001)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{erpUrl}}/v2/artikel/BR-1001/bestand",
+          "host": ["{{erpUrl}}"],
+          "path": ["v2", "artikel", "BR-1001", "bestand"]
+        },
+        "description": "Liefert den Bestand des Artikels BR-1001 je Lagerort und den Zeitpunkt der letzten Inventur."
+      }
+    },
+    {
+      "name": "Brauereien, Seite 1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{erpUrl}}/v2/brauereien?seite=1",
+          "host": ["{{erpUrl}}"],
+          "path": ["v2", "brauereien"],
+          "query": [{ "key": "seite", "value": "1" }]
+        },
+        "description": "Liefert die erste Seite der Brauereien mit höchstens drei Einträgen und der Zahl aller Seiten."
+      }
+    },
+    {
+      "name": "Eine Brauerei (BRA-01)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{erpUrl}}/v2/brauereien/BRA-01",
+          "host": ["{{erpUrl}}"],
+          "path": ["v2", "brauereien", "BRA-01"]
+        },
+        "description": "Liefert die Stammdaten der Brauerei BRA-01."
+      }
+    }
+  ],
+  "variable": [
+    { "key": "erpUrl", "value": "http://localhost:3100" },
+    { "key": "erpApiKey", "value": "erp-demo-key" }
+  ]
+}

@@ -1,4 +1,5 @@
 import { NestFactory } from '@nestjs/core';
+import { ConfigService } from '@nestjs/config';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'node:path';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
@@ -7,6 +8,10 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  // CORS: Der Browser gibt Antworten nur an diese Origin weiter (Webseite beer-web)
+  app.enableCors({
+    origin: app.get(ConfigService).getOrThrow<string>('CORS_ORIGIN'),
+  });
   // Dateien aus public/: /dashboard liefert public/dashboard.html
   app.useStaticAssets(join(__dirname, '..', 'public'), {
     extensions: ['html'],

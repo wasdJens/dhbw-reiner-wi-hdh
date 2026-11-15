@@ -37,4 +37,10 @@ export class Beer {
   // Ohne Beschreibung steht in der Spalte null
   @Column({ type: 'varchar', nullable: true })
   description: string | null;
+
+  // Artikelnummer im Brauerei-ERP (Einheit 17); nicht in BeerDto.
+  // insert: false: Neue Biere haben keine, in der Spalte steht null. So läuft
+  // auch SeedBeers, das vor der Migration AddArticleNumberToBeers einfügt
+  @Column({ type: 'varchar', nullable: true, insert: false })
+  articleNumber: string | null;
 }

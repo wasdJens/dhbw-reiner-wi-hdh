@@ -1,0 +1,395 @@
+[
+  {
+    "raum_nr": "RAU-001",
+    "bezeichnung": "Besprechungsraum Nordsee",
+    "art": "besprechung",
+    "standort_nr": "STO-01",
+    "etage": 0,
+    "plaetze": 10,
+    "ausstattung": [
+      "Bildschirm",
+      "Videokonferenz",
+      "Whiteboard"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2025-01-07T00:13:00Z"
+  },
+  {
+    "raum_nr": "RAU-002",
+    "bezeichnung": "Besprechungsraum Ostsee",
+    "art": "besprechung",
+    "standort_nr": "STO-01",
+    "etage": 0,
+    "plaetze": 12,
+    "ausstattung": [
+      "Videokonferenz"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2026-03-16T13:48:00Z"
+  },
+  {
+    "raum_nr": "RAU-003",
+    "bezeichnung": "Besprechungsraum Atlantik",
+    "art": "besprechung",
+    "standort_nr": "STO-01",
+    "etage": 1,
+    "plaetze": 12,
+    "ausstattung": [
+      "Bildschirm",
+      "Videokonferenz",
+      "Whiteboard"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2026-06-24T23:20:00Z"
+  },
+  {
+    "raum_nr": "RAU-004",
+    "bezeichnung": "Besprechungsraum Pazifik",
+    "art": "besprechung",
+    "standort_nr": "STO-01",
+    "etage": 2,
+    "plaetze": 8,
+    "ausstattung": [
+      "Videokonferenz"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2026-09-03T05:11:00Z"
+  },
+  {
+    "raum_nr": "RAU-005",
+    "bezeichnung": "Schulungsraum Bodensee",
+    "art": "schulung",
+    "standort_nr": "STO-01",
+    "etage": 2,
+    "plaetze": 23,
+    "ausstattung": [
+      "Beamer",
+      "Flipchart",
+      "Lautsprecher"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2026-08-27T17:43:00Z"
+  },
+  {
+    "raum_nr": "RAU-006",
+    "bezeichnung": "Schulungsraum Mittelmeer",
+    "art": "schulung",
+    "standort_nr": "STO-01",
+    "etage": 2,
+    "plaetze": 13,
+    "ausstattung": [
+      "Beamer",
+      "Flipchart"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2025-06-16T06:42:00Z"
+  },
+  {
+    "raum_nr": "RAU-007",
+    "bezeichnung": "Besprechungsraum Karibik",
+    "art": "besprechung",
+    "standort_nr": "STO-01",
+    "etage": 1,
+    "plaetze": 10,
+    "ausstattung": [],
+    "status": "gesperrt",
+    "geaendert_am": "2026-07-19T03:47:00Z"
+  },
+  {
+    "raum_nr": "RAU-008",
+    "bezeichnung": "Lagerfläche Ägäis",
+    "art": "lager",
+    "standort_nr": "STO-01",
+    "etage": 0,
+    "plaetze": 0,
+    "ausstattung": [
+      "Regale",
+      "Rolltor"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2025-11-08T09:53:00Z"
+  },
+  {
+    "raum_nr": "RAU-009",
+    "bezeichnung": "Besprechungsraum Nordsee",
+    "art": "besprechung",
+    "standort_nr": "STO-02",
+    "etage": 1,
+    "plaetze": 10,
+    "ausstattung": [
+      "Bildschirm",
+      "Videokonferenz"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2025-02-14T02:31:00Z"
+  },
+  {
+    "raum_nr": "RAU-010",
+    "bezeichnung": "Besprechungsraum Ostsee",
+    "art": "besprechung",
+    "standort_nr": "STO-02",
+    "etage": 0,
+    "plaetze": 4,
+    "ausstattung": [
+      "Bildschirm",
+      "Videokonferenz",
+      "Whiteboard"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2026-04-17T01:05:00Z"
+  },
+  {
+    "raum_nr": "RAU-011",
+    "bezeichnung": "Schulungsraum Atlantik",
+    "art": "schulung",
+    "standort_nr": "STO-02",
+    "etage": 0,
+    "plaetze": 14,
+    "ausstattung": [
+      "Beamer",
+      "Lautsprecher"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2025-04-01T02:09:00Z"
+  },
+  {
+    "raum_nr": "RAU-012",
+    "bezeichnung": "Besprechungsraum Pazifik",
+    "art": "besprechung",
+    "standort_nr": "STO-02",
+    "etage": 1,
+    "plaetze": 4,
+    "ausstattung": [
+      "Bildschirm",
+      "Videokonferenz",
+      "Whiteboard"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2025-12-03T07:14:00Z"
+  },
+  {
+    "raum_nr": "RAU-014",
+    "bezeichnung": "Besprechungsraum Nordsee",
+    "art": "besprechung",
+    "standort_nr": "STO-03",
+    "etage": 2,
+    "plaetze": 11,
+    "ausstattung": [
+      "Bildschirm",
+      "Videokonferenz",
+      "Whiteboard"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2025-09-04T18:13:00Z"
+  },
+  {
+    "raum_nr": "RAU-015",
+    "bezeichnung": "Besprechungsraum Ostsee",
+    "art": "besprechung",
+    "standort_nr": "STO-03",
+    "etage": 2,
+    "plaetze": 9,
+    "ausstattung": [
+      "Bildschirm",
+      "Videokonferenz",
+      "Whiteboard"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2026-06-13T09:50:00Z"
+  },
+  {
+    "raum_nr": "RAU-016",
+    "bezeichnung": "Besprechungsraum Atlantik",
+    "art": "besprechung",
+    "standort_nr": "STO-03",
+    "etage": 2,
+    "plaetze": 8,
+    "ausstattung": [
+      "Videokonferenz"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2025-03-12T16:36:00Z"
+  },
+  {
+    "raum_nr": "RAU-017",
+    "bezeichnung": "Schulungsraum Pazifik",
+    "art": "schulung",
+    "standort_nr": "STO-03",
+    "etage": 1,
+    "plaetze": 18,
+    "ausstattung": [
+      "Beamer",
+      "Lautsprecher"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2026-06-26T10:44:00Z"
+  },
+  {
+    "raum_nr": "RAU-018",
+    "bezeichnung": "Besprechungsraum Bodensee",
+    "art": "besprechung",
+    "standort_nr": "STO-03",
+    "etage": 3,
+    "plaetze": 12,
+    "ausstattung": [
+      "Bildschirm",
+      "Videokonferenz",
+      "Whiteboard"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2025-08-24T16:55:00Z"
+  },
+  {
+    "raum_nr": "RAU-019",
+    "bezeichnung": "Besprechungsraum Nordsee",
+    "art": "besprechung",
+    "standort_nr": "STO-04",
+    "etage": 3,
+    "plaetze": 7,
+    "ausstattung": [
+      "Videokonferenz",
+      "Whiteboard"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2025-12-24T03:37:00Z"
+  },
+  {
+    "raum_nr": "RAU-020",
+    "bezeichnung": "Besprechungsraum Ostsee",
+    "art": "besprechung",
+    "standort_nr": "STO-04",
+    "etage": 2,
+    "plaetze": 5,
+    "ausstattung": [
+      "Bildschirm",
+      "Videokonferenz",
+      "Whiteboard"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2025-10-17T11:12:00Z"
+  },
+  {
+    "raum_nr": "RAU-021",
+    "bezeichnung": "Werkstatt Atlantik",
+    "art": "werkstatt",
+    "standort_nr": "STO-04",
+    "etage": 0,
+    "plaetze": 3,
+    "ausstattung": [
+      "Werkbank",
+      "Starkstrom"
+    ],
+    "status": "gesperrt",
+    "geaendert_am": "2026-01-04T18:40:00Z"
+  },
+  {
+    "raum_nr": "RAU-022",
+    "bezeichnung": "Lagerfläche Nordsee",
+    "art": "lager",
+    "standort_nr": "STO-05",
+    "etage": 0,
+    "plaetze": 0,
+    "ausstattung": [],
+    "status": "verfuegbar",
+    "geaendert_am": "2025-04-25T06:17:00Z"
+  },
+  {
+    "raum_nr": "RAU-023",
+    "bezeichnung": "Lagerfläche Ostsee",
+    "art": "lager",
+    "standort_nr": "STO-05",
+    "etage": 0,
+    "plaetze": 0,
+    "ausstattung": [
+      "Rolltor"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2025-12-07T14:08:00Z"
+  },
+  {
+    "raum_nr": "RAU-024",
+    "bezeichnung": "Werkstatt Atlantik",
+    "art": "werkstatt",
+    "standort_nr": "STO-05",
+    "etage": 0,
+    "plaetze": 4,
+    "ausstattung": [
+      "Werkbank",
+      "Druckluft",
+      "Starkstrom"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2025-10-20T16:52:00Z"
+  },
+  {
+    "raum_nr": "RAU-025",
+    "bezeichnung": "Schulungsraum Nordsee",
+    "art": "schulung",
+    "standort_nr": "STO-06",
+    "etage": 1,
+    "plaetze": 29,
+    "ausstattung": [
+      "Flipchart",
+      "Lautsprecher"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2026-02-04T17:59:00Z"
+  },
+  {
+    "raum_nr": "RAU-026",
+    "bezeichnung": "Schulungsraum Ostsee",
+    "art": "schulung",
+    "standort_nr": "STO-06",
+    "etage": 3,
+    "plaetze": 25,
+    "ausstattung": [
+      "Beamer",
+      "Whiteboard"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2025-02-16T02:13:00Z"
+  },
+  {
+    "raum_nr": "RAU-028",
+    "bezeichnung": "Schulungsraum Pazifik",
+    "art": "schulung",
+    "standort_nr": "STO-06",
+    "etage": 0,
+    "plaetze": 20,
+    "ausstattung": [
+      "Beamer",
+      "Whiteboard",
+      "Flipchart"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2026-05-17T01:02:00Z"
+  },
+  {
+    "raum_nr": "RAU-029",
+    "bezeichnung": "Besprechungsraum Bodensee",
+    "art": "besprechung",
+    "standort_nr": "STO-06",
+    "etage": 2,
+    "plaetze": 9,
+    "ausstattung": [
+      "Bildschirm",
+      "Videokonferenz"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2026-11-14T01:32:00Z"
+  },
+  {
+    "raum_nr": "RAU-030",
+    "bezeichnung": "Besprechungsraum Mittelmeer",
+    "art": "besprechung",
+    "standort_nr": "STO-06",
+    "etage": 3,
+    "plaetze": 7,
+    "ausstattung": [
+      "Bildschirm",
+      "Videokonferenz"
+    ],
+    "status": "verfuegbar",
+    "geaendert_am": "2025-08-01T11:11:00Z"
+  }
+]

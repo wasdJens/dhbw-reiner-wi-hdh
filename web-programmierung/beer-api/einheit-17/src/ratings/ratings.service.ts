@@ -1,9 +1,15 @@
-import { Inject, Injectable, forwardRef } from '@nestjs/common';
+import {
+  Inject,
+  Injectable,
+  NotFoundException,
+  forwardRef,
+} from '@nestjs/common';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Beer } from '../beers/beer.entity';
 import { CreateRatingDto } from './dto/create-rating.dto';
+import { MyRatingDto } from './dto/my-rating.dto';
 import { Rating } from './rating.entity';
 import { RatingsGateway } from './ratings.gateway';
 
@@ -34,6 +40,34 @@ export class RatingsService {
 
   findByBeer(beerId: number): Promise<Rating[]> {
     return this.ratingsRepository.findBy({ beerId });
+  }
+
+  // Bewertungen eines Users mit dem Namen des Biers, neueste zuerst
+  async findByUser(userId: number): Promise<MyRatingDto[]> {
+    const ratings = await this.ratingsRepository.find({
+      where: { userId },
+      relations: { beer: true },
+      order: { createdAt: 'DESC', id: 'DESC' },
+    });
+    return ratings.map((rating) => ({
+      beerId: rating.beerId,
+      beerName: rating.beer.name,
+      score: rating.score,
+      comment: rating.comment,
+      createdAt: rating.createdAt,
+    }));
+  }
+
+  // Ein User löscht seine Bewertung eines Biers; die anderer bleiben
+  // Normal: User 2 hat Bier 1 bewertet → gelöscht, 204
+  // Fehler: keine Bewertung von User 2 für Bier 1, auch Bier 42 → 404
+  async removeOwn(beerId: number, userId: number): Promise<void> {
+    const result = await this.ratingsRepository.delete({ beerId, userId });
+    if (result.affected === 0) {
+      throw new NotFoundException(`Rating for beer ${beerId} not found`);
+    }
+    // Story 15: Das Ranking ändert sich auch beim Löschen
+    this.ratingsGateway.server.emit('ranking', await this.ranking());
   }
 
   // R3: score ist eine ganze Zahl von 1 bis 5 (Schema, CreateRatingDto)

@@ -12,5 +12,7 @@ import { BreweryBeersController } from './brewery-beers.controller';
   imports: [TypeOrmModule.forFeature([Beer]), BreweriesModule, RatingsModule],
   controllers: [BeersController, BreweryBeersController],
   providers: [BeersService],
+  // StockModule liest Biere mit ihrer Artikelnummer
+  exports: [BeersService],
 })
 export class BeersModule {}

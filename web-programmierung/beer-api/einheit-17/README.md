@@ -12,7 +12,7 @@ Technik: [NestJS](https://docs.nestjs.com) 11, TypeScript, [Zod](https://zod.dev
 
 Im Ordner des Projekts:
 
-1. Kopiere `.env.example` nach `.env` und ersetze den Wert von `JWT_SECRET` durch eine lange, zufällige Zeichenkette. `.env` steht nicht im Repository.
+1. Kopiere `.env.example` nach `.env` und ersetze den Wert von `JWT_SECRET` durch eine lange, zufällige Zeichenkette. `CORS_ORIGIN` ist die Adresse der Webseite beer-web (`http://localhost:4200`), `ERP_URL` und `ERP_API_KEY` sind Adresse und API-Key des Brauerei-ERP für `GET /beers/:id/stock`; ohne diese Werte startet der Server nicht. `.env` steht nicht im Repository.
 2. Führe die Befehle aus:
 
 ```bash

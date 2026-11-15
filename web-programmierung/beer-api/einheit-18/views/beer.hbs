@@ -1,0 +1,15 @@
+<h1>{{beer.name}}</h1>
+<p>Stil {{beer.style}}, {{beer.abv}} % vol</p>
+<p>
+  Durchschnitt:
+  {{#if beer.averageRating}}{{beer.averageRating}}{{else}}–{{/if}}
+</p>
+<h2>Bewertungen</h2>
+<table>
+  <tr><th>Punkte</th><th>Kommentar</th><th>Datum</th></tr>
+  {{#each ratings}}
+    <tr><td>{{score}}</td><td>{{comment}}</td><td>{{createdAt}}</td></tr>
+  {{else}}
+    <tr><td colspan="3">Noch keine Bewertung</td></tr>
+  {{/each}}
+</table>
